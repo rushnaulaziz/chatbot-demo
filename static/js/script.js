@@ -24,7 +24,7 @@ $("#user-input-form").on("submit", function(e) {
     document.getElementById("chat_content").innerHTML += `<div class="chat-message-group">
     <div class="chat-thumb">
       <figure class="image is-32x32">
-        <img src="user-512.webp">
+        <img src="static/images/user-512.webp">
       </figure>
     </div>
     <div class="chat-messages">

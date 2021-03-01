@@ -1,10 +1,20 @@
-from flask import Flask,jsonify, request
+from flask import Flask, session, jsonify, request, render_template, redirect, url_for
 from flask_cors import CORS
 
 from ChatBot import *
 
 app = Flask(__name__)
 CORS(app)
+
+# Setting the secret key to some random bytes
+app.secret_key = "any random string"
+# command for generating random secrete key : python -c 'import os; print(os.urandom(16))'
+# session['username'] can be set using with username entered while logging in 
+# session.pop('username', None) can remove the username from the session if it's there
+
+@app.route('/')
+def index():
+    return render_template("index.html")
 
 @app.route('/message' , methods=['POST'])
 def message():
@@ -20,17 +30,12 @@ def message():
             if(greeting(user_response)!=None):
                 bot_response  = "Bot: "+ greeting(user_response)
             else:
-                print("Bot: ",end="")
+                # print("Bot: ",end="")
                 bot_response  = "Bot: "+ response(user_response)
                 sent_tokens.remove(user_response)
     else:
-        flag=False
-        bot_response  = "Bot: "+ "Bot: Bye! Leaving for now, take care.."
-        
+        bot_response  = "I"
+    return jsonify({'response' : bot_response}),200
 
-    return jsonify({'response':bot_response}),200
-
-
-
-
-app.run(port=3000)
+if __name__ == "__main__":
+    app.run(port=3000, debug = True)
