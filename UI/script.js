@@ -7,6 +7,7 @@ $("#user-input-form").on("submit", function(e) {
   e.preventDefault()
   console.log(e)
   chatinput =  document.getElementById("chatinput").value;
+  document.getElementById("chatinput").value = ""
   document.getElementById("chat_content").innerHTML += 
         `<div class="chat-message-group writer-user">
             <div class="chat-messages">
