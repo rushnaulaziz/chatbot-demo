@@ -1,8 +1,6 @@
 from flask import Flask, session, jsonify, request, render_template, redirect, url_for
 from flask_cors import CORS
-
-from ChatBot import *
-
+from chatbotkeras import *
 app = Flask(__name__)
 CORS(app)
 
@@ -19,23 +17,10 @@ def index():
 @app.route('/message' , methods=['POST'])
 def message():
     user_response = request.form['user_response']
-    print(user_response)
     # Converting the entire text into lowercase, so that the algorithm does not treat the same words in different cases as different
     user_response = user_response.lower()
-    print(user_response)
-    if(user_response!='bye'):
-        if(user_response=='thanks' or user_response=='thank you' ):
-            #flag=False
-            bot_response = " You are welcome.."
-        else:
-            if(greeting(user_response)!=None):
-                bot_response  = greeting(user_response)
-            else:
-                # print("Bot: ", end="")
-                bot_response  = response(user_response)
-                sent_tokens.remove(user_response)
-    else:
-        bot_response  = "kindly reply back with yes or no, are you satisfied with my services?"
+    
+    bot_response  = chatbot_response(user_response)
         # , 200 , {'ContentType':'application/json'} 
 
     return jsonify({'response' : bot_response})

@@ -31,3 +31,15 @@ Chatbots require a large amount of conversational data to train. Chatbots have d
 As it happens usually with technology-led changes in existing services, some consumers, more often than not from the old generation, are uncomfortable with chatbots due to their limited understanding, making it obvious that their requests are being dealt with by machines.
 
 Chatbots and jobs Chatbots are increasingly present in businesses and often are used to automate tasks that do not require skill-based talents. With customer service taking place via messaging apps as well as phone calls, there are growing numbers of use-cases where chatbot deployment gives organizations a clear return on investment. Call center workers may be particularly at risk from AI-driven chatbots. A study by Forrester (June 2017) predicted that 25% of all jobs will be impacted by AI technologies by 2019. Fortunately this claim proved unfounded.
+
+What features does Mega Cloud offer? "Mega Cloud provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are:
+Omnichannel Management
+Future-Proofed Contact Center
+Chatbots with Text-to-Speech Capabilties
+Workforce Management Integration
+Built-In AI Routing
+Two-Way Messaging"
+
+
+
+

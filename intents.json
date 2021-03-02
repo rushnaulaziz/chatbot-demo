@@ -1,0 +1,84 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "context": [""]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "context": [""]
+        },
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+        {"tag": "mega_cloud",
+         "patterns": ["How you could help me?", "What you can do?", "What help you provide?","What features does Mega Cloud offer?", "How you can be helpful?", "What support is offered","Mega Cloud offer?"],
+         "responses": ["Mega Cloud provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: 1. Omnichannel Management 2. Future-Proofed Contact Center 3.Chatbots with Text-to-Speech Capabilties 4.Workforce Management Integration 5.Built-In AI Routing Two-Way Messaging"],
+         "context": [""]
+        },
+        {"tag": "Omnichannel_description",
+                "patterns": ["Tell me more about Omnichannel Management","I want to know more about Omnichannel Management","What is Omnichannel Management","Omnichannel Management"],
+                "responses": ["Omnichannel description"],
+                "context": ["mega_cloud"]
+        },
+        {"tag": "Future-Proofed",
+                "patterns": ["Tell me more about Future-Proofed Contact Center","I want to know more about Future-Proofed Contact Center","What is Future-Proofed Contact Center"],
+                "responses": ["Future-Proofed Contact Center feature description"],
+                "context": ["mega_cloud"]
+        },
+
+        {"tag": "Text-to-Speech",
+         "patterns": ["Tell me more about Chatbots with Text-to-Speech Capabilties", "I want to know more about Chatbots with Text-to-Speech Capabilties", "What is Chatbots with Text-to-Speech Capabilties" ],
+         "responses": ["Chatbots with Text-to-Speech Capabilties feature description"],
+         "context": ["mega_cloud"]
+        },
+        {"tag": "Workforce_Management",
+         "patterns": ["Tell me more about Workforce Management Integration", "I want to know more about Workforce Management Integration", "What is Workforce Management Integration" ],
+         "responses": ["Workforce Management Integration feature description"],
+         "context": ["mega_cloud"]
+        },
+        {"tag": "AI_Routing",
+         "patterns": ["Tell me more about Built-In AI Routing", "I want to know more about Built-In AI Routing ", "What is Built-In AI Routing" ],
+         "responses": ["Built-In AI Routing feature description"],
+         "context": ["mega_cloud"]
+        },
+        {"tag": "Two-Way",
+         "patterns": ["What is Two-Way Messaging","I want to know more about Two-Way Messaging","What is Two-Way Messaging"],
+         "responses": ["What is Two-Way Messaging"],
+         "context": ["mega_cloud"]
+        },
+        {"tag": "agent_desktop",
+         "patterns": ["What are the agent desktop features?", "agent desktop" ],
+         "responses": ["List Agent deskptop features"],
+         "context": ["mega_cloud"]
+        },
+        {"tag": "packages",
+         "patterns": ["What Mega Cloud packages are available?","Pricing","Packages"],
+         "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points.1. Free - $0/mo 2. Premium - $99/mo 3. Platinum - $170/mo"],
+         "context": ["mega_cloud"]
+        },
+        {"tag": "free_package",
+         "patterns": ["What features does Free package offer? ", "What is included in Free package","Free Package" ],
+         "responses": ["List features for Free package"],
+         "context": ["cloud_packages"]
+        },
+        {"tag": "premium_package",
+         "patterns": ["What features does Premium package offer? ", "What is included in Premium package","Premium Package"],
+         "responses": ["List features for Premium package"],
+         "context": ["cloud_packages"]
+        },
+        {"tag": "platinum_package",
+        "patterns": ["What features does Platinum package offer? ", "What is included in Platinum package","Platinum Package"],
+        "responses": ["List features for Platinum package"],
+         "context": ["cloud_packages"]
+        }
+   ]
+}
