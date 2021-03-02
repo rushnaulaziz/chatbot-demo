@@ -1,45 +1,68 @@
+$(document).ready(function() {
 
 
-// ...and take over its submit event.
+    // $("div.card-header:contains(title_name)").hide();
 
-$("#user-input-form").on("submit", function(e) {
-  
-  e.preventDefault()
-  console.log(e)
-  chatinput =  document.getElementById("chatinput").value;
-  document.getElementById("chatinput").value = ""
-  document.getElementById("chat_content").innerHTML += 
-        `<div class="chat-message-group writer-user">
-            <div class="chat-messages">
-                <div class="message">`+chatinput+`</div>
+    $("#user-input-form").on("submit", function(e) {
+        e.preventDefault()
+            // console.log(e)
+
+
+        chatinput = document.getElementById("chatinput").value;
+        document.getElementById("chatinput").value = ""
+        document.getElementById("chat_content").innerHTML +=
+            `<div class="chat-message-group writer-user">
+                <div class="chat-messages">
+                    <div class="message">` + chatinput + `</div>
+                    <div class="from">Sat 04:55</div>
+                </div>
+            </div>`
+        console.log(chatinput)
+        var formData = {
+            'user_response': chatinput
+        }
+
+        $.ajax({
+            type: 'post',
+            url: '/message',
+            data: formData,
+            cache: false,
+            success: function(response_string) {
+                // var response_dict = JSON.parse(response_string)
+                // const response_dict = JSON.parse(response_string)
+                console.log(response_string.response)
+                var response_ddd = "okkkkk"
+                document.getElementById("chat_content").innerHTML += `<div class="chat-message-group">
+                <div class="chat-thumb">
+                <figure class="image is-32x32">
+                    <img src="static/images/user-512.webp">
+                </figure>
+                </div>
+                <div class="chat-messages">
+                <div class="message">` + response_string.response + `</div>
                 <div class="from">Sat 04:55</div>
-            </div>
-        </div>`
-  const XHR = new XMLHttpRequest();
-  
-  XHR.addEventListener( "load", function(event) {
-    console.log(event)
-    res=event.target.responseText
-    message = res.slice(18, res.length-3)
-    document.getElementById("chat_content").innerHTML += `<div class="chat-message-group">
-    <div class="chat-thumb">
-      <figure class="image is-32x32">
-        <img src="static/images/user-512.webp">
-      </figure>
-    </div>
-    <div class="chat-messages">
-      <div class="message">`+message+`</div>
-      <div class="from">Sat 04:55</div>
-    </div>
-  </div>`
+                </div>
+                </div>`
+                var $chat_window = $('#scrol_id');
+                $chat_window.scrollTop(($chat_window[0].scrollHeight) + 10);
+
+            }
+
+        });
+
+
     });
 
-// Define what happens in case of error
-    XHR.addEventListener( "error", function( event ) {
-        alert( event );
-    });
-  XHR.open( "POST", "http://127.0.0.1:3000/message" );
-  XHR.setRequestHeader('Content-type', 'application/json')
-  XHR.setRequestHeader("Access-Control-Allow-Origin", "*")
-  XHR.send('{"user_response":"'+chatinput+'"}')
-});
+
+})
+
+function toggleChat() {
+
+    var chat_minimize = document.getElementById("chatbox-area");
+    if (chat_minimize.style.display === "none") {
+        chat_minimize.style.display = "block";
+    } else {
+        chat_minimize.style.display = "none";
+    }
+
+}

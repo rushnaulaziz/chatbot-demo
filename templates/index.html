@@ -1,63 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title> - chat UI</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-  <link rel="stylesheet" href="static/css/style.css">
+    <meta charset="UTF-8">
+    <title> - chat UI</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script> -->
+    <script src="static/js/script.js"></script>
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div id="chatApp">
+    <!-- partial:index.partial.html -->
+    <div id="chatApp">
 
-<div class="chatBox" id="chatBox">
-  <div class="card">
- 
- <header class="card-header header-title" @click="toggleChat()">
-    <p class="card-header-title">
-      <i class="fa fa-circle is-online"></i><img src="static/images/user-icon.png" style="width: 30px;">&nbsp;Rushna Nizami
-    </p>
-    <a class="card-header-icon">
-      <span class="icon">
-        <i class="fa fa-close"></i>
-      </span>
-    </a>
-  </header>
- 
- <div id="chatbox-area">
-  <div class="card-content chat-content">
-    <div class="content" id="chat_content">
-     
-      
+        <div class="chatBox" id="chatBox">
+            <div class="card">
+
+                <header class="card-header header-title" onclick="toggleChat()">
+                    <p class="card-header-title">
+                        <i class="fa fa-circle is-online"></i><img src="static/images/user-icon.png" style="width: 30px;">&nbsp;Rushna Nizami
+                    </p>
+                    <a class="card-header-icon">
+                        <span class="icon">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </a>
+                </header>
+                <div id="chatbox-area">
+                    <div class="card-content chat-content" id="scrol_id">
+                        <div class="content" id="chat_content">
+                        </div>
+                    </div>
+                    <footer class="card-footer" id="chatBox-textbox">
+                        <div style="width: 63%">
+                            <form id="user-input-form">
+                                <input id="chatinput" class="chat-textarea" name="user_response" autocomplete="off" placeholder="Enter text here..">
+                            </form>
+                        </div>
+                        <div class="has-text-centered" style="width: 37%">
+                            <a class="button is-white">
+
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <div class="emojiBox" style="display: none">
+            <div class="box">
+
+            </div>
+        </div>
+
     </div>
-  </div>
-  <footer class="card-footer" id="chatBox-textbox">
-    <div style="width: 63%">
-      <form action="#0" id="user-input-form">
-        <input id="chatinput" class="chat-textarea" name="user_response" placeholder="Enter text here..">
-      </form>
-      </div>
-    <div class="has-text-centered" style="width: 37%">
-      <a class="button is-white">
-        
-      </a>
-    </div>
-  </footer>
-  </div>
-</div>
-</div>
-<div class="emojiBox" style="display: none">
-  <div class="box">
-  
-  </div>
-</div>
+    <!-- partial -->
 
-</div>
-<!-- partial -->
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script  src="static/js/script.js"></script>
 </body>
+
 </html>
