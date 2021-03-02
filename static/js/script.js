@@ -28,10 +28,7 @@ $(document).ready(function() {
             data: formData,
             cache: false,
             success: function(response_string) {
-                // var response_dict = JSON.parse(response_string)
-                // const response_dict = JSON.parse(response_string)
                 console.log(response_string.response)
-                var response_ddd = "okkkkk"
                 document.getElementById("chat_content").innerHTML += `<div class="chat-message-group">
                 <div class="chat-thumb">
                 <figure class="image is-32x32">
@@ -44,7 +41,7 @@ $(document).ready(function() {
                 </div>
                 </div>`
                 var $chat_window = $('#scrol_id');
-                $chat_window.scrollTop(($chat_window[0].scrollHeight) + 10);
+                $chat_window.scrollTop($chat_window[0].scrollHeight);
 
             }
 
