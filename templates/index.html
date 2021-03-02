@@ -30,9 +30,6 @@
 
 </head>
 
-
-
-
 <body>
     <!-- partial:index.partial.html -->
     <div id="chatApp">
@@ -40,7 +37,7 @@
         <div class="chatBox" id="chatBox">
             <div class="card">
 
-                <header class="card-header header-title" onclick="toggleChat()">
+                <header class="card-header header-title noselect" onclick="toggleChat()">
                     <p class="card-header-title">
                         <i class="fa fa-circle is-online"></i><img src="static/images/user-icon.png" style="width: 30px;">&nbsp;Rushna Nizami
                     </p>
@@ -56,14 +53,14 @@
                         </div>
                     </div>
                     <footer class="card-footer" id="chatBox-textbox">
-                        <div style="width: 63%">
+                        <div style="width: 80%">
                             <form id="user-input-form">
                                 <input id="chatinput" class="chat-textarea" name="user_response" autocomplete="off" placeholder="Enter your query here">
                             </form>
                         </div>
-                        <div class="has-text-centered" style="width: 37%">
-                            <a class="button is-white">
-
+                        <div class="has-text-centered" style="width: 20%">
+                            <a class="button" style="height: 100%;" onclick="chat_function()">
+                            Enter
                             </a>
                         </div>
                     </footer>

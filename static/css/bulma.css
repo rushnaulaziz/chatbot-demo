@@ -1031,7 +1031,104 @@ a.box:active {
     color: white;
 }
 
-.button.is-light {
+#####################009e6c .button.is-own {
+    background-color: whitesmoke;
+    border-color: transparent;
+    color: #363636;
+}
+
+.button.is-own:hover,
+.button.is-own.is-hovered {
+    background-color: #eeeeee;
+    border-color: transparent;
+    color: #363636;
+}
+
+.button.is-own:focus,
+.button.is-own.is-focused {
+    border-color: transparent;
+    box-shadow: 0 0 0.5em rgba(245, 245, 245, 0.25);
+    color: #363636;
+}
+
+.button.is-own:active,
+.button.is-own.is-active {
+    background-color: #e8e8e8;
+    border-color: transparent;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);
+    color: #363636;
+}
+
+.button.is-own[disabled] {
+    background-color: whitesmoke;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.button.is-own.is-inverted {
+    background-color: #363636;
+    color: whitesmoke;
+}
+
+.button.is-own.is-inverted:hover {
+    background-color: #292929;
+}
+
+.button.is-own.is-inverted[disabled] {
+    background-color: #363636;
+    border-color: transparent;
+    box-shadow: none;
+    color: whitesmoke;
+}
+
+.button.is-own.is-loading:after {
+    border-color: transparent transparent #363636 #363636 !important;
+}
+
+.button.is-own.is-outlined {
+    background-color: transparent;
+    border-color: whitesmoke;
+    color: whitesmoke;
+}
+
+.button.is-own.is-outlined:hover,
+.button.is-own.is-outlined:focus {
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    color: #363636;
+}
+
+.button.is-own.is-outlined.is-loading:after {
+    border-color: transparent transparent whitesmoke whitesmoke !important;
+}
+
+.button.is-own.is-outlined[disabled] {
+    background-color: transparent;
+    border-color: whitesmoke;
+    box-shadow: none;
+    color: whitesmoke;
+}
+
+.button.is-own.is-inverted.is-outlined {
+    background-color: transparent;
+    border-color: #363636;
+    color: #363636;
+}
+
+.button.is-own.is-inverted.is-outlined:hover,
+.button.is-own.is-inverted.is-outlined:focus {
+    background-color: #363636;
+    color: whitesmoke;
+}
+
+.button.is-own.is-inverted.is-outlined[disabled] {
+    background-color: transparent;
+    border-color: #363636;
+    box-shadow: none;
+    color: #363636;
+}
+
+########################### .button.is-light {
     background-color: whitesmoke;
     border-color: transparent;
     color: #363636;
