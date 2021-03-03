@@ -134,6 +134,21 @@
     display: table;
 }
 
+.bot-time {
+    color: #888ea8;
+    align-self: flex-start;
+    display: table;
+    font-size: xx-small;
+}
+
+.user-time {
+    color: #888ea8;
+    float: right;
+    align-self: flex-end;
+    display: table;
+    font-size: xx-small;
+}
+
 .chat-screen .chat-input {
     width: 100%;
     position: relative;
@@ -308,3 +323,8 @@
     opacity: 1;
     z-index: 1;
 }
+
+
+/* .bg-remove {
+    background-color: white;
+} */
