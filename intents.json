@@ -21,38 +21,38 @@
         },
         {"tag": "mega_cloud",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?","What features does Mega Cloud offer?", "How you can be helpful?", "What support is offered","Mega Cloud offer?"],
-         "responses": ["Mega Cloud provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: 1. Omnichannel Management 2. Future-Proofed Contact Center 3.Chatbots with Text-to-Speech Capabilties 4.Workforce Management Integration 5.Built-In AI Routing Two-Way Messaging"],
+         "responses": ["Mega Cloud provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/> 1. Omnichannel Management <br/> 2. Future-Proofed Contact Center <br/> 3.Chatbots with Text-to-Speech Capabilties <br/> 4.Workforce Management Integration  <br/> 5.Built-In AI Routing Two-Way Messaging"],
          "context": [""]
         },
         {"tag": "Omnichannel_description",
-                "patterns": ["Tell me more about Omnichannel Management","I want to know more about Omnichannel Management","What is Omnichannel Management","Omnichannel Management"],
+                "patterns": ["Tell me more about Omni Channel Management","I want to know more about Omnichannel Management","What is Omnichannel Management","Omnichannel Management"],
                 "responses": ["Omnichannel description"],
                 "context": ["mega_cloud"]
         },
         {"tag": "Future-Proofed",
-                "patterns": ["Tell me more about Future-Proofed Contact Center","I want to know more about Future-Proofed Contact Center","What is Future-Proofed Contact Center"],
+                "patterns": ["Tell me more about Future-Proofed Contact Center","Future Proofed" , "I want to know more about Future-Proofed Contact Center","What is Future-Proofed Contact Center"],
                 "responses": ["Future-Proofed Contact Center feature description"],
                 "context": ["mega_cloud"]
         },
 
         {"tag": "Text-to-Speech",
-         "patterns": ["Tell me more about Chatbots with Text-to-Speech Capabilties", "I want to know more about Chatbots with Text-to-Speech Capabilties", "What is Chatbots with Text-to-Speech Capabilties" ],
+         "patterns": ["Tell me more about Chatbots with Text-to-Speech Capabilties","Text to Speech" ,"I want to know more about Chatbots with Text-to-Speech Capabilties", "What is Chatbots with Text-to-Speech Capabilties" ],
          "responses": ["Chatbots with Text-to-Speech Capabilties feature description"],
          "context": ["mega_cloud"]
         },
         {"tag": "Workforce_Management",
-         "patterns": ["Tell me more about Workforce Management Integration", "I want to know more about Workforce Management Integration", "What is Workforce Management Integration" ],
+         "patterns": ["Tell me more about Workforce Management Integration", "I want to know more about Workforce Management Integration", "What is Workforce Management Integration"," Workforce Management" ],
          "responses": ["Workforce Management Integration feature description"],
          "context": ["mega_cloud"]
         },
         {"tag": "AI_Routing",
-         "patterns": ["Tell me more about Built-In AI Routing", "I want to know more about Built-In AI Routing ", "What is Built-In AI Routing" ],
+         "patterns": ["Tell me more about Built-In AI Routing","AI Routing", "I want to know more about Built-In AI Routing ", "What is Built-In AI Routing" ],
          "responses": ["Built-In AI Routing feature description"],
          "context": ["mega_cloud"]
         },
         {"tag": "Two-Way",
-         "patterns": ["What is Two-Way Messaging","I want to know more about Two-Way Messaging","What is Two-Way Messaging"],
-         "responses": ["What is Two-Way Messaging"],
+         "patterns": ["What is Two-Way Messaging","I want to know more about Two Way Messaging","What is Two-Way Messaging","Two-Way Messaging"],
+         "responses": ["Two-Way Messaging feature description"],
          "context": ["mega_cloud"]
         },
         {"tag": "agent_desktop",
@@ -62,7 +62,7 @@
         },
         {"tag": "packages",
          "patterns": ["What Mega Cloud packages are available?","Pricing","Packages"],
-         "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points.1. Free - $0/mo 2. Premium - $99/mo 3. Platinum - $170/mo"],
+         "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points. <br/> 1. Free - $0/mo <br/> 2. Premium - $99/mo <br/> 3. Platinum - $170/mo"],
          "context": ["mega_cloud"]
         },
         {"tag": "free_package",
