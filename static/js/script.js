@@ -82,7 +82,7 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            type: 'post',
+            type: 'POST',
             url: '/message',
             data: formData,
             cache: false,
@@ -99,6 +99,7 @@ $(document).ready(function() {
                 <div class="from">` + time_stamp + `</div>
             </div>
             </div>`
+
                 var $chat_window = $('#scrol_id');
                 $chat_window.scrollTop($chat_window[0].scrollHeight);
 

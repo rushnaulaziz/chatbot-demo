@@ -14,6 +14,10 @@ app.secret_key = "any random string"
 def index():
     return render_template("index.html")
 
+@app.route('/chatbot2_demo')
+def chatbot2_function():
+    return render_template("chatbot2.html")
+
 @app.route('/message' , methods=['POST'])
 def message():
     ''' It will fetch the user  '''

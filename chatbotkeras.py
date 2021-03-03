@@ -1,16 +1,23 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
-import pickle
-import numpy as np
 
 from keras.models import load_model
 model = load_model('chatbot_model.h5')
+
+import numpy as np
 import json
 import random
+import pickle
+
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
+
+# import types
+# import tensorflow as tf
+# if type(tf.contrib) != types.ModuleType:  # if it is LazyLoader
+#     tf.contrib._warning = None
 
 
 def clean_up_sentence(sentence):
