@@ -16,11 +16,13 @@ def index():
 
 @app.route('/message' , methods=['POST'])
 def message():
-    user_response = request.form['user_response']
+    ''' It will fetch the user  '''
+    user_query = request.form['user_query']
     # Converting the entire text into lowercase, so that the algorithm does not treat the same words in different cases as different
-    user_response = user_response.lower()
+    user_query = user_query.lower()
     
-    bot_response  = chatbot_response(user_response)
+    
+    bot_response  = chatbot_response(user_query)
         # , 200 , {'ContentType':'application/json'} 
 
     return jsonify({'response' : bot_response})

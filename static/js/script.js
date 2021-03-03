@@ -21,7 +21,7 @@ function chat_function() {
     </div>`
     console.log(chatinput)
     var formData = {
-        'user_response': chatinput
+        'user_query': chatinput
     }
 
     $.ajax({
@@ -78,7 +78,7 @@ $(document).ready(function() {
         </div>`
         console.log(chatinput)
         var formData = {
-            'user_response': chatinput
+            'user_query': chatinput
         }
 
         $.ajax({
