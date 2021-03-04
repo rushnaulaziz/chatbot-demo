@@ -13,7 +13,7 @@
 
         {
             "tag": "goodbye",
-            "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+            "patterns": ["Bye", "See you later", "Goodbye","Close", "Nice chatting to you, bye", "Till next time"],
             "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
             "context": [""]
         },
@@ -37,7 +37,7 @@
         },
         {
             "tag": "mega_cloud",
-            "patterns": ["help", "you can do", "Give","Provide","Brief","Product", "Service", "Features Mega Cloud", "Helpful", "Support offer", "Mega Cloud offer", "Mega", "Cloud"],
+            "patterns": ["help", "you can do", "Avaya", "Give","Provide","Brief","Product", "Service", "Features Mega Cloud", "Helpful", "Support offer", "Mega Cloud offer", "Mega", "Cloud"],
             "responses": ["<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/> 1. Omnichannel Management <br/> 2. Future-Proofed Contact Center <br/> 3.Chatbots with Text-to-Speech Capabilties <br/> 4.Workforce Management Integration  <br/> 5.Built-In AI Routing Two-Way Messaging"],
             "context": [""]
         },
