@@ -19,7 +19,7 @@
         },
         {
             "tag": "thanks",
-            "patterns": ["Thanks", "Thank you", "helpful", "Awesome, thanks", "Wow","Amazing","Great","good","nice","brilliant"],
+            "patterns": ["Thanks", "Thank you", "Awesome, thanks", "Wow","Amazing","Great","Good","Nice","Brilliant"],
             "responses": ["Happy to help!", "Any time!", "My pleasure"],
             "context": [""]
         },
@@ -37,7 +37,7 @@
         },
         {
             "tag": "mega_cloud",
-            "patterns": ["help", "you can do", "give","provide","brief","product", "service", "features Mega Cloud", "helpful", "support offer", "Mega Cloud offer", "mega", "cloud"],
+            "patterns": ["help", "you can do", "Give","Provide","Brief","Product", "Service", "Features Mega Cloud", "Helpful", "Support offer", "Mega Cloud offer", "Mega", "Cloud"],
             "responses": ["<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/> 1. Omnichannel Management <br/> 2. Future-Proofed Contact Center <br/> 3.Chatbots with Text-to-Speech Capabilties <br/> 4.Workforce Management Integration  <br/> 5.Built-In AI Routing Two-Way Messaging"],
             "context": [""]
         },
@@ -86,7 +86,7 @@
         },
         {
             "tag": "packages",
-            "patterns": ["Mega Cloud packages", "Pricing","price","cost","charge","fee","levy","fare", "tariff","Package", "options"],
+            "patterns": ["Packages", "Pricing","price","Cost","Charge","Fee","Levy","Fare", "Tariff","Package", "Options"],
             "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points. <br/> 1. Free - $0/mo <br/> 2. Premium - $99/mo <br/> 3. Platinum - $170/mo"],
             "context": []
         },
