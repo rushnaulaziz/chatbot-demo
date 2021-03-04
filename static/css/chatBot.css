@@ -138,15 +138,18 @@
     color: #888ea8;
     align-self: flex-start;
     display: table;
-    font-size: xx-small;
+    text-align: left;
+    font-size: 0.7em;
 }
 
 .user-time {
     color: #888ea8;
     float: right;
+    width: 100%;
+    text-align: right;
+    font-size: 0.7em;
     align-self: flex-end;
     display: table;
-    font-size: xx-small;
 }
 
 .chat-screen .chat-input {

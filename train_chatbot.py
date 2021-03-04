@@ -22,6 +22,10 @@ for intent in intents['intents']:
     for pattern in intent['patterns']:
 
         #tokenize each word
+        """
+        Tokenization is the process by which a large quantity of text is divided into smaller parts called tokens.
+        These tokens are very useful for finding patterns and are considered as a base step for stemming and lemmatization. 
+        """
         w = nltk.word_tokenize(pattern)
         words.extend(w)
         #add documents in the corpus
@@ -36,7 +40,7 @@ words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words
 words = sorted(list(set(words)))
 # sort classes
 classes = sorted(list(set(classes)))
-# documents = combination between patterns and intents
+# documents = combination between patterns and tags
 print (len(documents), "documents")
 # classes = intents
 print (len(classes), "classes", classes)
@@ -44,8 +48,8 @@ print (len(classes), "classes", classes)
 print (len(words), "unique lemmatized words", words)
 
 
-pickle.dump(words,open('words.pkl','wb'))
-pickle.dump(classes,open('classes.pkl','wb'))
+pickle.dump(words, open('words.pkl','wb'))
+pickle.dump(classes, open('classes.pkl','wb'))
 
 # create our training data
 training = []
