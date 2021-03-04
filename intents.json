@@ -6,7 +6,7 @@
         "context": [""]
     },{
             "tag": "greeting",
-            "patterns": ["Hi"],
+            "patterns": ["Hi", "Hello", "Hey", "Hii", "there"],
             "responses": ["Hello, thanks for asking", "Good to see you", "Hi there, how can I help?"],
             "context": [""]
         },
@@ -24,8 +24,8 @@
             "context": [""]
         },
         {
-            "tag": "unknow query",
-            "patterns": ["what is what", "who is who", "where is where?", "why is what?", "what is why?"],
+            "tag": "unknow_query",
+            "patterns": ["boo"],
             "responses": ["i cannot understand you", "Sorry, can't understand you", "Not sure I understand"],
             "context": [""]
         },
@@ -37,82 +37,76 @@
         },
         {
             "tag": "mega_cloud",
-            "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "what you can brief me on", "service", "What features does Mega Cloud offer?", "How you can be helpful?", "What support is offered", "Mega Cloud offer?"],
+            "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "what you can brief me on", "service", "What features does Mega Cloud offer?", "How you can be helpful?", "What support is offered", "Mega Cloud offer?", "mega"],
             "responses": ["<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/> 1. Omnichannel Management <br/> 2. Future-Proofed Contact Center <br/> 3.Chatbots with Text-to-Speech Capabilties <br/> 4.Workforce Management Integration  <br/> 5.Built-In AI Routing Two-Way Messaging"],
             "context": [""]
         },
         {
             "tag": "Omnichannel_description",
-            "patterns": ["Tell me more about Omni Channel Management", "what is omni?", "I want to know more about Omnichannel Management", "What is Omnichannel Management", "Omnichannel Management"],
+            "patterns": ["Omni Channel Management", "omni?", "Omnichannel Management", "Omni channel Management", "Omni Management"],
             "responses": ["Through <strong>Omnichannel Management</strong>, connect any and all customer communication channels you need at any time, providing a seamless customer journey regardless of how they choose to contact your business."],
-            "context": ["mega_cloud"]
-        },
-        {
-            "tag": "Omnichannel_benefits",
-            "patterns": ["Tell me more about Omni Channel advantages", "how exactly would this benefit me", "I want to know more about Omnichannel Management", "What is Omnichannel Management", "Omnichannel Management"],
-            "responses": ["Through <strong>Omnichannel Management</strong>, connect any and all customer communication channels you need at any time, providing a seamless customer journey regardless of how they choose to contact your business."],
-            "context": ["Omnichannel_description"]
+            "context": []
         },
         {
             "tag": "Future-Proofed",
-            "patterns": ["Tell me more about Future-Proofed Contact Center", "Future Proofed", "I want to know more about Future-Proofed Contact Center", "What is Future-Proofed Contact Center"],
+            "patterns": ["Future-Proofed Contact Center", "Future Proofed", "Future Proofed Contact Center", "Future-Proofed Contact Center"],
             "responses": ["<strong>Future-Proofed Contact Center</strong> feature allows you to create and modify channels easily, always having complete ownership of your customer interaction data across all channels."],
-            "context": ["mega_cloud"]
+            "context": []
         },
 
         {
             "tag": "Text-to-Speech",
-            "patterns": ["Tell me more about Chatbots with Text-to-Speech Capabilties", "Text to Speech", "I want to know more about Chatbots with Text-to-Speech Capabilties", "What is Chatbots with Text-to-Speech Capabilties"],
+            "patterns": ["Chatbots Text-to-Speech Capabilties", "Text 2 Speech", "Chatbots with Text to Speech Capabilties", "Chatbots Text to Speech Capabilties"],
             "responses": ["Advanced AI-based chatbots enable you to automatically respond to basic inquiries, allowing agents to focus on more complex inquiries and for you to fielda higher volume of calls and chats. "],
-            "context": ["mega_cloud"]
+            "context": []
         },
         {
             "tag": "Workforce_Management",
-            "patterns": ["Tell me more about Workforce Management Integration", "I want to know more about Workforce Management Integration", "What is Workforce Management Integration", " Workforce Management"],
+            "patterns": ["Workforce Management Integration", "Workforce", "Integration", "Workforce Management"],
             "responses": ["Use <strong> Workforce Management Integration </strong>  feature to optimize existing contact center and platforms like workforce management software and third party planning and operations tools."],
-            "context": ["mega_cloud"]
+            "context": []
         },
         {
             "tag": "AI_Routing",
-            "patterns": ["Tell me more about Built-In AI Routing", "AI Routing", "I want to know more about Built-In AI Routing ", "What is Built-In AI Routing"],
+            "patterns": ["Built In AI Routing", "AI Routing", "Built-In AI Routing", "Routing"],
             "responses": ["With Built-In <strong>AI Routing </strong>feature, choose to turn on our complimentary AI routing soolution at any time to match your customers with agents with compatible behavioral characteristics, driving measurably better outcomes. "],
-            "context": ["mega_cloud"]
+            "context": []
         },
         {
             "tag": "Two-Way",
-            "patterns": ["What is Two-Way Messaging", "I want to know more about Two Way Messaging", "What is Two-Way Messaging", "Two-Way Messaging"],
+            "patterns": ["Two-Way Messaging", "two way messaging", "2 way", "messaging"],
             "responses": ["Through <strong>Two-Way Messaging</strong> feature, increase responsiveness by easily sending and respoonding to customer inquiries."],
-            "context": ["mega_cloud"]
+            "context": []
         },
         {
             "tag": "agent_desktop",
-            "patterns": ["What are the agent desktop features?", "agent desktop"],
+            "patterns": ["agent desktop"],
             "responses": ["A few of many agent deskop features are: <br/> 1. See te full picture with contextual details about customer history and preferences<br/> 2.  Manage all conversations in one streamlined interface. Field inbound messages or place outbound calls using a personalized directory<br/> 3. View and track individual agent performance metrics like AHT, FCR, and more<br/>"],
-            "context": ["mega_cloud"]
+            "context": []
         },
         {
             "tag": "packages",
-            "patterns": ["What Mega Cloud packages are available?", "Pricing", "Packages"],
+            "patterns": ["Mega Cloud packages", "Pricing","price","cost","charge", "Package"],
             "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points. <br/> 1. Free - $0/mo <br/> 2. Premium - $99/mo <br/> 3. Platinum - $170/mo"],
-            "context": ["mega_cloud"]
+            "context": []
         },
         {
             "tag": "free_package",
-            "patterns": ["What features does Free package offer? ", "What is included in Free package", "Free Package"],
+            "patterns": ["Free package", "Free Price", "Free cost", "Free charges" , "Free"],
             "responses": ["Free package offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting"],
-            "context": ["cloud_packages"]
+            "context": []
         },
         {
             "tag": "premium_package",
-            "patterns": ["What features does Premium package offer? ", "What is included in Premium package", "Premium Package"],
+            "patterns": ["Premium package", "Premium Price", "Premium cost", "Premium charges" , "Premium"],
             "responses": ["Premium package offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
-            "context": ["cloud_packages"]
+            "context": []
         },
         {
             "tag": "platinum_package",
-            "patterns": ["What features does Platinum package offer? ", "What is included in Platinum package", "Platinum Package"],
-            "responses": ["Platinum package offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
-            "context": ["cloud_packages"]
+            "patterns": ["Platinum Package", "Platinum Price", "Platinum cost", "platinum charges", "Platinum"],
+            "responses": ["Platinum package offers: <br/>1. Automated Routing < br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
+            "context": []
         }
     ]
 }
