@@ -145,8 +145,7 @@
             "context": [""]
         },{"tag": "ok",
             "patterns": ["ok", "okay", "fine","right","yes","agreed"],
-            "responses":
-            ["Hope, I helped", "Ggood to know you are satisfied with my services", "sure"],
+            "responses":["Hope, I helped", "Good to know you are satisfied with my services", "Sure"],
             "context": [""]
         }
     ]
