@@ -86,7 +86,7 @@
         },
         {
             "tag": "packages",
-            "patterns": ["Packages", "Pricing","price","Cost","Charge","Fee","Levy","Fare", "Tariff","Package", "Options"],
+            "patterns": ["Packages", "Mega","Mega Cost","Pricing","price","Cost","Charge","Fee","Levy","Fare", "Tariff","Package", "Options"],
             "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points. <br/> 1. Free - $0/mo <br/> 2. Premium - $99/mo <br/> 3. Platinum - $170/mo"],
             "context": []
         },
