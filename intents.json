@@ -19,7 +19,7 @@
         },
         {
             "tag": "thanks",
-            "patterns": ["Thanks", "Thank you", "helpful", "Awesome, thanks", "Wow", "awesome","amazing","great"],
+            "patterns": ["Thanks", "Thank you", "helpful", "Awesome, thanks", "Wow","Amazing","Great","good","nice","brilliant"],
             "responses": ["Happy to help!", "Any time!", "My pleasure"],
             "context": [""]
         },
@@ -37,7 +37,7 @@
         },
         {
             "tag": "mega_cloud",
-            "patterns": ["help", "you can do", "brief","product", "service", "features Mega Cloud", "helpful", "support offer", "Mega Cloud offer", "mega", "cloud"],
+            "patterns": ["help", "you can do", "give","provide","brief","product", "service", "features Mega Cloud", "helpful", "support offer", "Mega Cloud offer", "mega", "cloud"],
             "responses": ["<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/> 1. Omnichannel Management <br/> 2. Future-Proofed Contact Center <br/> 3.Chatbots with Text-to-Speech Capabilties <br/> 4.Workforce Management Integration  <br/> 5.Built-In AI Routing Two-Way Messaging"],
             "context": [""]
         },
@@ -140,7 +140,7 @@
         },
         {
             "tag": "human",
-            "patterns": ["person", "human", "agent", "representator", "man", "awesome","amazing","great"],
+            "patterns": ["person", "human", "agent", "representator", "man"],
             "responses": ["Sorry, No human representatives are avaialble right now"],
             "context": [""]
         }
