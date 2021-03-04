@@ -1,8 +1,13 @@
 {
     "intents": [{
+        "tag": "noanswer",
+        "patterns": [],
+        "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+        "context": [""]
+    },{
             "tag": "greeting",
-            "patterns": ["Hi there", "How are you", "Is anyone there?", "Hey", "Hola", "Hello", "Good day"],
-            "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+            "patterns": ["Hi"],
+            "responses": ["Hello, thanks for asking", "Good to see you", "Hi there, how can I help?"],
             "context": [""]
         },
 
@@ -19,12 +24,6 @@
             "context": [""]
         },
         {
-            "tag": "noanswer",
-            "patterns": [],
-            "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
-            "context": [""]
-        },
-        {
             "tag": "unknow query",
             "patterns": ["what is what", "who is who", "where is where?", "why is what?", "what is why?"],
             "responses": ["i cannot understand you", "Sorry, can't understand you", "Not sure I understand"],
@@ -33,7 +32,7 @@
         {
             "tag": "Introduction",
             "patterns": ["who am i talking to?", "who are you?", "who's this", "who's there", "name", "what's your name?", "intro?"],
-            "responses": ["It's Bond-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.", "I am Bond-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."],
+            "responses": ["It's Bot-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.", "I am Bond-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."],
             "context": []
         },
         {
