@@ -19,25 +19,25 @@
         },
         {
             "tag": "thanks",
-            "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+            "patterns": ["Thanks", "Thank you", "helpful", "Awesome, thanks", "Wow", "awesome","amazing","great"],
             "responses": ["Happy to help!", "Any time!", "My pleasure"],
             "context": [""]
         },
         {
-            "tag": "unknow_query",
+            "tag": "zzunknow_query",
             "patterns": ["boo"],
             "responses": ["i cannot understand you", "Sorry, can't understand you", "Not sure I understand"],
             "context": [""]
         },
         {
             "tag": "Introduction",
-            "patterns": ["who am i talking to?", "who are you?", "who's this", "who's there", "name", "what's your name?", "intro?"],
+            "patterns": ["who am i talking", "who", "name", "intro"],
             "responses": ["It's Bot-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.", "I am Bond-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."],
             "context": []
         },
         {
             "tag": "mega_cloud",
-            "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "what you can brief me on", "service", "What features does Mega Cloud offer?", "How you can be helpful?", "What support is offered", "Mega Cloud offer?", "mega"],
+            "patterns": ["help", "you can do", "brief","product", "service", "features Mega Cloud", "helpful", "support offer", "Mega Cloud offer", "mega", "cloud"],
             "responses": ["<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/> 1. Omnichannel Management <br/> 2. Future-Proofed Contact Center <br/> 3.Chatbots with Text-to-Speech Capabilties <br/> 4.Workforce Management Integration  <br/> 5.Built-In AI Routing Two-Way Messaging"],
             "context": [""]
         },
@@ -86,27 +86,63 @@
         },
         {
             "tag": "packages",
-            "patterns": ["Mega Cloud packages", "Pricing","price","cost","charge", "Package"],
+            "patterns": ["Mega Cloud packages", "Pricing","price","cost","charge", "Package", "options"],
             "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points. <br/> 1. Free - $0/mo <br/> 2. Premium - $99/mo <br/> 3. Platinum - $170/mo"],
             "context": []
         },
         {
             "tag": "free_package",
-            "patterns": ["Free package", "Free Price", "Free cost", "Free charges" , "Free"],
+            "patterns": ["Free package", "Free Price", "Free cost", "Free charges" , "Free Service"],
             "responses": ["Free package offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting"],
             "context": []
         },
         {
             "tag": "premium_package",
-            "patterns": ["Premium package", "Premium Price", "Premium cost", "Premium charges" , "Premium"],
+            "patterns": ["Premium package", "Premium Price", "Premium cost", "Premium charges" , "Premium Service"],
             "responses": ["Premium package offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
             "context": []
         },
         {
             "tag": "platinum_package",
-            "patterns": ["Platinum Package", "Platinum Price", "Platinum cost", "platinum charges", "Platinum"],
+            "patterns": ["Platinum Package", "Platinum Price", "Platinum cost", "platinum charges", "Platinum Service"],
             "responses": ["Platinum package offers: <br/>1. Automated Routing < br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
             "context": []
+        },
+        {
+            "tag": "automated",
+            "patterns": ["Automated Routing"],
+            "responses": ["Automated Routing is avaialble with all our packages"],
+            "context": []
+        },
+        {
+            "tag": "voice",
+            "patterns": ["Interactive Voice Response"],
+            "responses": ["Interactive Voice Response is avaialble with all our packages"],
+            "context": []
+        },
+        {
+            "tag": "chatbots",
+            "patterns": ["Chatbots"],
+            "responses": ["Chatbots are avaialble with all our packages"],
+            "context": []
+        },
+        {
+            "tag": "analytics",
+            "patterns": [" Analytics Reporting"],
+            "responses": [" Analytics and Reporting are avaialble with all our packages"],
+            "context": []
+        },
+        {
+            "tag": "integration",
+            "patterns": ["Third Party Integration"],
+            "responses": ["Third Party Integration is avaialble with our premium and platinum packages"],
+            "context": []
+        },
+        {
+            "tag": "human",
+            "patterns": ["person", "human", "agent", "representator", "man", "awesome","amazing","great"],
+            "responses": ["Sorry, No human representatives are avaialble right now"],
+            "context": [""]
         }
     ]
 }
