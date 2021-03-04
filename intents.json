@@ -74,7 +74,7 @@
         },
         {
             "tag": "Two-Way",
-            "patterns": ["Two-Way Messaging", "two way messaging", "2 way", "messaging"],
+            "patterns": ["Two-Way Messaging", "two way messaging", "text", "2 way", "messaging"],
             "responses": ["Through <strong>Two-Way Messaging</strong> feature, increase responsiveness by easily sending and respoonding to customer inquiries."],
             "context": []
         },
@@ -86,26 +86,26 @@
         },
         {
             "tag": "packages",
-            "patterns": ["Mega Cloud packages", "Pricing","price","cost","charge", "Package", "options"],
+            "patterns": ["Mega Cloud packages", "Pricing","price","cost","charge","fee","levy","fare", "tariff","Package", "options"],
             "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points. <br/> 1. Free - $0/mo <br/> 2. Premium - $99/mo <br/> 3. Platinum - $170/mo"],
             "context": []
         },
         {
             "tag": "free_package",
-            "patterns": ["Free package", "Free Price", "Free cost", "Free charges" , "Free Service"],
-            "responses": ["Free package offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting"],
+            "patterns": ["Free package", "Free Price", "Free cost", "Free Fee tariff fare charges" , "Free Service"],
+            "responses": ["Free package ($0/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting"],
             "context": []
         },
         {
             "tag": "premium_package",
-            "patterns": ["Premium package", "Premium Price", "Premium cost", "Premium charges" , "Premium Service"],
-            "responses": ["Premium package offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
+            "patterns": ["Premium package", "Premium Price", "Premium cost", "Premium fee fare tariff charges" , "Premium Service"],
+            "responses": ["Premium package ($99/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
             "context": []
         },
         {
             "tag": "platinum_package",
-            "patterns": ["Platinum Package", "Platinum Price", "Platinum cost", "platinum charges", "Platinum Service"],
-            "responses": ["Platinum package offers: <br/>1. Automated Routing < br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
+            "patterns": ["Platinum Package", "Platinum Price", "Platinum cost", "platinum fare fee tariff charges", "Platinum Service"],
+            "responses": ["Platinum package ($170/Month) offers: <br/>1. Automated Routing < br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
             "context": []
         },
         {
