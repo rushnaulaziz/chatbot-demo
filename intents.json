@@ -26,7 +26,7 @@
         {
             "tag": "zzunknow_query",
             "patterns": ["boo"],
-            "responses": ["i cannot understand you", "Sorry, can't understand you", "Not sure I understand"],
+            "responses": ["I cannot understand you", "Sorry, can't understand you"],
             "context": [""]
         },
         {
