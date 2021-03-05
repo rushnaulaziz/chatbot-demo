@@ -92,7 +92,7 @@
         },
         {
             "tag": "packages_detail",
-            "patterns": ["Packages detail", "all packages", "detail list of packages", "all Pricing", "price", "Cost", "Charges of all packages"],
+            "patterns": ["Packages detail", "describe packages", "all packages", "detail list packages", "all Pricing","Charges all packages"],
             "responses": ["Free package ($0/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/><br/> Premium package ($99/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration <br/><br/>  Platinum package ($170/Month) offers: <br/> 1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
             "context": []
         },

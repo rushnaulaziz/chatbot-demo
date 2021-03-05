@@ -1,7 +1,8 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 lemmatizer = WordNetLemmatizer()
-
+from nltk.tokenize import word_tokenize
 from keras.models import load_model
 model = load_model('chatbot_model.h5')
 
@@ -71,7 +72,10 @@ def getResponse(ints, intents_json):
     return result
 
 def chatbot_response(msg):
-    ints = predict_class(msg, model)
+    text_tokens = word_tokenize(msg)
+    tokens_without_sw = [word for word in text_tokens if not word in stopwords.words()]
+    print(tokens_without_sw)
+    ints = predict_class(" ".join(tokens_without_sw), model)
     print(ints)
     res = getResponse(ints, intents)
     return res
