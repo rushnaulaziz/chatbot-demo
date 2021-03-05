@@ -26,7 +26,7 @@
         {
             "tag": "zzunknow_query",
             "patterns": ["boo"],
-            "responses": ["Sorry, I'm not able to understand your question. Can you please ask a different question?", "Sorry, can't understand you"],
+            "responses": ["Sorry, I'm not able to understand your question. Can you please ask a different question?"],
             "context": [""]
         },
         {
@@ -86,7 +86,7 @@
         },
         {
             "tag": "packages",
-            "patterns": ["Packages", "Mega", "Mega Cost", "Pricing", "price", "Cost", "Charge", "Fee", "Levy", "Fare", "Tariff", "Package", "Options"],
+            "patterns": ["Packages", "Mega Cost", "Pricing", "price", "Cost", "Charge", "Fee", "Levy", "Fare", "Tariff", "Package", "Options"],
             "responses": ["Mega Cloud is available in three flavors at a variety of affordable price points. <br/><br/> 1. Free - $0/mo <br/><br/> 2. Premium - $99/mo <br/><br/> 3. Platinum - $170/mo"],
             "context": []
         },
@@ -147,7 +147,7 @@
         {
             "tag": "human",
             "patterns": ["person", "human", "agent", "representator", "man"],
-            "responses": ["Sorry, No human representatives are avaialble right now"],
+            "responses": ["Sorry, No human representatives are avaialble right now. You can ask me instead"],
             "context": [""]
         }, {
             "tag": "ok",

@@ -1,6 +1,5 @@
 import nltk
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer 
 lemmatizer = WordNetLemmatizer()
 from nltk.tokenize import word_tokenize
 from keras.models import load_model
@@ -14,7 +13,7 @@ import pickle
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
-
+stopwords = ["what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", "are", "has","have"]
 # import types
 # import tensorflow as tf
 # if type(tf.contrib) != types.ModuleType:  # if it is LazyLoader
@@ -73,7 +72,7 @@ def getResponse(ints, intents_json):
 
 def chatbot_response(msg):
     text_tokens = word_tokenize(msg)
-    tokens_without_sw = [word for word in text_tokens if not word in stopwords.words()]
+    tokens_without_sw = [word for word in text_tokens if not word in stopwords]
     print(tokens_without_sw)
     ints = predict_class(" ".join(tokens_without_sw), model)
     print(ints)
