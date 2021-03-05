@@ -25,7 +25,7 @@
         },
         {
             "tag": "zzunknow_query",
-            "patterns": ["boo"],
+            "patterns": ["boo", "much time"],
             "responses": ["Sorry, I'm not able to understand your question. Can you please ask a different question?"],
             "context": [""]
         },
@@ -37,7 +37,7 @@
         },
         {
             "tag": "mega_cloud",
-            "patterns": ["help", "you can do", "Avaya", "Give", "Provide", "Brief", "Product", "Service", "Features Mega Cloud", "Helpful", "Support offer", "Mega Feature", "feature Mega", "Mega Cloud offer", "Mega", "Cloud"],
+            "patterns": ["help", "you can do", "Avaya", "Give", "mega", "Provide", "Brief", "Product", "Service", "Features Mega Cloud", "Helpful", "Support offer", "Mega Feature", "feature Mega", "Mega Cloud offer", "Mega", "Cloud"],
             "responses": ["<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/><br/> 1. Omnichannel Management <br/><br/> 2. Future-Proofed Contact Center <br/><br/> 3.Chatbots with Text-to-Speech Capabilties <br/><br/> 4.Workforce Management Integration  <br/><br/> 5.Built-In AI Routing Two-Way Messaging"],
             "context": [""]
         },
@@ -92,7 +92,7 @@
         },
         {
             "tag": "packages_detail",
-            "patterns": ["Packages detail", "describe packages", "all packages", "detail list packages", "all Pricing","Charges all packages"],
+            "patterns": ["Packages detail", "describe packages", "all packages", "detail list packages", "all Pricing", "Charges all packages"],
             "responses": ["Free package ($0/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/><br/> Premium package ($99/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration <br/><br/>  Platinum package ($170/Month) offers: <br/> 1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"],
             "context": []
         },

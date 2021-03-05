@@ -1,8 +1,8 @@
 function time_date() {
     var date_now = new Date();
 
-    var minutes = date_now.getMinutes()
-    var hours = date_now.getHours()
+    var minutes = (date_now.getMinutes() < 10 ? '0' : '') + date_now.getMinutes()
+    var hours = (date_now.getHours() < 10 ? '0' : '') + date_now.getHours()
     var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var dayName = days[date_now.getDay()];
     var time_stamp = dayName + " " + hours + ":" + minutes
