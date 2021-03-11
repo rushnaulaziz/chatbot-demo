@@ -75,20 +75,29 @@ for doc in documents:
 # shuffle our features and turn into np.array
 random.shuffle(training)
 training = np.array(training)
+
 # create train and test lists. X - patterns, Y - intents
 train_x = list(training[:,0])
 train_y = list(training[:,1])
 print("Training data created")
 
 
-# Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
-# equal to number of intents to predict output intent with softmax
+# Create model - 3 layers.
 model = Sequential()
-model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
+
+# First layer 128 neurons (a classification layer with relu as activation).
+model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu', name="layer1"))
 model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
+
+# second layer 64 neurons (a classification layer with relu as activation)
+model.add(Dense(64, activation='relu', name="layer2"))
 model.add(Dropout(0.5))
-model.add(Dense(len(train_y[0]), activation='softmax'))
+
+# 3rd output layer contains number of neurons equal to number of intents
+#  to predict output intent with softmax (a classification layer with softmax as activation.
+model.add(Dense(len(train_y[0]), activation='softmax', name="layer3"))
+
+model.summary()
 
 # Compile model. Stochastic gradient descent with Nesterov accelerated gradient gives good results for this model
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
