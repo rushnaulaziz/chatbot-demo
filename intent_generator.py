@@ -7,6 +7,7 @@ from nltk.tokenize import word_tokenize
 import random
 import itertools
 from pre_defined_json import pre_defined_intents
+from PyDictionary import PyDictionary
 
 
 def parse_file(file_path, sheet_name1):
@@ -21,15 +22,16 @@ def parse_file(file_path, sheet_name1):
     data = list(zip(questions, responses))
     return data
 
-def synonms_gen(word):
-    synonms = set()
-    for syns in wordnet.synsets(word):
-        for s in syns.lemma_names():
-            synonms.add(s)
-    if synonms:
-        synonms = [synonym.replace("_"," ") for synonym in synonyms if "_" in synonym]
-        return synonms
-    else:
+def synonyms_gen(word):
+    try:
+        dictionary=PyDictionary()
+        synonyms = dictionary.synonym(word)
+        if synonyms:
+            synonyms = [synonym for synonym in synonyms if len(synonym.split()) < 2]
+            return synonyms 
+        return [word]
+
+    except:
         return [word]
 
 
@@ -59,19 +61,32 @@ def form_json(data, target):
         response = "<br/>".join(response)
 
 
-    #     # patterns = [" ".join(subset) for L in range(0, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
-        patterns = [" ".join(subset) for L in range(2, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
+        # patterns = [" ".join(subset) for L in range(0, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
+        # patterns = [" ".join(subset) for L in range(2, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
 
-    #     # patterns = []
-    #     # patterns.append(patterns_without_sw)
-    #     # for token in patterns_without_sw:
-    #     #     new = random.sample(patterns_without_sw, len(patterns_without_sw))
-    #     #     pattern = (" ".join(new))
-    #     #     patterns.append(pattern)
+        # patterns = []
+        # patterns.append(patterns_without_sw)
+        # for token in patterns_without_sw:
+        #     new = random.sample(patterns_without_sw, len(patterns_without_sw))
+        #     pattern = (" ".join(new))
+        #     patterns.append(pattern)
 
+        final_patterns = []
+
+        for index, token in enumerate(patterns_without_sw):
+            synonyms = synonyms_gen(token)
+            for synonym in synonyms:
+                new_phrase = patterns_without_sw.copy()
+                new_phrase[index] = synonym
+                new_pattern = " ".join(new_phrase)
+                # print(new_pattern)
+                final_patterns.append(new_pattern)
+
+
+        print(final_patterns)
         intent = {
             "tag": tag,
-            "patterns": patterns,
+            "patterns": final_patterns,
             "responses": [response],
             "context": []
         }
