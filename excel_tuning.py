@@ -13,8 +13,10 @@ def parse_file(file_path, sheet_name1):
     return data
 if __name__ == '__main__':
     file_path = r'./data.xlsx'
-    sheet_name = "Sheet1"
+    sheet_name = "Sheet2"
     json_path =  "./intents.json"
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name)
-        print(fileContent[0][1])
+        first_q = fileContent[0][1]
+        first_q = first_q.splitlines()
+        print(first_q)
