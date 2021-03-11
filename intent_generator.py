@@ -48,20 +48,22 @@ def form_json(data, target):
     for query, response in data:
         patter_tokens = word_tokenize(query.lower())
         patterns_without_sw = list(set([word for word in patter_tokens if not word in stopwords]))
-        # print(tokens_without_sw)
+        print(patterns_without_sw)
         tag = "_".join(patterns_without_sw)
 
 
 
-        patterns = [" ".join(subset) for L in range(0, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
+    #     # patterns = [" ".join(subset) for L in range(0, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
+    #     patterns = [" ".join(subset) for L in range(2, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
 
-        # patterns = []
-        # patterns.append(patterns_without_sw)
-        # for token in patterns_without_sw:
-        #     new = random.sample(patterns_without_sw, len(patterns_without_sw))
-        #     pattern = (" ".join(new))
-        #     patterns.append(pattern)
+    #     # patterns = []
+    #     # patterns.append(patterns_without_sw)
+    #     # for token in patterns_without_sw:
+    #     #     new = random.sample(patterns_without_sw, len(patterns_without_sw))
+    #     #     pattern = (" ".join(new))
+    #     #     patterns.append(pattern)
 
+        patterns = patterns_without_sw
         intent = {
             "tag": tag,
             "patterns": patterns,

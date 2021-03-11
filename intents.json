@@ -134,23 +134,12 @@
                ]
           },
           {
-               "tag": "features_mega_cloud_offer",
+               "tag": "cloud_features_offer_mega",
                "patterns": [
-                    "features",
-                    "mega",
                     "cloud",
+                    "features",
                     "offer",
-                    "features mega",
-                    "features cloud",
-                    "features offer",
-                    "mega cloud",
-                    "mega offer",
-                    "cloud offer",
-                    "features mega cloud",
-                    "features mega offer",
-                    "features cloud offer",
-                    "mega cloud offer",
-                    "features mega cloud offer"
+                    "mega"
                ],
                "responses": [
                     "<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/><br/> 1. Omnichannel Management <br/><br/> 2. Future-Proofed Contact Center <br/><br/> 3.Chatbots with Text-to-Speech Capabilties <br/><br/> 4.Workforce Management Integration  <br/><br/> 5.Built-In AI Routing Two-Way Messaging"
@@ -161,8 +150,7 @@
                "tag": "management_omnichannel",
                "patterns": [
                     "management",
-                    "omnichannel",
-                    "management omnichannel"
+                    "omnichannel"
                ],
                "responses": [
                     "Through <strong>Omnichannel Management</strong>, connect any and all customer communication channels you need at any time, providing a seamless customer journey regardless of how they choose to contact your business."
@@ -170,15 +158,11 @@
                "context": []
           },
           {
-               "tag": "contact_center_future-proofed",
+               "tag": "center_future-proofed_contact",
                "patterns": [
-                    "contact",
                     "center",
                     "future-proofed",
-                    "contact center",
-                    "contact future-proofed",
-                    "center future-proofed",
-                    "contact center future-proofed"
+                    "contact"
                ],
                "responses": [
                     "<strong>Future-Proofed Contact Center</strong> feature allows you to create and modify channels easily, always having complete ownership of your customer interaction data across all channels."
@@ -186,15 +170,11 @@
                "context": []
           },
           {
-               "tag": "capabilties_chatbots_text-to-speech",
+               "tag": "text-to-speech_chatbots_capabilties",
                "patterns": [
-                    "capabilties",
-                    "chatbots",
                     "text-to-speech",
-                    "capabilties chatbots",
-                    "capabilties text-to-speech",
-                    "chatbots text-to-speech",
-                    "capabilties chatbots text-to-speech"
+                    "chatbots",
+                    "capabilties"
                ],
                "responses": [
                     "Advanced AI-based chatbots enable you to automatically respond to basic inquiries, allowing agents to focus on more complex inquiries and for you to fielda higher volume of calls and chats. "
@@ -202,15 +182,11 @@
                "context": []
           },
           {
-               "tag": "workforce_integration_management",
+               "tag": "integration_workforce_management",
                "patterns": [
-                    "workforce",
                     "integration",
-                    "management",
-                    "workforce integration",
-                    "workforce management",
-                    "integration management",
-                    "workforce integration management"
+                    "workforce",
+                    "management"
                ],
                "responses": [
                     "Use <strong> Workforce Management Integration </strong>  feature to optimize existing contact center and platforms like workforce management software and third party planning and operations tools."
@@ -218,15 +194,11 @@
                "context": []
           },
           {
-               "tag": "routing_built-in_ai",
+               "tag": "built-in_ai_routing",
                "patterns": [
-                    "routing",
                     "built-in",
                     "ai",
-                    "routing built-in",
-                    "routing ai",
-                    "built-in ai",
-                    "routing built-in ai"
+                    "routing"
                ],
                "responses": [
                     "With Built-In <strong>AI Routing </strong>feature, choose to turn on our complimentary AI routing soolution at any time to match your customers with agents with compatible behavioral characteristics, driving measurably better outcomes."
@@ -237,8 +209,7 @@
                "tag": "messaging_two-way",
                "patterns": [
                     "messaging",
-                    "two-way",
-                    "messaging two-way"
+                    "two-way"
                ],
                "responses": [
                     "Through <strong>Two-Way Messaging</strong> feature, increase responsiveness by easily sending and respoonding to customer inquiries."
@@ -246,15 +217,11 @@
                "context": []
           },
           {
-               "tag": "features_agent_desktop",
+               "tag": "features_desktop_agent",
                "patterns": [
                     "features",
-                    "agent",
                     "desktop",
-                    "features agent",
-                    "features desktop",
-                    "agent desktop",
-                    "features agent desktop"
+                    "agent"
                ],
                "responses": [
                     "A few of many agent deskop features are: <br/><br/> 1. See the full picture with contextual details about customer history and preferences<br/><br/> 2.  Manage all conversations in one streamlined interface. Field inbound messages or place outbound calls using a personalized directory<br/><br/> 3. View and track individual agent performance metrics like AHT, FCR, and more<br/><br/>"
@@ -262,23 +229,12 @@
                "context": []
           },
           {
-               "tag": "packages_available_mega_cloud",
+               "tag": "cloud_available_packages_mega",
                "patterns": [
-                    "packages",
-                    "available",
-                    "mega",
                     "cloud",
-                    "packages available",
-                    "packages mega",
-                    "packages cloud",
-                    "available mega",
-                    "available cloud",
-                    "mega cloud",
-                    "packages available mega",
-                    "packages available cloud",
-                    "packages mega cloud",
-                    "available mega cloud",
-                    "packages available mega cloud"
+                    "available",
+                    "packages",
+                    "mega"
                ],
                "responses": [
                     "Mega Cloud is available in three flavors at a variety of affordable price points. <br/><br/> 1. Free - $0/mo <br/><br/> 2. Premium - $99/mo <br/><br/> 3. Platinum - $170/mo"
@@ -291,18 +247,7 @@
                     "package",
                     "features",
                     "free",
-                    "offer",
-                    "package features",
-                    "package free",
-                    "package offer",
-                    "features free",
-                    "features offer",
-                    "free offer",
-                    "package features free",
-                    "package features offer",
-                    "package free offer",
-                    "features free offer",
-                    "package features free offer"
+                    "offer"
                ],
                "responses": [
                     "Free package ($0/Month) offers: <br/><br/>1. Automated Routing <br/><br/> 2.Interactive Voice Response <br/><br/> 3. Chatbots <br/><br/> 4. Analytics and Reporting"
@@ -310,23 +255,12 @@
                "context": []
           },
           {
-               "tag": "package_features_premium_offer",
+               "tag": "package_features_offer_premium",
                "patterns": [
                     "package",
                     "features",
-                    "premium",
                     "offer",
-                    "package features",
-                    "package premium",
-                    "package offer",
-                    "features premium",
-                    "features offer",
-                    "premium offer",
-                    "package features premium",
-                    "package features offer",
-                    "package premium offer",
-                    "features premium offer",
-                    "package features premium offer"
+                    "premium"
                ],
                "responses": [
                     "Premium package ($99/Month) offers: <br/><br/>1. Automated Routing <br/><br/> 2.Interactive Voice Response <br/><br/> 3. Chatbots <br/><br/> 4. Analytics and Reporting <br/><br/> 5. Third Party Integration"
@@ -334,23 +268,12 @@
                "context": []
           },
           {
-               "tag": "package_features_platinum_offer",
+               "tag": "package_features_offer_platinum",
                "patterns": [
                     "package",
                     "features",
-                    "platinum",
                     "offer",
-                    "package features",
-                    "package platinum",
-                    "package offer",
-                    "features platinum",
-                    "features offer",
-                    "platinum offer",
-                    "package features platinum",
-                    "package features offer",
-                    "package platinum offer",
-                    "features platinum offer",
-                    "package features platinum offer"
+                    "platinum"
                ],
                "responses": [
                     "Platinum package ($170/Month) offers: <br/><br/> 1. Automated Routing <br/><br/> 2.Interactive Voice Response <br/><br/> 3. Chatbots <br/><br/> 4. Analytics and Reporting <br/><br/> 5. Third Party Integration"
@@ -358,39 +281,13 @@
                "context": []
           },
           {
-               "tag": "features_offer_package_available_each",
+               "tag": "package_available_features_offer_each",
                "patterns": [
-                    "features",
-                    "offer",
                     "package",
                     "available",
-                    "each",
-                    "features offer",
-                    "features package",
-                    "features available",
-                    "features each",
-                    "offer package",
-                    "offer available",
-                    "offer each",
-                    "package available",
-                    "package each",
-                    "available each",
-                    "features offer package",
-                    "features offer available",
-                    "features offer each",
-                    "features package available",
-                    "features package each",
-                    "features available each",
-                    "offer package available",
-                    "offer package each",
-                    "offer available each",
-                    "package available each",
-                    "features offer package available",
-                    "features offer package each",
-                    "features offer available each",
-                    "features package available each",
-                    "offer package available each",
-                    "features offer package available each"
+                    "features",
+                    "offer",
+                    "each"
                ],
                "responses": [
                     "Free package ($0/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/><br/> Premium package ($99/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration <br/><br/>  Platinum package ($170/Month) offers: <br/> 1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"
@@ -398,11 +295,10 @@
                "context": []
           },
           {
-               "tag": "routing_automated",
+               "tag": "automated_routing",
                "patterns": [
-                    "routing",
                     "automated",
-                    "routing automated"
+                    "routing"
                ],
                "responses": [
                     "Automated Routing is avaialble with all our packages"
@@ -414,11 +310,7 @@
                "patterns": [
                     "interactive",
                     "response",
-                    "voice",
-                    "interactive response",
-                    "interactive voice",
-                    "response voice",
-                    "interactive response voice"
+                    "voice"
                ],
                "responses": [
                     "Interactive Voice Response is avaialble with all our packages"
@@ -439,8 +331,7 @@
                "tag": "analytics_reporting",
                "patterns": [
                     "analytics",
-                    "reporting",
-                    "analytics reporting"
+                    "reporting"
                ],
                "responses": [
                     "Analytics and Reporting are avaialble with all our packages"
@@ -448,15 +339,11 @@
                "context": []
           },
           {
-               "tag": "integration_third_party",
+               "tag": "party_integration_third",
                "patterns": [
-                    "integration",
-                    "third",
                     "party",
-                    "integration third",
-                    "integration party",
-                    "third party",
-                    "integration third party"
+                    "integration",
+                    "third"
                ],
                "responses": [
                     "Third Party Integration is avaialble with our premium and platinum packages"
