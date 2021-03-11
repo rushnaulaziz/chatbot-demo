@@ -46,15 +46,21 @@ def form_json(data, target):
     stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
                 "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
     for query, response in data:
+
         patter_tokens = word_tokenize(query.lower())
         patterns_without_sw = list(set([word for word in patter_tokens if not word in stopwords]))
-        print(patterns_without_sw)
+        # print(patterns_without_sw)
+
         tag = "_".join(patterns_without_sw)
 
+        # patterns = patterns_without_sw
+
+        response = response.splitlines()
+        response = "<br/>".join(response)
 
 
     #     # patterns = [" ".join(subset) for L in range(0, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
-    #     patterns = [" ".join(subset) for L in range(2, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
+        patterns = [" ".join(subset) for L in range(2, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
 
     #     # patterns = []
     #     # patterns.append(patterns_without_sw)
@@ -63,7 +69,6 @@ def form_json(data, target):
     #     #     pattern = (" ".join(new))
     #     #     patterns.append(pattern)
 
-        patterns = patterns_without_sw
         intent = {
             "tag": tag,
             "patterns": patterns,
@@ -84,7 +89,7 @@ def form_json(data, target):
 
 if __name__ == '__main__':
     file_path = r'./data.xlsx'
-    sheet_name = "Sheet1"
+    sheet_name = "Sheet2"
     json_path =  "./intents.json"
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name)

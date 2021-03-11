@@ -1,354 +1,409 @@
 {
-     "intents": [
-          {
-               "tag": "noanswer",
-               "patterns": [],
-               "responses": [
-                    "Sorry, can't understand you",
-                    "Please give me more info",
-                    "Not sure I understand"
-               ],
-               "context": [
-                    ""
-               ]
-          },
-          {
-               "tag": "greeting",
-               "patterns": [
-                    "Hi",
-                    "Hello",
-                    "Hey",
-                    "Hii",
-                    "there"
-               ],
-               "responses": [
-                    "Hello, how can I help?",
-                    "Good to see you, how can I help you?",
-                    "Hi there, how can I help?"
-               ],
-               "context": [
-                    ""
-               ]
-          },
-          {
-               "tag": "goodbye",
-               "patterns": [
-                    "Bye",
-                    "See you later",
-                    "Goodbye",
-                    "Close",
-                    "Nice chatting to you, bye",
-                    "Till next time"
-               ],
-               "responses": [
-                    "See you!",
-                    "Have a nice day",
-                    "Bye! Come back again soon."
-               ],
-               "context": [
-                    ""
-               ]
-          },
-          {
-               "tag": "thanks",
-               "patterns": [
-                    "Thanks",
-                    "Thank you",
-                    "Awesome, thanks",
-                    "Wow",
-                    "Amazing",
-                    "Great",
-                    "Good",
-                    "Nice",
-                    "Brilliant"
-               ],
-               "responses": [
-                    "Happy to help!",
-                    "Any time!",
-                    "My pleasure"
-               ],
-               "context": [
-                    ""
-               ]
-          },
-          {
-               "tag": "zzunknow_query",
-               "patterns": [
-                    "boo",
-                    "much time"
-               ],
-               "responses": [
-                    "Sorry, I'm not able to understand your question. Can you please ask a different question?"
-               ],
-               "context": [
-                    ""
-               ]
-          },
-          {
-               "tag": "Introduction",
-               "patterns": [
-                    "who am i talking",
-                    "who",
-                    "name",
-                    "intro"
-               ],
-               "responses": [
-                    "It's Bot-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.",
-                    "I am Bot-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."
-               ],
-               "context": []
-          },
-          {
-               "tag": "human",
-               "patterns": [
-                    "person",
-                    "human",
-                    "agent",
-                    "representator",
-                    "man"
-               ],
-               "responses": [
-                    "Sorry, No human representatives are avaialble right now. You can ask me instead"
-               ],
-               "context": [
-                    ""
-               ]
-          },
-          {
-               "tag": "ok",
-               "patterns": [
-                    "ok",
-                    "okay",
-                    "fine",
-                    "right",
-                    "yes",
-                    "agreed"
-               ],
-               "responses": [
-                    "Hope, I helped",
-                    "Good to know you are satisfied with my services",
-                    "Sure"
-               ],
-               "context": [
-                    ""
-               ]
-          },
-          {
-               "tag": "cloud_features_offer_mega",
-               "patterns": [
-                    "cloud",
-                    "features",
-                    "offer",
-                    "mega"
-               ],
-               "responses": [
-                    "<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are: <br/><br/> 1. Omnichannel Management <br/><br/> 2. Future-Proofed Contact Center <br/><br/> 3.Chatbots with Text-to-Speech Capabilties <br/><br/> 4.Workforce Management Integration  <br/><br/> 5.Built-In AI Routing Two-Way Messaging"
-               ],
-               "context": []
-          },
-          {
-               "tag": "management_omnichannel",
-               "patterns": [
-                    "management",
-                    "omnichannel"
-               ],
-               "responses": [
-                    "Through <strong>Omnichannel Management</strong>, connect any and all customer communication channels you need at any time, providing a seamless customer journey regardless of how they choose to contact your business."
-               ],
-               "context": []
-          },
-          {
-               "tag": "center_future-proofed_contact",
-               "patterns": [
-                    "center",
-                    "future-proofed",
-                    "contact"
-               ],
-               "responses": [
-                    "<strong>Future-Proofed Contact Center</strong> feature allows you to create and modify channels easily, always having complete ownership of your customer interaction data across all channels."
-               ],
-               "context": []
-          },
-          {
-               "tag": "text-to-speech_chatbots_capabilties",
-               "patterns": [
-                    "text-to-speech",
-                    "chatbots",
-                    "capabilties"
-               ],
-               "responses": [
-                    "Advanced AI-based chatbots enable you to automatically respond to basic inquiries, allowing agents to focus on more complex inquiries and for you to fielda higher volume of calls and chats. "
-               ],
-               "context": []
-          },
-          {
-               "tag": "integration_workforce_management",
-               "patterns": [
-                    "integration",
-                    "workforce",
-                    "management"
-               ],
-               "responses": [
-                    "Use <strong> Workforce Management Integration </strong>  feature to optimize existing contact center and platforms like workforce management software and third party planning and operations tools."
-               ],
-               "context": []
-          },
-          {
-               "tag": "built-in_ai_routing",
-               "patterns": [
-                    "built-in",
-                    "ai",
-                    "routing"
-               ],
-               "responses": [
-                    "With Built-In <strong>AI Routing </strong>feature, choose to turn on our complimentary AI routing soolution at any time to match your customers with agents with compatible behavioral characteristics, driving measurably better outcomes."
-               ],
-               "context": []
-          },
-          {
-               "tag": "messaging_two-way",
-               "patterns": [
-                    "messaging",
-                    "two-way"
-               ],
-               "responses": [
-                    "Through <strong>Two-Way Messaging</strong> feature, increase responsiveness by easily sending and respoonding to customer inquiries."
-               ],
-               "context": []
-          },
-          {
-               "tag": "features_desktop_agent",
-               "patterns": [
-                    "features",
-                    "desktop",
-                    "agent"
-               ],
-               "responses": [
-                    "A few of many agent deskop features are: <br/><br/> 1. See the full picture with contextual details about customer history and preferences<br/><br/> 2.  Manage all conversations in one streamlined interface. Field inbound messages or place outbound calls using a personalized directory<br/><br/> 3. View and track individual agent performance metrics like AHT, FCR, and more<br/><br/>"
-               ],
-               "context": []
-          },
-          {
-               "tag": "cloud_available_packages_mega",
-               "patterns": [
-                    "cloud",
-                    "available",
-                    "packages",
-                    "mega"
-               ],
-               "responses": [
-                    "Mega Cloud is available in three flavors at a variety of affordable price points. <br/><br/> 1. Free - $0/mo <br/><br/> 2. Premium - $99/mo <br/><br/> 3. Platinum - $170/mo"
-               ],
-               "context": []
-          },
-          {
-               "tag": "package_features_free_offer",
-               "patterns": [
-                    "package",
-                    "features",
-                    "free",
-                    "offer"
-               ],
-               "responses": [
-                    "Free package ($0/Month) offers: <br/><br/>1. Automated Routing <br/><br/> 2.Interactive Voice Response <br/><br/> 3. Chatbots <br/><br/> 4. Analytics and Reporting"
-               ],
-               "context": []
-          },
-          {
-               "tag": "package_features_offer_premium",
-               "patterns": [
-                    "package",
-                    "features",
-                    "offer",
-                    "premium"
-               ],
-               "responses": [
-                    "Premium package ($99/Month) offers: <br/><br/>1. Automated Routing <br/><br/> 2.Interactive Voice Response <br/><br/> 3. Chatbots <br/><br/> 4. Analytics and Reporting <br/><br/> 5. Third Party Integration"
-               ],
-               "context": []
-          },
-          {
-               "tag": "package_features_offer_platinum",
-               "patterns": [
-                    "package",
-                    "features",
-                    "offer",
-                    "platinum"
-               ],
-               "responses": [
-                    "Platinum package ($170/Month) offers: <br/><br/> 1. Automated Routing <br/><br/> 2.Interactive Voice Response <br/><br/> 3. Chatbots <br/><br/> 4. Analytics and Reporting <br/><br/> 5. Third Party Integration"
-               ],
-               "context": []
-          },
-          {
-               "tag": "package_available_features_offer_each",
-               "patterns": [
-                    "package",
-                    "available",
-                    "features",
-                    "offer",
-                    "each"
-               ],
-               "responses": [
-                    "Free package ($0/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/><br/> Premium package ($99/Month) offers: <br/>1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration <br/><br/>  Platinum package ($170/Month) offers: <br/> 1. Automated Routing <br/> 2.Interactive Voice Response <br/> 3. Chatbots <br/> 4. Analytics and Reporting <br/> 5. Third Party Integration"
-               ],
-               "context": []
-          },
-          {
-               "tag": "automated_routing",
-               "patterns": [
-                    "automated",
-                    "routing"
-               ],
-               "responses": [
-                    "Automated Routing is avaialble with all our packages"
-               ],
-               "context": []
-          },
-          {
-               "tag": "interactive_response_voice",
-               "patterns": [
-                    "interactive",
-                    "response",
-                    "voice"
-               ],
-               "responses": [
-                    "Interactive Voice Response is avaialble with all our packages"
-               ],
-               "context": []
-          },
-          {
-               "tag": "chatbots",
-               "patterns": [
-                    "chatbots"
-               ],
-               "responses": [
-                    "Chatbots are avaialble with all our packages"
-               ],
-               "context": []
-          },
-          {
-               "tag": "analytics_reporting",
-               "patterns": [
-                    "analytics",
-                    "reporting"
-               ],
-               "responses": [
-                    "Analytics and Reporting are avaialble with all our packages"
-               ],
-               "context": []
-          },
-          {
-               "tag": "party_integration_third",
-               "patterns": [
-                    "party",
-                    "integration",
-                    "third"
-               ],
-               "responses": [
-                    "Third Party Integration is avaialble with our premium and platinum packages"
-               ],
-               "context": []
-          }
-     ]
+    "intents": [{
+            "tag": "noanswer",
+            "patterns": [],
+            "responses": [
+                "Sorry, can't understand you",
+                "Please give me more info",
+                "Not sure I understand"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "Hii",
+                "there"
+            ],
+            "responses": [
+                "Hello, how can I help?",
+                "Good to see you, how can I help you?",
+                "Hi there, how can I help?"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Close",
+                "Nice chatting to you, bye",
+                "Till next time"
+            ],
+            "responses": [
+                "See you!",
+                "Have a nice day",
+                "Bye! Come back again soon."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Awesome, thanks",
+                "Wow",
+                "Amazing",
+                "Great",
+                "Good",
+                "Nice",
+                "Brilliant"
+            ],
+            "responses": [
+                "Happy to help!",
+                "Any time!",
+                "My pleasure"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "zzunknow_query",
+            "patterns": [
+                "boo",
+                "much time"
+            ],
+            "responses": [
+                "Sorry, I'm not able to understand your question. Can you please ask a different question?"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Introduction",
+            "patterns": [
+                "who am i talking",
+                "who",
+                "name",
+                "intro"
+            ],
+            "responses": [
+                "It's Bot-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.",
+                "I am Bot-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."
+            ],
+            "context": []
+        },
+        {
+            "tag": "human",
+            "patterns": [
+                "person",
+                "human",
+                "agent",
+                "representator",
+                "man"
+            ],
+            "responses": [
+                "Sorry, No human representatives are avaialble right now. You can ask me instead"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "ok",
+            "patterns": [
+                "ok",
+                "okay",
+                "fine",
+                "right",
+                "yes",
+                "agreed"
+            ],
+            "responses": [
+                "Hope, I helped",
+                "Good to know you are satisfied with my services",
+                "Sure"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "features_offer_mega_cloud",
+            "patterns": [
+                "features offer",
+                "features mega",
+                "features cloud",
+                "offer mega",
+                "offer cloud",
+                "mega cloud",
+                "features offer mega",
+                "features offer cloud",
+                "features mega cloud",
+                "offer mega cloud",
+                "features offer mega cloud"
+            ],
+            "responses": [
+                "<strong>Mega Cloud</strong> provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are:<br/>1. Omnichannel Management<br/>2. Future-Proofed Contact Center<br/>3.Chatbots with Text-to-Speech Capabilties<br/>4.Workforce Management Integration<br/>5.Built-In AI Routing Two-Way Messaging"
+            ],
+            "context": []
+        },
+        {
+            "tag": "omnichannel_management",
+            "patterns": [
+                "omnichannel management"
+            ],
+            "responses": [
+                "Through <strong>Omnichannel Management</strong>, connect any and all customer communication channels you need at any time, providing a seamless customer journey regardless of how they choose to contact your business."
+            ],
+            "context": []
+        },
+        {
+            "tag": "contact_center_future-proofed",
+            "patterns": [
+                "contact center",
+                "contact future-proofed",
+                "center future-proofed",
+                "contact center future-proofed"
+            ],
+            "responses": [
+                "<strong>Future-Proofed Contact Center</strong> feature allows you to create and modify channels easily, always having complete ownership of your customer interaction data across all channels."
+            ],
+            "context": []
+        },
+        {
+            "tag": "text-to-speech_chatbots_capabilties",
+            "patterns": [
+                "text-to-speech chatbots",
+                "text-to-speech capabilties",
+                "chatbots capabilties",
+                "text-to-speech chatbots capabilties"
+            ],
+            "responses": [
+                "Advanced AI-based chatbots enable you to automatically respond to basic inquiries, allowing agents to focus on more complex inquiries and for you to fielda higher volume of calls and chats. "
+            ],
+            "context": []
+        },
+        {
+            "tag": "workforce_management_integration",
+            "patterns": [
+                "workforce management",
+                "workforce integration",
+                "management integration",
+                "workforce management integration"
+            ],
+            "responses": [
+                "Use <strong> Workforce Management Integration </strong>  feature to optimize existing contact center and platforms like workforce management software and third party planning and operations tools."
+            ],
+            "context": []
+        },
+        {
+            "tag": "ai_built-in_routing",
+            "patterns": [
+                "ai built-in",
+                "ai routing",
+                "built-in routing",
+                "ai built-in routing"
+            ],
+            "responses": [
+                "With Built-In <strong>AI Routing </strong>feature, choose to turn on our complimentary AI routing soolution at any time to match your customers with agents with compatible behavioral characteristics, driving measurably better outcomes."
+            ],
+            "context": []
+        },
+        {
+            "tag": "two-way_messaging",
+            "patterns": [
+                "two-way messaging"
+            ],
+            "responses": [
+                "Through <strong>Two-Way Messaging</strong> feature, increase responsiveness by easily sending and respoonding to customer inquiries."
+            ],
+            "context": []
+        },
+        {
+            "tag": "desktop_agent_features",
+            "patterns": [
+                "desktop agent",
+                "desktop features",
+                "agent features",
+                "desktop agent features"
+            ],
+            "responses": [
+                "A few of many agent deskop features are: <br/>1. See the full picture with contextual details about customer history and preferences<br/>2.  Manage all conversations in one streamlined interface. Field inbound messages or place outbound calls using a personalized directory<br/>3. View and track individual agent performance metrics like AHT, FCR, and more"
+            ],
+            "context": []
+        },
+        {
+            "tag": "available_packages_mega_cloud",
+            "patterns": [
+                "available packages",
+                "available mega",
+                "available cloud",
+                "packages mega",
+                "packages cloud",
+                "available packages mega",
+                "available packages cloud",
+                "available mega cloud",
+                "packages mega cloud",
+                "available packages mega cloud"
+            ],
+            "responses": [
+                "Mega Cloud is available in three flavors at a variety of affordable price points. <br/>1. Free - $0/mo<br/>2. Premium - $99/mo<br/>3. Platinum - $170/mo"
+            ],
+            "context": []
+        },
+        {
+            "tag": "features_offer_package_free",
+            "patterns": [
+                "features offer",
+                "features package",
+                "features free",
+                "offer package",
+                "offer free",
+                "package free",
+                "features offer package",
+                "features offer free",
+                "features package free",
+                "offer package free",
+                "features offer package free"
+            ],
+            "responses": [
+                "Free package ($0/Month) offers:<br/>1. Automated Routing <br/>2.Interactive Voice Response<br/>3. Chatbots<br/>4. Analytics and Reporting"
+            ],
+            "context": []
+        },
+        {
+            "tag": "features_offer_package_premium",
+            "patterns": [
+                "features offer",
+                "features package",
+                "features premium",
+                "offer package",
+                "offer premium",
+                "package premium",
+                "features offer package",
+                "features offer premium",
+                "features package premium",
+                "offer package premium",
+                "features offer package premium"
+            ],
+            "responses": [
+                "Premium package ($99/Month) offers:<br/>1. Automated Routing<br/>2.Interactive Voice Response <br/>3. Chatbots<br/>4. Analytics and Reporting<br/>5. Third Party Integration"
+            ],
+            "context": []
+        },
+        {
+            "tag": "features_offer_package_platinum",
+            "patterns": [
+                "features offer",
+                "features package",
+                "features platinum",
+                "offer package",
+                "offer platinum",
+                "package platinum",
+                "features offer package",
+                "features offer platinum",
+                "features package platinum",
+                "offer package platinum",
+                "features offer package platinum"
+            ],
+            "responses": [
+                "Platinum package ($170/Month) offers:<br/>1. Automated Routing<br/>2.Interactive Voice Response<br/>3. Chatbots <br/>4. Analytics and Reporting<br/>5. Third Party Integration"
+            ],
+            "context": []
+        },
+        {
+            "tag": "each_features_available_offer_package",
+            "patterns": [
+                "each features",
+                "each available",
+                "each offer",
+                "each package",
+                "features available",
+                "features offer",
+                "features package",
+                "available offer",
+                "available package",
+                "offer package",
+                "each features available",
+                "each features offer",
+                "each features package",
+                "each available offer",
+                "each available package",
+                "each offer package",
+                "features available offer",
+                "features available package",
+                "features offer package",
+                "available offer package",
+                "each features available offer",
+                "each features available package",
+                "each features offer package",
+                "each available offer package",
+                "features available offer package",
+                "each features available offer package"
+            ],
+            "responses": [
+                "Free package ($0/Month) offers:<br/>1. Automated Routing<br/>2.Interactive Voice Response<br/>3. Chatbots<br/>4. Analytics and Reporting <br/><br/>Premium package ($99/Month) offers: <br/>1. Automated Routing <br/>2.Interactive Voice Response<br/>3. Chatbots<br/>4. Analytics and Reporting<br/>5. Third Party Integration<br/><br/>Platinum package ($170/Month) offers: <br/>1. Automated Routing <br/>2. Interactive Voice Response <br/>3. Chatbots<br/>4. Analytics and Reporting<br/>5. Third Party Integration"
+            ],
+            "context": []
+        },
+        {
+            "tag": "automated_routing",
+            "patterns": [
+                "automated routing"
+            ],
+            "responses": [
+                "Automated Routing is avaialble with all our packages"
+            ],
+            "context": []
+        },
+        {
+            "tag": "voice_response_interactive",
+            "patterns": [
+                "voice response",
+                "voice interactive",
+                "response interactive",
+                "voice response interactive"
+            ],
+            "responses": [
+                "Interactive Voice Response is avaialble with all our packages"
+            ],
+            "context": []
+        },
+        {
+            "tag": "chatbots",
+            "patterns": [],
+            "responses": [
+                "Chatbots are avaialble with all our packages"
+            ],
+            "context": []
+        },
+        {
+            "tag": "reporting_analytics",
+            "patterns": [
+                "reporting analytics"
+            ],
+            "responses": [
+                "Analytics and Reporting are avaialble with all our packages"
+            ],
+            "context": []
+        },
+        {
+            "tag": "party_third_integration",
+            "patterns": [
+                "party third",
+                "party integration",
+                "third integration",
+                "party third integration"
+            ],
+            "responses": [
+                "Third Party Integration is avaialble with our premium and platinum packages"
+            ],
+            "context": []
+        }
+    ]
 }
