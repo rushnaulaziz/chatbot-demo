@@ -8,8 +8,9 @@ import random
 import itertools
 from pre_defined_json import pre_defined_intents
 from PyDictionary import PyDictionary
-
-
+import time
+stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
+            "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
 def parse_file(file_path, sheet_name1):
     """
     Input file parser
@@ -45,8 +46,7 @@ def form_json(data, target):
     for intent in pre_defined_intents:
         intents.append(intent)
     # print(data)
-    stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
-                "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
+
     for query, response in data:
 
         patter_tokens = word_tokenize(query.lower())
@@ -101,11 +101,34 @@ def form_json(data, target):
         resfl.close()
 
 
+def intent_progress_estimate(file_path, sheet_name):
+    if os.path.exists(file_path) and os.path.isfile(file_path):
+        fileContent = parse_file(file_path,sheet_name)
 
-if __name__ == '__main__':
-    file_path = r'./data.xlsx'
-    sheet_name = "Sheet2"
-    json_path =  "./intents.json"
+        # all_tokens = []
+        # for query, response in fileContent:
+        #     patter_tokens = word_tokenize(query.lower())
+        #     patterns_without_sw = list(set([word for word in patter_tokens if not word in stopwords]))
+        #     all_tokens += patterns_without_sw
+        # print(len(all_tokens))
+        # words_count = len(all_tokens)
+
+        questions_count = len(fileContent)
+        time_for_a_single_question = 10
+        total_etsimated_time = questions_count * time_for_a_single_question
+        
+        start_time1 = time.time()
+        while True:
+            print("#"*15)
+            time.sleep(2)
+            time_spent_till_now = time.time() - start_time1
+            print(f"--- progress {int((time_spent_till_now/total_etsimated_time)*100)} % ---")
+            print("#"*15)
+
+    else:
+        print('File {fp} not found'.format(fp=file_path))    
+
+def intent_generator_function(file_path, sheet_name, json_path):
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name)
         if not os.path.exists(json_path):
@@ -122,4 +145,10 @@ if __name__ == '__main__':
                 exit(0)
     else:
         print('File {fp} not found'.format(fp=file_path))
-        exit(1)
+
+if __name__ == '__main__':
+    file_path = './data.xlsx'
+    sheet_name = "Sheet2"
+    json_path =  "./intents.json"
+    # intent_generator_function(file_path, sheet_name, json_path)
+    intent_progress_estimate(file_path, sheet_name)

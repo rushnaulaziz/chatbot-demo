@@ -1,16 +1,21 @@
 from flask import Flask, session, jsonify, request, render_template, redirect, url_for, flash
 from flask_cors import CORS
 from flask import send_from_directory
-
+from intent_generator import intent_generator_function, intent_progress_estimate
 from chatbotkeras import *
 from werkzeug.utils import secure_filename
 import os
+from flask_socketio import SocketIO, emit
+import time
+import threading
+
 UPLOAD_FOLDER = './uploads'
 # ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_EXTENSIONS = {'xlsx'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+socketio = SocketIO(app)
 
 CORS(app)
 
@@ -45,6 +50,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+        
 @app.route('/uploads', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -59,10 +65,24 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
+
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return "File Uploaded succesfully"
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+            
+            # os.system("") 
+            sheet_name = "Sheet2"
+            json_path =  "./uploads/intents.json"
+            start_time = time.time()
+            thread1 = threading.Thread(target=intent_progress_estimate, args=(file_path, sheet_name))
+            thread1.start()
+            emit('message', 'Change has been made', broadcast=True) # To send all who listen
+            intent_generator_function(file_path, sheet_name, json_path)
+            print(f"--- {time.time() - start_time} seconds ---")
+            thread1.stop()
+            return "Task complted succesfully"
             # return "redirect(url_for('uploaded_file', filename=filename))"
+
     return '''
     <!doctype html>
     <title>Upload new File</title>
@@ -72,5 +92,7 @@ def upload_file():
       <input type=submit value=Upload>
     </form>
     '''
+
 if __name__ == "__main__":
-    app.run(port=3000, debug = True)
+    # app.run(port=3000, debug = True)
+    socketio.run(app)
