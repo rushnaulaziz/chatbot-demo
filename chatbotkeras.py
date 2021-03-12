@@ -3,16 +3,13 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 from nltk.tokenize import word_tokenize
 from keras.models import load_model
-model = load_model('chatbot_model.h5')
 
 import numpy as np
 import json
 import random
 import pickle
 
-intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+
 stopwords = ["what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", "are", "has","have"]
 # import types
 # import tensorflow as tf
@@ -43,7 +40,7 @@ def bow(sentence, words, show_details=True):
                     print ("found in bag: %s" % w)
     return(np.array(bag))
 
-def predict_class(sentence, model):
+def predict_class(sentence, words, model, classes):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
@@ -71,10 +68,16 @@ def getResponse(ints, intents_json):
     return result
 
 def chatbot_response(msg):
+
+    model = load_model('chatbot_model.h5')
+    intents = json.loads(open('intents.json').read())
+    words = pickle.load(open('words.pkl','rb'))
+    classes = pickle.load(open('classes.pkl','rb'))
+
     text_tokens = word_tokenize(msg)
     tokens_without_sw = [word for word in text_tokens if not word in stopwords]
     print(tokens_without_sw)
-    ints = predict_class(" ".join(tokens_without_sw), model)
+    ints = predict_class(" ".join(tokens_without_sw), words,  model, classes)
     print(ints)
     res = getResponse(ints, intents)
     return res
