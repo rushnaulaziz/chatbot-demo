@@ -10,7 +10,7 @@ import time
 import threading
 
 UPLOAD_FOLDER = './uploads'
-
+trainCompleted = False
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 socketio = SocketIO(app,cors_allowed_origins="*", logger=True)
@@ -45,7 +45,7 @@ def message():
     user_query = request.form['user_query']
     # Converting the entire text into lowercase, so that the algorithm does not treat the same words in different cases as different
     user_query = user_query.lower()
-    bot_response  = chatbot_response(user_query)
+    bot_response  = chatbot_response(user_query,trainCompleted)
 
     return jsonify({'response' : bot_response})
   
@@ -73,6 +73,7 @@ def upload_file():
         flash('No selected file')
         return redirect(request.url)
     #
+    global trainCompleted
     sheet_name = request.form['sheet_name']
     question_column = request.form['question_column']
     response_column = request.form['response_column']
@@ -86,7 +87,7 @@ def upload_file():
         intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column)
         train(json_path)
         socketio.emit('message', 100)
-        
+        trainCompleted = True
         return "Task complted succesfully"
     return "File not supported"
     

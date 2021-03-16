@@ -68,8 +68,14 @@ def getResponse(ints, intents_json):
             break
     return result
 
-def chatbot_response(msg):
-
+def chatbot_response(msg, trainCompleted):
+    global model,intents,words,classes
+    if trainCompleted:
+        model = load_model('chatbot_model.h5')
+        intents = json.loads(open('intents.json').read())
+        words = pickle.load(open('words.pkl','rb'))
+        classes = pickle.load(open('classes.pkl','rb'))
+    
     text_tokens = word_tokenize(msg)
     tokens_without_sw = [word for word in text_tokens if not word in stopwords]
     ints = predict_class(" ".join(tokens_without_sw), words,  model, classes)
