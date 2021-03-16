@@ -13,15 +13,15 @@ from PyDictionary import PyDictionary
 import time
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
             "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
-def parse_file(file_path, sheet_name1):
+def parse_file(file_path, sheet_name1,question_column, response_column ):
     """
     Input file parser
     """
     import pandas as pd
 
     df = pd.read_excel (file_path, sheet_name=sheet_name1)
-    questions = df['Questions']
-    responses = df['Response']
+    questions = df[question_column]
+    responses = df[response_column]
     data = list(zip(questions, responses))
     return data
 
@@ -90,9 +90,9 @@ def form_json(data, target):
 
    
 
-def intent_generator_function(file_path, sheet_name, json_path):
+def intent_generator_function(file_path, sheet_name, json_path,question_column, response_colum ):
     if os.path.exists(file_path) and os.path.isfile(file_path):
-        fileContent = parse_file(file_path,sheet_name)
+        fileContent = parse_file(file_path,sheet_name,question_column, response_colum )
         if not os.path.exists(json_path):
             form_json(fileContent, json_path)
         else:

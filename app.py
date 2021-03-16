@@ -1,6 +1,5 @@
-from flask import Flask, session, jsonify, request, render_template, redirect, url_for, flash
+from flask import Flask, session, jsonify, request, render_template,redirect, url_for, flash
 from flask_cors import CORS
-from flask import send_from_directory
 from intent_generator import intent_generator_function, parse_file
 from chatbotkeras import *
 from werkzeug.utils import secure_filename
@@ -41,9 +40,9 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def intent_progress_estimate(file_path, sheet_name, stop):
+def intent_progress_estimate(file_path, sheet_name,question_column, response_column, stop):
     if os.path.exists(file_path) and os.path.isfile(file_path):
-        fileContent = parse_file(file_path,sheet_name)
+        fileContent = parse_file(file_path,sheet_name,question_column, response_column)
 
         questions_count = len(fileContent)
         time_for_a_single_question = 10
@@ -73,6 +72,9 @@ def upload_file():
         flash('No file part')
         return redirect(request.url)
     file = request.files['file']
+    sheet_name = request.form['sheet_name']
+    question_column = request.form['question_column']
+    response_column = request.form['response_column']
     # if user does not select file, browser also submit an empty part without filename
     if file.filename == '':
         flash('No selected file')
@@ -81,15 +83,13 @@ def upload_file():
         filename = secure_filename(file.filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
-        
-        sheet_name = "Sheet2"
         json_path =  "intents.json"
         start_time = time.time()
         stop_thread = False
-        thread1 = threading.Thread(target=intent_progress_estimate, args=(file_path, sheet_name, lambda : stop_thread))
+        thread1 = threading.Thread(target=intent_progress_estimate, args=(file_path, sheet_name,question_column, response_column, lambda : stop_thread))
         thread1.start()
 
-        intent_generator_function(file_path, sheet_name, json_path)
+        intent_generator_function(file_path, sheet_name, json_path, question_column, response_column)
         train(json_path)
         print(f"--- {time.time() - start_time} seconds ---")
         stop_thread = True
