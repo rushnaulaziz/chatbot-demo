@@ -22,8 +22,6 @@ CORS(app)
 # Setting the secret key to some random bytes
 app.secret_key = "any random string"
 # command for generating random secrete key : python -c 'import os; print(os.urandom(16))'
-# session['username'] can be set using with username entered while logging in 
-# session.pop('username', None) can remove the username from the session if it's there
 
 @app.route('/')
 def index():
@@ -76,41 +74,43 @@ def intent_progress_estimate(file_path, sheet_name, stop):
     else:
         print('File {fp} not found'.format(fp=file_path)) 
    
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
+    # check if the post request has the file part
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    file = request.files['file']
+    # if user does not select file, browser also submit an empty part without filename
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(request.url)
+    if file and allowed_file(file.filename):
 
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(file_path)
-            
-            # os.system("") 
-            sheet_name = "Sheet2"
-            json_path =  "./uploads/intents.json"
-            start_time = time.time()
-            stop_thread = False
-            thread1 = threading.Thread(target=intent_progress_estimate, args=(file_path, sheet_name, lambda : stop_thread))
-            thread1.start()
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        
+        # os.system("") 
+        sheet_name = "Sheet2"
+        json_path =  "./uploads/intents.json"
+        start_time = time.time()
+        stop_thread = False
+        thread1 = threading.Thread(target=intent_progress_estimate, args=(file_path, sheet_name, lambda : stop_thread))
+        thread1.start()
 
-            intent_generator_function(file_path, sheet_name, json_path)
-            train(json_path)
-            print(f"--- {time.time() - start_time} seconds ---")
-            stop_thread = True
-            
-            return "Task complted succesfully"
-            # return "redirect(url_for('uploaded_file', filename=filename))"
+        intent_generator_function(file_path, sheet_name, json_path)
+        train(json_path)
+        print(f"--- {time.time() - start_time} seconds ---")
+        stop_thread = True
+        
+        return "Task complted succesfully"
+        # return "redirect(url_for('uploaded_file', filename=filename))"
 
-    return render_template("socket_com.html")
+    
+@app.route('train', method=['GET'])
+def train_template():
+    return render_template("train.html")
 
 if __name__ == "__main__":
     socketio.run(port=3000, debug=True, app=app)
