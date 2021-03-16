@@ -41,7 +41,7 @@ def synonyms_gen(word):
 
 
 
-def form_json(data, target):
+def form_json(socketio,data, target):
     """
     Appends new pharses to basic intent structure
     """
@@ -49,9 +49,12 @@ def form_json(data, target):
     for intent in pre_defined_intents:
         intents.append(intent)
 
-
+    num =  int(90 / len(data))
+    count = 0
     for query, response in data:
-
+        count+=num
+        socketio.emit('message', count)
+        
         patter_tokens = word_tokenize(query.lower())
         patterns_without_sw = list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords]))
         tag = "_".join(patterns_without_sw)
@@ -99,7 +102,7 @@ def intent_progress_estimate(file_path,socketio, sheet_name,question_column, res
             time.sleep(2)
             time_spent_till_now = time.time() - start_time1
             progress = int((time_spent_till_now/total_etsimated_time)*100) 
-            socketio.emit('message', progress)
+            # socketio.emit('message', progress)
             print(f"--- progress : {progress} % ---")
 
             if stop():
@@ -114,16 +117,16 @@ def intent_progress_estimate(file_path,socketio, sheet_name,question_column, res
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-def intent_generator_function(file_path, sheet_name, json_path,question_column, response_colum ):
+def intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum ):
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name,question_column, response_colum )
         if not os.path.exists(json_path):
-            form_json(fileContent, json_path)
+            form_json(socketio,fileContent, json_path)
         else:
             print('File {fp} already exists.'.format(fp=json_path))
             prompt = "yes"
             if prompt.strip().casefold() in {'y', 'yes'}:
-                form_json(fileContent, json_path)
+                form_json(socketio,fileContent, json_path)
             else:
                 exit(0)
     else:

@@ -82,16 +82,10 @@ def upload_file():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         json_path =  "intents.json"
-        start_time = time.time()
-        stop_thread = False
-        thread1 = threading.Thread(target=intent_progress_estimate, args=(file_path,socketio, sheet_name,question_column, response_column, lambda : stop_thread))
-        thread1.start()
         
-        intent_generator_function(file_path, sheet_name, json_path, question_column, response_column)
+        intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column)
         train(json_path)
-        
-        print(f"--- {time.time() - start_time} seconds ---")
-        stop_thread = True
+        socketio.emit('message', 100)
         
         return "Task complted succesfully"
     return "File not supported"
