@@ -10,7 +10,7 @@ import random
 import pickle
 
 model = load_model('chatbot_model.h5')
-intents = json.loads(open('uploads/intents.json').read())
+intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
 stopwords = ["what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", "are", "has","have"]

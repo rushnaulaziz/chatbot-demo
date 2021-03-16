@@ -83,7 +83,7 @@ def upload_file():
         file.save(file_path)
         
         sheet_name = "Sheet2"
-        json_path =  "./uploads/intents.json"
+        json_path =  "intents.json"
         start_time = time.time()
         stop_thread = False
         thread1 = threading.Thread(target=intent_progress_estimate, args=(file_path, sheet_name, lambda : stop_thread))
