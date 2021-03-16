@@ -9,7 +9,10 @@ import json
 import random
 import pickle
 
-
+model = load_model('chatbot_model.h5')
+intents = json.loads(open('uploads/intents.json').read())
+words = pickle.load(open('words.pkl','rb'))
+classes = pickle.load(open('classes.pkl','rb'))
 stopwords = ["what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", "are", "has","have"]
 # import types
 # import tensorflow as tf
@@ -49,7 +52,6 @@ def predict_class(sentence, words, model, classes):
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
-    print(classes)
     if results:
         for r in results:
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
@@ -59,7 +61,6 @@ def predict_class(sentence, words, model, classes):
 
 def getResponse(ints, intents_json):
     tag = ints[0]['intent']
-    print(tag)
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if(i['tag']== tag):
@@ -69,16 +70,9 @@ def getResponse(ints, intents_json):
 
 def chatbot_response(msg):
 
-    model = load_model('chatbot_model.h5')
-    intents = json.loads(open('intents.json').read())
-    words = pickle.load(open('words.pkl','rb'))
-    classes = pickle.load(open('classes.pkl','rb'))
-
     text_tokens = word_tokenize(msg)
     tokens_without_sw = [word for word in text_tokens if not word in stopwords]
-    print(tokens_without_sw)
     ints = predict_class(" ".join(tokens_without_sw), words,  model, classes)
-    print(ints)
     res = getResponse(ints, intents)
     return res
 

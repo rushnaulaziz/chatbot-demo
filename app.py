@@ -29,13 +29,12 @@ def index():
 
 @app.route('/message' , methods=['POST'])
 def message():
-    ''' It will fetch the user  '''
+    '''Chatbot will answer for the user query'''
     user_query = request.form['user_query']
     # Converting the entire text into lowercase, so that the algorithm does not treat the same words in different cases as different
     user_query = user_query.lower()
-    
     bot_response  = chatbot_response(user_query)
-        # , 200 , {'ContentType':'application/json'} 
+
     return jsonify({'response' : bot_response})
 
 def allowed_file(filename):
@@ -45,14 +44,6 @@ def allowed_file(filename):
 def intent_progress_estimate(file_path, sheet_name, stop):
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name)
-
-        # all_tokens = []
-        # for query, response in fileContent:
-        #     patter_tokens = word_tokenize(query.lower())
-        #     patterns_without_sw = list(set([word for word in patter_tokens if not word in stopwords]))
-        #     all_tokens += patterns_without_sw
-        # print(len(all_tokens))
-        # words_count = len(all_tokens)
 
         questions_count = len(fileContent)
         time_for_a_single_question = 10
@@ -69,6 +60,7 @@ def intent_progress_estimate(file_path, sheet_name, stop):
             if stop():
                 progress = 100
                 socketio.emit('message', progress)
+                
                 print(f"--- progress : {progress} % ---")
                 break
     else:
@@ -86,12 +78,10 @@ def upload_file():
         flash('No selected file')
         return redirect(request.url)
     if file and allowed_file(file.filename):
-
         filename = secure_filename(file.filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         
-        # os.system("") 
         sheet_name = "Sheet2"
         json_path =  "./uploads/intents.json"
         start_time = time.time()
@@ -108,7 +98,7 @@ def upload_file():
         # return "redirect(url_for('uploaded_file', filename=filename))"
 
     
-@app.route('train', method=['GET'])
+@app.route('/train', methods=['GET'])
 def train_template():
     return render_template("train.html")
 

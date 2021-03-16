@@ -4,6 +4,8 @@ import json
 import os
 from nltk.corpus import wordnet
 from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 import random
 import itertools
 from pre_defined_json import pre_defined_intents
@@ -45,31 +47,18 @@ def form_json(data, target):
     intents = []
     for intent in pre_defined_intents:
         intents.append(intent)
-    # print(data)
+
 
     for query, response in data:
 
         patter_tokens = word_tokenize(query.lower())
-        patterns_without_sw = list(set([word for word in patter_tokens if not word in stopwords]))
-        # print(patterns_without_sw)
-
+        patterns_without_sw = list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords]))
         tag = "_".join(patterns_without_sw)
 
-        # patterns = patterns_without_sw
 
         response = response.splitlines()
         response = "<br/>".join(response)
 
-
-        # patterns = [" ".join(subset) for L in range(0, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
-        # patterns = [" ".join(subset) for L in range(2, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
-
-        # patterns = []
-        # patterns.append(patterns_without_sw)
-        # for token in patterns_without_sw:
-        #     new = random.sample(patterns_without_sw, len(patterns_without_sw))
-        #     pattern = (" ".join(new))
-        #     patterns.append(pattern)
 
         final_patterns = []
 
@@ -79,7 +68,6 @@ def form_json(data, target):
                 new_phrase = patterns_without_sw.copy()
                 new_phrase[index] = synonym
                 new_pattern = " ".join(new_phrase)
-                # print(new_pattern)
                 final_patterns.append(new_pattern)
 
 
@@ -95,7 +83,6 @@ def form_json(data, target):
 
 
     json_data = {"intents":intents}
-    # print(json_data)
     with open(target, 'w') as resfl:
         json.dump(json_data, resfl,  indent = 5)
         resfl.close()
@@ -110,7 +97,6 @@ def intent_generator_function(file_path, sheet_name, json_path):
             form_json(fileContent, json_path)
         else:
             print('File {fp} already exists.'.format(fp=json_path))
-            # prompt = input('Overwrite? Y/N\n')
             prompt = "yes"
             if prompt.strip().casefold() in {'y', 'yes'}:
                 print('Overwriting...')
@@ -125,5 +111,3 @@ if __name__ == '__main__':
     file_path = './data.xlsx'
     sheet_name = "Sheet2"
     json_path =  "./intents.json"
-    # intent_generator_function(file_path, sheet_name, json_path)
-    intent_progress_estimate(file_path, sheet_name)

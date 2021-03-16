@@ -18,7 +18,6 @@ if __name__ == '__main__':
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name)
         first_q = fileContent[0][1]
-        # print(first_q.bold)
         for run in first_q:
             if run.bold:
                 print (run.text)
