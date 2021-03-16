@@ -11,6 +11,7 @@ import itertools
 from pre_defined_json import pre_defined_intents
 from PyDictionary import PyDictionary
 import time
+ALLOWED_EXTENSIONS = {'xlsx'}
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
             "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
 def parse_file(file_path, sheet_name1,question_column, response_column ):
@@ -55,7 +56,6 @@ def form_json(data, target):
         patterns_without_sw = list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords]))
         tag = "_".join(patterns_without_sw)
 
-
         response = response.splitlines()
         response = "<br/>".join(response)
 
@@ -70,8 +70,6 @@ def form_json(data, target):
                 new_pattern = " ".join(new_phrase)
                 final_patterns.append(new_pattern)
 
-
-        print(final_patterns)
         intent = {
             "tag": tag,
             "patterns": final_patterns,
@@ -88,8 +86,34 @@ def form_json(data, target):
         resfl.close()
 
 
-   
+def intent_progress_estimate(file_path,socketio, sheet_name,question_column, response_column, stop):
+    if os.path.exists(file_path) and os.path.isfile(file_path):
+        fileContent = parse_file(file_path,sheet_name,question_column, response_column)
 
+        questions_count = len(fileContent)
+        time_for_a_single_question = 10
+        total_etsimated_time = questions_count * time_for_a_single_question
+        
+        start_time1 = time.time()
+        while True:
+            time.sleep(2)
+            time_spent_till_now = time.time() - start_time1
+            progress = int((time_spent_till_now/total_etsimated_time)*100) 
+            socketio.emit('message', progress)
+            print(f"--- progress : {progress} % ---")
+
+            if stop():
+                progress = 100
+                socketio.emit('message', progress)
+                print(f"--- progress : {progress} % ---")
+                break
+    else:
+        print('File {fp} not found'.format(fp=file_path)) 
+     
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 def intent_generator_function(file_path, sheet_name, json_path,question_column, response_colum ):
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name,question_column, response_colum )
@@ -99,10 +123,8 @@ def intent_generator_function(file_path, sheet_name, json_path,question_column, 
             print('File {fp} already exists.'.format(fp=json_path))
             prompt = "yes"
             if prompt.strip().casefold() in {'y', 'yes'}:
-                print('Overwriting...')
                 form_json(fileContent, json_path)
             else:
-                print('Exiting...')
                 exit(0)
     else:
         print('File {fp} not found'.format(fp=file_path))

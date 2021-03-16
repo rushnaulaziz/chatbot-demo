@@ -64,7 +64,8 @@
     <script type="text/javascript">
       $(document).ready(function () {
         $("#my_progress_bar").hide();
-        var socket = io.connect(
+        $("#upload-file-btn").click(function () {
+            var socket = io.connect(
             "http://" + document.domain + ":" + location.port
           );
 
@@ -79,8 +80,6 @@
             document.getElementById("pbar").style.width = data + "%";
             document.getElementById("pbar").innerHTML = data + "%";
           });
-        $("#upload-file-btn").click(function () {
-         
           var form_data = new FormData($("#upload-file")[0]);
           $.ajax({
             type: "POST",
