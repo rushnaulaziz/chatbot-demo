@@ -1,4 +1,8 @@
+#!/usr/bin/env python
+ 
+import argparse
 import nltk
+from argparse import ArgumentParser
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import json
@@ -11,6 +15,21 @@ from keras.optimizers import SGD
 import random
 
 def train(file_path):
+    """Trains the chatbot on intent file"""
+    """
+    Args:
+    Json file path: File should have json in the following format
+    {
+     "intents": [
+          {
+               "tag": "string",
+               "patterns": ["string"],
+               "responses": ["string"],
+               "context": ["string"]
+          }
+        ]
+    }
+    """
     words=[]
     classes = []
     documents = []
@@ -107,6 +126,12 @@ def train(file_path):
     hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
     model.save('chatbot_model.h5', hist)
 
+def getargs():
+    usage_message = """train.py [--file] -f file"""
+    parser = ArgumentParser(conflict_handler='resolve', usage=usage_message)
+    parser.add_argument('-f', '--file', action='store', type=str, required=True)
+    return parser.parse_args()
+
 if __name__ == "__main__":
-    file_path = 'intents.json'
-    train(file_path)
+    args = getargs()
+    train(args.file)

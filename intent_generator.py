@@ -2,15 +2,13 @@
 import argparse
 import json
 import os
-from nltk.corpus import wordnet
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
-import random
-import itertools
 from pre_defined_json import pre_defined_intents
 from PyDictionary import PyDictionary
 import time
+from argparse import ArgumentParser
 ALLOWED_EXTENSIONS = {'xlsx'}
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
             "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
@@ -89,34 +87,11 @@ def form_json(socketio,data, target):
         resfl.close()
 
 
-def intent_progress_estimate(file_path,socketio, sheet_name,question_column, response_column, stop):
-    if os.path.exists(file_path) and os.path.isfile(file_path):
-        fileContent = parse_file(file_path,sheet_name,question_column, response_column)
-
-        questions_count = len(fileContent)
-        time_for_a_single_question = 10
-        total_etsimated_time = questions_count * time_for_a_single_question
-        
-        start_time1 = time.time()
-        while True:
-            time.sleep(2)
-            time_spent_till_now = time.time() - start_time1
-            progress = int((time_spent_till_now/total_etsimated_time)*100) 
-            # socketio.emit('message', progress)
-            print(f"--- progress : {progress} % ---")
-
-            if stop():
-                progress = 100
-                socketio.emit('message', progress)
-                print(f"--- progress : {progress} % ---")
-                break
-    else:
-        print('File {fp} not found'.format(fp=file_path)) 
-     
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 def intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum ):
     if os.path.exists(file_path) and os.path.isfile(file_path):
         fileContent = parse_file(file_path,sheet_name,question_column, response_colum )
@@ -131,8 +106,20 @@ def intent_generator_function(socketio, file_path, sheet_name, json_path,questio
                 exit(0)
     else:
         print('File {fp} not found'.format(fp=file_path))
+        
+def getargs():
+    usage_message = """excel_tuning.py [--file] -f file  [--sheet] -s sheetname [--qcol] -q questioncolumn [--rcol] -r responsecolumn"""
+    parser = ArgumentParser(conflict_handler='resolve', usage=usage_message)
+    parser.add_argument('-f', '--file', action='store', type=str, required=True)
+    parser.add_argument('-s', '--sheet', action='store', type=str, required=True)
+    parser.add_argument('-q', '--qcol', action='store', type=str, required=True)
+    parser.add_argument('-r', '--rcol', action='store', type=str, required=True)
+    parser.add_argument('-j', '--jsonpath', action='store', type=str, required=True)
+    return parser.parse_args()
 
 if __name__ == '__main__':
-    file_path = './data.xlsx'
-    sheet_name = "Sheet2"
-    json_path =  "./intents.json"
+    args = getargs()
+    file_path =args.file
+    sheet_name = args.sheet
+    json_path = args.jsonpath
+    
