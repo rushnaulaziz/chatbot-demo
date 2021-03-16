@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, render_template,redirect, flash
 from flask_cors import CORS
-from intent_generator import intent_generator_function, intent_progress_estimate, allowed_file
+from intent_generator import intent_generator_function, allowed_file
 from chatbotkeras import chatbot_response
 from werkzeug.utils import secure_filename
 import os

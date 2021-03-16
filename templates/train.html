@@ -42,6 +42,9 @@
               </div>
             </div>
           </div>
+        <div id="training_completed">
+          <h2>Training Completed</h2>
+        </div>
       <label>Select training file</label>
       <input
         name="file"
@@ -71,6 +74,7 @@
     <script type="text/javascript">
       $(document).ready(function () {
         $("#my_progress_bar").hide();
+        $("#training_completed").hide();
         $("#upload-file-btn").click(function () {
           var socket = io.connect(
             "http://" + document.domain + ":" + location.port
@@ -84,8 +88,13 @@
             console.log("progress : ", data);
             if (data == 100) {
               socket.emit("client_disconnecting");
+              $("#my_progress_bar").hide();
+              $("#training_completed").show();}
+            else{
+              $("#my_progress_bar").show();
             }
-            $("#my_progress_bar").show();
+            
+            
 
             document.getElementById("pbar").style.width = data + "%";
             document.getElementById("pbar").innerHTML = data + "%";

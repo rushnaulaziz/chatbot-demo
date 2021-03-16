@@ -1,586 +1,620 @@
 {
-  "intents": [
-    {
-      "tag": "noanswer",
-      "patterns": [],
-      "responses": [
-        "Sorry, can't understand you",
-        "Please give me more info",
-        "Not sure I understand"
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "greeting",
-      "patterns": ["Hi", "Hello", "Hey", "Hii", "there"],
-      "responses": [
-        "Hello, how can I help?",
-        "Good to see you, how can I help you?",
-        "Hi there, how can I help?"
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "goodbye",
-      "patterns": [
-        "Bye",
-        "See you later",
-        "Goodbye",
-        "Close",
-        "Nice chatting to you, bye",
-        "Till next time"
-      ],
-      "responses": [
-        "See you!",
-        "Have a nice day",
-        "Bye! Come back again soon."
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "thanks",
-      "patterns": [
-        "Thanks",
-        "Thank you",
-        "Awesome, thanks",
-        "Wow",
-        "Amazing",
-        "Great",
-        "Good",
-        "Nice",
-        "Brilliant"
-      ],
-      "responses": ["Happy to help!", "Any time!", "My pleasure"],
-      "context": [""]
-    },
-    {
-      "tag": "zzunknow_query",
-      "patterns": ["boo", "much time"],
-      "responses": [
-        "Sorry, I'm not able to understand your question. Can you please ask a different question?"
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "Introduction",
-      "patterns": ["who am i talking", "who", "name", "intro"],
-      "responses": [
-        "It's Bot-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.",
-        "I am Bot-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."
-      ],
-      "context": []
-    },
-    {
-      "tag": "human",
-      "patterns": ["person", "human", "agent", "representator", "man"],
-      "responses": [
-        "Sorry, No human representatives are avaialble right now. You can ask me instead"
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "ok",
-      "patterns": ["ok", "okay", "fine", "right", "yes", "agreed"],
-      "responses": [
-        "Hope, I helped",
-        "Good to know you are satisfied with my services",
-        "Sure"
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "feature_/_cloud_offer_mega",
-      "patterns": [
-        "property / cloud offer mega",
-        "badge / cloud offer mega",
-        "peculiarity / cloud offer mega",
-        "external / cloud offer mega",
-        "centrepiece / cloud offer mega",
-        "excellence / cloud offer mega",
-        "magnet / cloud offer mega",
-        "facet / cloud offer mega",
-        "centerpiece / cloud offer mega",
-        "dimension / cloud offer mega",
-        "invariant / cloud offer mega",
-        "aspect / cloud offer mega",
-        "attribute / cloud offer mega",
-        "contour / cloud offer mega",
-        "attracter / cloud offer mega",
-        "attractor / cloud offer mega",
-        "attraction / cloud offer mega",
-        "characteristic / cloud offer mega",
-        "excellency / cloud offer mega",
-        "feature / cloud offer mega",
-        "feature / mushroom offer mega",
-        "feature / aerosol offer mega",
-        "feature / coma offer mega",
-        "feature / nebula offer mega",
-        "feature / cloud hook mega",
-        "feature / cloud render mega",
-        "feature / cloud solicit mega",
-        "feature / cloud furnish mega",
-        "feature / cloud provide mega",
-        "feature / cloud accost mega",
-        "feature / cloud supply mega",
-        "feature / cloud offer mega"
-      ],
-      "responses": [
-        "Mega Cloud provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are:<br/><br/>Omnichannel Management<br/>Future-Proofed Contact Center<br/>Chatbots with Text-to-Speech Capabilties<br/>Workforce Management Integration<br/>Built-In AI Routing<br/>Two-Way Messaging"
-      ],
-      "context": []
-    },
-    {
-      "tag": "omnichannel_/_management",
-      "patterns": [
-        "omnichannel / management",
-        "omnichannel / management",
-        "omnichannel / supervising",
-        "omnichannel / misconduct",
-        "omnichannel / superintendence",
-        "omnichannel / authorisation",
-        "omnichannel / disenfranchisement",
-        "omnichannel / steering",
-        "omnichannel / disposal",
-        "omnichannel / channelization",
-        "omnichannel / direction",
-        "omnichannel / misdirection",
-        "omnichannel / handling",
-        "omnichannel / administration",
-        "omnichannel / oversight",
-        "omnichannel / supervision",
-        "omnichannel / mismanagement",
-        "omnichannel / guidance",
-        "omnichannel / canalization",
-        "omnichannel / homemaking",
-        "omnichannel / channelisation",
-        "omnichannel / conducting",
-        "omnichannel / treatment",
-        "omnichannel / empowerment",
-        "omnichannel / finance",
-        "omnichannel / canalisation",
-        "omnichannel / authorization"
-      ],
-      "responses": [
-        "Through Omnichannel Management, connect any and all customer communication channels you need at any time, providing a seamless customer journey regardless of how they choose to contact your business."
-      ],
-      "context": []
-    },
-    {
-      "tag": "center_/_future-proofed_contact",
-      "patterns": [
-        "middle / future-proofed contact",
-        "midfield / future-proofed contact",
-        "heart / future-proofed contact",
-        "seat / future-proofed contact",
-        "midstream / future-proofed contact",
-        "area / future-proofed contact",
-        "country / future-proofed contact",
-        "hub / future-proofed contact",
-        "eye / future-proofed contact",
-        "centre / future-proofed contact",
-        "center / future-proofed contact",
-        "center / treated contact",
-        "center / future-proofed interaction",
-        "center / future-proofed placement",
-        "center / future-proofed brush"
-      ],
-      "responses": [
-        "Future-Proofed Contact Center feature allows you to create and modify channels easily, always having complete ownership of your customer interaction data across all channels."
-      ],
-      "context": []
-    },
-    {
-      "tag": "/_text-to-speech_chatbots_capabilties",
-      "patterns": [
-        "/ text-to-speech chatbots capabilties",
-        "/ current chatbots capabilties",
-        "/ text-to-speech chatbots capabilties",
-        "/ text-to-speech chatbots capabilties"
-      ],
-      "responses": [
-        "Advanced AI-based chatbots enable you to automatically respond to basic inquiries, allowing agents to focus on more complex inquiries and for you to fielda higher volume of calls and chats. "
-      ],
-      "context": []
-    },
-    {
-      "tag": "/_workforce_management_integration",
-      "patterns": [
-        "/ workforce management integration",
-        "/ personnel management integration",
-        "/ manpower management integration",
-        "/ gang management integration",
-        "/ shift management integration",
-        "/ hands management integration",
-        "/ men management integration",
-        "/ force management integration",
-        "/ crew management integration",
-        "/ complement management integration",
-        "/ workforce supervising integration",
-        "/ workforce misconduct integration",
-        "/ workforce superintendence integration",
-        "/ workforce authorisation integration",
-        "/ workforce disenfranchisement integration",
-        "/ workforce steering integration",
-        "/ workforce disposal integration",
-        "/ workforce channelization integration",
-        "/ workforce direction integration",
-        "/ workforce misdirection integration",
-        "/ workforce handling integration",
-        "/ workforce administration integration",
-        "/ workforce oversight integration",
-        "/ workforce supervision integration",
-        "/ workforce mismanagement integration",
-        "/ workforce guidance integration",
-        "/ workforce canalization integration",
-        "/ workforce homemaking integration",
-        "/ workforce channelisation integration",
-        "/ workforce conducting integration",
-        "/ workforce treatment integration",
-        "/ workforce empowerment integration",
-        "/ workforce finance integration",
-        "/ workforce canalisation integration",
-        "/ workforce authorization integration",
-        "/ workforce management integrating",
-        "/ workforce management desegregation"
-      ],
-      "responses": [
-        "Use Workforce Management Integration feature to optimize existing contact center and platforms like workforce management software and third party planning and operations tools."
-      ],
-      "context": []
-    },
-    {
-      "tag": "ai_routing_built-in_/",
-      "patterns": [
-        "bureau routing built-in /",
-        "Army routing built-in /",
-        "authority routing built-in /",
-        "IC routing built-in /",
-        "office routing built-in /",
-        "agency routing built-in /",
-        "USA routing built-in /",
-        "ai expel built-in /",
-        "ai defeat built-in /",
-        "ai overcome built-in /",
-        "ai routing constitutional /",
-        "ai routing intrinsical /",
-        "ai routing inherent /",
-        "ai routing inbuilt /",
-        "ai routing integral /",
-        "ai routing intrinsic /",
-        "ai routing built-in /"
-      ],
-      "responses": [
-        "With Built-In AI Routing feature, choose to turn on our complimentary AI routing soolution at any time to match your customers with agents with compatible behavioral characteristics, driving measurably better outcomes. "
-      ],
-      "context": []
-    },
-    {
-      "tag": "/_two-way_messaging",
-      "patterns": [
-        "/ two-way messaging",
-        "/ ii messaging",
-        "/ 2 messaging",
-        "/ cardinal messaging"
-      ],
-      "responses": [
-        "Through Two-Way Messaging feature, increase responsiveness by easily sending and respoonding to customer inquiries."
-      ],
-      "context": []
-    },
-    {
-      "tag": "feature_agent_desktop",
-      "patterns": [
-        "property agent desktop",
-        "badge agent desktop",
-        "peculiarity agent desktop",
-        "external agent desktop",
-        "centrepiece agent desktop",
-        "excellence agent desktop",
-        "magnet agent desktop",
-        "facet agent desktop",
-        "centerpiece agent desktop",
-        "dimension agent desktop",
-        "invariant agent desktop",
-        "aspect agent desktop",
-        "attribute agent desktop",
-        "contour agent desktop",
-        "attracter agent desktop",
-        "attractor agent desktop",
-        "attraction agent desktop",
-        "characteristic agent desktop",
-        "excellency agent desktop",
-        "feature transmitter desktop",
-        "feature vasoconstrictive desktop",
-        "feature mutagen desktop",
-        "feature retardation desktop",
-        "feature impairer desktop",
-        "feature retardent desktop",
-        "feature weakener desktop",
-        "feature pressor desktop",
-        "feature invigorator desktop",
-        "feature satisfier desktop",
-        "feature cause desktop",
-        "feature repressor desktop",
-        "feature vector desktop",
-        "feature motor desktop",
-        "feature represser desktop",
-        "feature vasoconstrictor desktop",
-        "feature shortener desktop",
-        "feature enlivener desktop",
-        "feature eliminator desktop",
-        "feature quickener desktop",
-        "feature relaxer desktop",
-        "feature retardant desktop",
-        "feature teratogen desktop",
-        "feature biohazard desktop",
-        "feature stressor desktop",
-        "feature agent screen",
-        "feature agent background"
-      ],
-      "responses": [
-        "A few of many agent deskop features are:<br/><br/>\u25cf See te full picture with contextual details about customer history and preferences<br/><br/>\u25cf Manage all conversations in one streamlined interface. Field inbound messages or place outbound calls using a personalized directory<br/><br/>\u25cf View and track individual agent performance metrics like AHT, FCR, and more"
-      ],
-      "context": []
-    },
-    {
-      "tag": "cloud_package_available_mega",
-      "patterns": [
-        "mushroom package available mega",
-        "aerosol package available mega",
-        "coma package available mega",
-        "nebula package available mega",
-        "cloud packet available mega",
-        "cloud bundle available mega",
-        "cloud container available mega",
-        "cloud sheaf available mega",
-        "cloud pack available mega",
-        "cloud parcel available mega",
-        "cloud package acquirable mega",
-        "cloud package procurable mega",
-        "cloud package getable mega",
-        "cloud package handiness mega",
-        "cloud package forthcoming mega",
-        "cloud package accessible mega",
-        "cloud package visible mega",
-        "cloud package availableness mega",
-        "cloud package addressable mega",
-        "cloud package easy mega",
-        "cloud package lendable mega",
-        "cloud package ready mega",
-        "cloud package availability mega",
-        "cloud package purchasable mega",
-        "cloud package open mega",
-        "cloud package accessibility mega",
-        "cloud package obtainable mega",
-        "cloud package gettable mega",
-        "cloud package available mega"
-      ],
-      "responses": [
-        "Mega Cloud is available in three flavors at a variety of affordable price points. <br/><br/>Free - $0/mo<br/>Premium - $99/mo<br/>Platinum - $170/mo"
-      ],
-      "context": []
-    },
-    {
-      "tag": "feature_/_package_offer_free",
-      "patterns": [
-        "property / package offer free",
-        "badge / package offer free",
-        "peculiarity / package offer free",
-        "external / package offer free",
-        "centrepiece / package offer free",
-        "excellence / package offer free",
-        "magnet / package offer free",
-        "facet / package offer free",
-        "centerpiece / package offer free",
-        "dimension / package offer free",
-        "invariant / package offer free",
-        "aspect / package offer free",
-        "attribute / package offer free",
-        "contour / package offer free",
-        "attracter / package offer free",
-        "attractor / package offer free",
-        "attraction / package offer free",
-        "characteristic / package offer free",
-        "excellency / package offer free",
-        "feature / package offer free",
-        "feature / packet offer free",
-        "feature / bundle offer free",
-        "feature / container offer free",
-        "feature / sheaf offer free",
-        "feature / pack offer free",
-        "feature / parcel offer free",
-        "feature / package hook free",
-        "feature / package render free",
-        "feature / package solicit free",
-        "feature / package furnish free",
-        "feature / package provide free",
-        "feature / package accost free",
-        "feature / package supply free",
-        "feature / package offer unhampered",
-        "feature / package offer escaped",
-        "feature / package offer unrestricted",
-        "feature / package offer self-governing",
-        "feature / package offer freedom",
-        "feature / package offer uncommitted",
-        "feature / package offer footloose",
-        "feature / package offer unbound",
-        "feature / package offer unconstrained",
-        "feature / package offer liberated",
-        "feature / package offer emancipated",
-        "feature / package offer unimprisoned",
-        "feature / package offer sovereign",
-        "feature / package offer aweigh",
-        "feature / package offer clear",
-        "feature / package offer atrip",
-        "feature / package offer autonomous",
-        "feature / package offer loose",
-        "feature / package offer out-of-school",
-        "feature / package offer independent",
-        "feature / package offer unrestrained",
-        "feature / package offer available",
-        "feature / package offer unconfined"
-      ],
-      "responses": [
-        "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
-      ],
-      "context": []
-    },
-    {
-      "tag": "feature_premium_/_package_offer",
-      "patterns": [
-        "property premium / package offer",
-        "badge premium / package offer",
-        "peculiarity premium / package offer",
-        "external premium / package offer",
-        "centrepiece premium / package offer",
-        "excellence premium / package offer",
-        "magnet premium / package offer",
-        "facet premium / package offer",
-        "centerpiece premium / package offer",
-        "dimension premium / package offer",
-        "invariant premium / package offer",
-        "aspect premium / package offer",
-        "attribute premium / package offer",
-        "contour premium / package offer",
-        "attracter premium / package offer",
-        "attractor premium / package offer",
-        "attraction premium / package offer",
-        "characteristic premium / package offer",
-        "excellency premium / package offer",
-        "feature superior / package offer",
-        "feature premium / package offer",
-        "feature premium / packet offer",
-        "feature premium / bundle offer",
-        "feature premium / container offer",
-        "feature premium / sheaf offer",
-        "feature premium / pack offer",
-        "feature premium / parcel offer",
-        "feature premium / package hook",
-        "feature premium / package render",
-        "feature premium / package solicit",
-        "feature premium / package furnish",
-        "feature premium / package provide",
-        "feature premium / package accost",
-        "feature premium / package supply"
-      ],
-      "responses": [
-        "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
-      ],
-      "context": []
-    },
-    {
-      "tag": "feature_/_package_offer_platinum",
-      "patterns": [
-        "property / package offer platinum",
-        "badge / package offer platinum",
-        "peculiarity / package offer platinum",
-        "external / package offer platinum",
-        "centrepiece / package offer platinum",
-        "excellence / package offer platinum",
-        "magnet / package offer platinum",
-        "facet / package offer platinum",
-        "centerpiece / package offer platinum",
-        "dimension / package offer platinum",
-        "invariant / package offer platinum",
-        "aspect / package offer platinum",
-        "attribute / package offer platinum",
-        "contour / package offer platinum",
-        "attracter / package offer platinum",
-        "attractor / package offer platinum",
-        "attraction / package offer platinum",
-        "characteristic / package offer platinum",
-        "excellency / package offer platinum",
-        "feature / package offer platinum",
-        "feature / packet offer platinum",
-        "feature / bundle offer platinum",
-        "feature / container offer platinum",
-        "feature / sheaf offer platinum",
-        "feature / pack offer platinum",
-        "feature / parcel offer platinum",
-        "feature / package hook platinum",
-        "feature / package render platinum",
-        "feature / package solicit platinum",
-        "feature / package furnish platinum",
-        "feature / package provide platinum",
-        "feature / package accost platinum",
-        "feature / package supply platinum",
-        "feature / package offer Pt"
-      ],
-      "responses": [
-        "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
-      ],
-      "context": []
-    },
-    {
-      "tag": "feature_each_offered_by_package_/_offer",
-      "patterns": [
-        "property each offered by package / offer",
-        "badge each offered by package / offer",
-        "peculiarity each offered by package / offer",
-        "external each offered by package / offer",
-        "centrepiece each offered by package / offer",
-        "excellence each offered by package / offer",
-        "magnet each offered by package / offer",
-        "facet each offered by package / offer",
-        "centerpiece each offered by package / offer",
-        "dimension each offered by package / offer",
-        "invariant each offered by package / offer",
-        "aspect each offered by package / offer",
-        "attribute each offered by package / offer",
-        "contour each offered by package / offer",
-        "attracter each offered by package / offer",
-        "attractor each offered by package / offer",
-        "attraction each offered by package / offer",
-        "characteristic each offered by package / offer",
-        "excellency each offered by package / offer",
-        "feature apiece offered by package / offer",
-        "feature each hook by package / offer",
-        "feature each render by package / offer",
-        "feature each solicit by package / offer",
-        "feature each furnish by package / offer",
-        "feature each provide by package / offer",
-        "feature each accost by package / offer",
-        "feature each supply by package / offer",
-        "feature each offered past package / offer",
-        "feature each offered by packet / offer",
-        "feature each offered by bundle / offer",
-        "feature each offered by container / offer",
-        "feature each offered by sheaf / offer",
-        "feature each offered by pack / offer",
-        "feature each offered by parcel / offer",
-        "feature each offered by package / offer",
-        "feature each offered by package / hook",
-        "feature each offered by package / render",
-        "feature each offered by package / solicit",
-        "feature each offered by package / furnish",
-        "feature each offered by package / provide",
-        "feature each offered by package / accost",
-        "feature each offered by package / supply"
-      ],
-      "responses": [
-        "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
-      ],
-      "context": []
-    }
-  ]
+     "intents": [
+          {
+               "tag": "noanswer",
+               "patterns": [],
+               "responses": [
+                    "Sorry, can't understand you",
+                    "Please give me more info",
+                    "Not sure I understand"
+               ],
+               "context": [
+                    ""
+               ]
+          },
+          {
+               "tag": "greeting",
+               "patterns": [
+                    "Hi",
+                    "Hello",
+                    "Hey",
+                    "Hii",
+                    "there"
+               ],
+               "responses": [
+                    "Hello, how can I help?",
+                    "Good to see you, how can I help you?",
+                    "Hi there, how can I help?"
+               ],
+               "context": [
+                    ""
+               ]
+          },
+          {
+               "tag": "goodbye",
+               "patterns": [
+                    "Bye",
+                    "See you later",
+                    "Goodbye",
+                    "Close",
+                    "Nice chatting to you, bye",
+                    "Till next time"
+               ],
+               "responses": [
+                    "See you!",
+                    "Have a nice day",
+                    "Bye! Come back again soon."
+               ],
+               "context": [
+                    ""
+               ]
+          },
+          {
+               "tag": "thanks",
+               "patterns": [
+                    "Thanks",
+                    "Thank you",
+                    "Awesome, thanks",
+                    "Wow",
+                    "Amazing",
+                    "Great",
+                    "Good",
+                    "Nice",
+                    "Brilliant"
+               ],
+               "responses": [
+                    "Happy to help!",
+                    "Any time!",
+                    "My pleasure"
+               ],
+               "context": [
+                    ""
+               ]
+          },
+          {
+               "tag": "zzunknow_query",
+               "patterns": [
+                    "boo",
+                    "much time"
+               ],
+               "responses": [
+                    "Sorry, I'm not able to understand your question. Can you please ask a different question?"
+               ],
+               "context": [
+                    ""
+               ]
+          },
+          {
+               "tag": "Introduction",
+               "patterns": [
+                    "who am i talking",
+                    "who",
+                    "name",
+                    "intro"
+               ],
+               "responses": [
+                    "It's Bot-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.",
+                    "I am Bot-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."
+               ],
+               "context": []
+          },
+          {
+               "tag": "human",
+               "patterns": [
+                    "person",
+                    "human",
+                    "agent",
+                    "representator",
+                    "man"
+               ],
+               "responses": [
+                    "Sorry, No human representatives are avaialble right now. You can ask me instead"
+               ],
+               "context": [
+                    ""
+               ]
+          },
+          {
+               "tag": "ok",
+               "patterns": [
+                    "ok",
+                    "okay",
+                    "fine",
+                    "right",
+                    "yes",
+                    "agreed"
+               ],
+               "responses": [
+                    "Hope, I helped",
+                    "Good to know you are satisfied with my services",
+                    "Sure"
+               ],
+               "context": [
+                    ""
+               ]
+          },
+          {
+               "tag": "mega_cloud_feature_offer",
+               "patterns": [
+                    "mega cloud feature offer",
+                    "mega mushroom feature offer",
+                    "mega aerosol feature offer",
+                    "mega coma feature offer",
+                    "mega nebula feature offer",
+                    "mega cloud property offer",
+                    "mega cloud badge offer",
+                    "mega cloud peculiarity offer",
+                    "mega cloud external offer",
+                    "mega cloud centrepiece offer",
+                    "mega cloud excellence offer",
+                    "mega cloud magnet offer",
+                    "mega cloud facet offer",
+                    "mega cloud centerpiece offer",
+                    "mega cloud dimension offer",
+                    "mega cloud invariant offer",
+                    "mega cloud aspect offer",
+                    "mega cloud attribute offer",
+                    "mega cloud contour offer",
+                    "mega cloud attracter offer",
+                    "mega cloud attractor offer",
+                    "mega cloud attraction offer",
+                    "mega cloud characteristic offer",
+                    "mega cloud excellency offer",
+                    "mega cloud feature hook",
+                    "mega cloud feature render",
+                    "mega cloud feature solicit",
+                    "mega cloud feature furnish",
+                    "mega cloud feature provide",
+                    "mega cloud feature accost",
+                    "mega cloud feature supply"
+               ],
+               "responses": [
+                    "Mega Cloud provides personalized, omnichannel customer support from a single interface through our cloud-based contact center solution. Some of the attractive features of Mega Cloud are:<br/><br/>Omnichannel Management<br/>Future-Proofed Contact Center<br/>Chatbots with Text-to-Speech Capabilties<br/>Workforce Management Integration<br/>Built-In AI Routing<br/>Two-Way Messaging"
+               ],
+               "context": []
+          },
+          {
+               "tag": "omnichannel_management",
+               "patterns": [
+                    "omnichannel management",
+                    "omnichannel supervising",
+                    "omnichannel misconduct",
+                    "omnichannel superintendence",
+                    "omnichannel authorisation",
+                    "omnichannel disenfranchisement",
+                    "omnichannel steering",
+                    "omnichannel disposal",
+                    "omnichannel channelization",
+                    "omnichannel direction",
+                    "omnichannel misdirection",
+                    "omnichannel handling",
+                    "omnichannel administration",
+                    "omnichannel oversight",
+                    "omnichannel supervision",
+                    "omnichannel mismanagement",
+                    "omnichannel guidance",
+                    "omnichannel canalization",
+                    "omnichannel homemaking",
+                    "omnichannel channelisation",
+                    "omnichannel conducting",
+                    "omnichannel treatment",
+                    "omnichannel empowerment",
+                    "omnichannel finance",
+                    "omnichannel canalisation",
+                    "omnichannel authorization"
+               ],
+               "responses": [
+                    "Through Omnichannel Management, connect any and all customer communication channels you need at any time, providing a seamless customer journey regardless of how they choose to contact your business."
+               ],
+               "context": []
+          },
+          {
+               "tag": "center_future-proofed_contact",
+               "patterns": [
+                    "middle future-proofed contact",
+                    "midfield future-proofed contact",
+                    "heart future-proofed contact",
+                    "seat future-proofed contact",
+                    "midstream future-proofed contact",
+                    "area future-proofed contact",
+                    "country future-proofed contact",
+                    "hub future-proofed contact",
+                    "eye future-proofed contact",
+                    "centre future-proofed contact",
+                    "center treated contact",
+                    "center future-proofed interaction",
+                    "center future-proofed placement",
+                    "center future-proofed brush"
+               ],
+               "responses": [
+                    "Future-Proofed Contact Center feature allows you to create and modify channels easily, always having complete ownership of your customer interaction data across all channels."
+               ],
+               "context": []
+          },
+          {
+               "tag": "chatbots_text-to-speech_capabilties",
+               "patterns": [
+                    "chatbots text-to-speech capabilties",
+                    "chatbots current capabilties",
+                    "chatbots text-to-speech capabilties"
+               ],
+               "responses": [
+                    "Advanced AI-based chatbots enable you to automatically respond to basic inquiries, allowing agents to focus on more complex inquiries and for you to fielda higher volume of calls and chats. "
+               ],
+               "context": []
+          },
+          {
+               "tag": "integration_management_workforce",
+               "patterns": [
+                    "integrating management workforce",
+                    "desegregation management workforce",
+                    "integration supervising workforce",
+                    "integration misconduct workforce",
+                    "integration superintendence workforce",
+                    "integration authorisation workforce",
+                    "integration disenfranchisement workforce",
+                    "integration steering workforce",
+                    "integration disposal workforce",
+                    "integration channelization workforce",
+                    "integration direction workforce",
+                    "integration misdirection workforce",
+                    "integration handling workforce",
+                    "integration administration workforce",
+                    "integration oversight workforce",
+                    "integration supervision workforce",
+                    "integration mismanagement workforce",
+                    "integration guidance workforce",
+                    "integration canalization workforce",
+                    "integration homemaking workforce",
+                    "integration channelisation workforce",
+                    "integration conducting workforce",
+                    "integration treatment workforce",
+                    "integration empowerment workforce",
+                    "integration finance workforce",
+                    "integration canalisation workforce",
+                    "integration authorization workforce",
+                    "integration management personnel",
+                    "integration management manpower",
+                    "integration management gang",
+                    "integration management shift",
+                    "integration management hands",
+                    "integration management men",
+                    "integration management force",
+                    "integration management crew",
+                    "integration management complement"
+               ],
+               "responses": [
+                    "Use Workforce Management Integration feature to optimize existing contact center and platforms like workforce management software and third party planning and operations tools."
+               ],
+               "context": []
+          },
+          {
+               "tag": "ai_routing_built-in",
+               "patterns": [
+                    "bureau routing built-in",
+                    "Army routing built-in",
+                    "authority routing built-in",
+                    "IC routing built-in",
+                    "office routing built-in",
+                    "agency routing built-in",
+                    "USA routing built-in",
+                    "ai expel built-in",
+                    "ai defeat built-in",
+                    "ai overcome built-in",
+                    "ai routing constitutional",
+                    "ai routing intrinsical",
+                    "ai routing inherent",
+                    "ai routing inbuilt",
+                    "ai routing integral",
+                    "ai routing intrinsic"
+               ],
+               "responses": [
+                    "With Built-In AI Routing feature, choose to turn on our complimentary AI routing soolution at any time to match your customers with agents with compatible behavioral characteristics, driving measurably better outcomes. "
+               ],
+               "context": []
+          },
+          {
+               "tag": "messaging_two-way",
+               "patterns": [
+                    "messaging ii",
+                    "messaging 2",
+                    "messaging cardinal"
+               ],
+               "responses": [
+                    "Through Two-Way Messaging feature, increase responsiveness by easily sending and respoonding to customer inquiries."
+               ],
+               "context": []
+          },
+          {
+               "tag": "agent_feature_desktop",
+               "patterns": [
+                    "transmitter feature desktop",
+                    "vasoconstrictive feature desktop",
+                    "mutagen feature desktop",
+                    "retardation feature desktop",
+                    "impairer feature desktop",
+                    "retardent feature desktop",
+                    "weakener feature desktop",
+                    "pressor feature desktop",
+                    "invigorator feature desktop",
+                    "satisfier feature desktop",
+                    "cause feature desktop",
+                    "repressor feature desktop",
+                    "vector feature desktop",
+                    "motor feature desktop",
+                    "represser feature desktop",
+                    "vasoconstrictor feature desktop",
+                    "shortener feature desktop",
+                    "enlivener feature desktop",
+                    "eliminator feature desktop",
+                    "quickener feature desktop",
+                    "relaxer feature desktop",
+                    "retardant feature desktop",
+                    "teratogen feature desktop",
+                    "biohazard feature desktop",
+                    "stressor feature desktop",
+                    "agent property desktop",
+                    "agent badge desktop",
+                    "agent peculiarity desktop",
+                    "agent external desktop",
+                    "agent centrepiece desktop",
+                    "agent excellence desktop",
+                    "agent magnet desktop",
+                    "agent facet desktop",
+                    "agent centerpiece desktop",
+                    "agent dimension desktop",
+                    "agent invariant desktop",
+                    "agent aspect desktop",
+                    "agent attribute desktop",
+                    "agent contour desktop",
+                    "agent attracter desktop",
+                    "agent attractor desktop",
+                    "agent attraction desktop",
+                    "agent characteristic desktop",
+                    "agent excellency desktop",
+                    "agent feature screen",
+                    "agent feature background"
+               ],
+               "responses": [
+                    "A few of many agent deskop features are:<br/><br/>\u25cf See te full picture with contextual details about customer history and preferences<br/><br/>\u25cf Manage all conversations in one streamlined interface. Field inbound messages or place outbound calls using a personalized directory<br/><br/>\u25cf View and track individual agent performance metrics like AHT, FCR, and more"
+               ],
+               "context": []
+          },
+          {
+               "tag": "mega_cloud_available_package",
+               "patterns": [
+                    "mega cloud available package",
+                    "mega mushroom available package",
+                    "mega aerosol available package",
+                    "mega coma available package",
+                    "mega nebula available package",
+                    "mega cloud acquirable package",
+                    "mega cloud procurable package",
+                    "mega cloud getable package",
+                    "mega cloud handiness package",
+                    "mega cloud forthcoming package",
+                    "mega cloud accessible package",
+                    "mega cloud visible package",
+                    "mega cloud availableness package",
+                    "mega cloud addressable package",
+                    "mega cloud easy package",
+                    "mega cloud lendable package",
+                    "mega cloud ready package",
+                    "mega cloud availability package",
+                    "mega cloud purchasable package",
+                    "mega cloud open package",
+                    "mega cloud accessibility package",
+                    "mega cloud obtainable package",
+                    "mega cloud gettable package",
+                    "mega cloud available packet",
+                    "mega cloud available bundle",
+                    "mega cloud available container",
+                    "mega cloud available sheaf",
+                    "mega cloud available pack",
+                    "mega cloud available parcel"
+               ],
+               "responses": [
+                    "Mega Cloud is available in three flavors at a variety of affordable price points. <br/><br/>Free - $0/mo<br/>Premium - $99/mo<br/>Platinum - $170/mo"
+               ],
+               "context": []
+          },
+          {
+               "tag": "offer_free_package_feature",
+               "patterns": [
+                    "hook free package feature",
+                    "render free package feature",
+                    "solicit free package feature",
+                    "furnish free package feature",
+                    "provide free package feature",
+                    "accost free package feature",
+                    "supply free package feature",
+                    "offer unhampered package feature",
+                    "offer escaped package feature",
+                    "offer unrestricted package feature",
+                    "offer self-governing package feature",
+                    "offer freedom package feature",
+                    "offer uncommitted package feature",
+                    "offer footloose package feature",
+                    "offer unbound package feature",
+                    "offer unconstrained package feature",
+                    "offer liberated package feature",
+                    "offer emancipated package feature",
+                    "offer unimprisoned package feature",
+                    "offer sovereign package feature",
+                    "offer aweigh package feature",
+                    "offer clear package feature",
+                    "offer atrip package feature",
+                    "offer autonomous package feature",
+                    "offer loose package feature",
+                    "offer out-of-school package feature",
+                    "offer independent package feature",
+                    "offer unrestrained package feature",
+                    "offer available package feature",
+                    "offer unconfined package feature",
+                    "offer free packet feature",
+                    "offer free bundle feature",
+                    "offer free container feature",
+                    "offer free sheaf feature",
+                    "offer free pack feature",
+                    "offer free parcel feature",
+                    "offer free package property",
+                    "offer free package badge",
+                    "offer free package peculiarity",
+                    "offer free package external",
+                    "offer free package centrepiece",
+                    "offer free package excellence",
+                    "offer free package magnet",
+                    "offer free package facet",
+                    "offer free package centerpiece",
+                    "offer free package dimension",
+                    "offer free package invariant",
+                    "offer free package aspect",
+                    "offer free package attribute",
+                    "offer free package contour",
+                    "offer free package attracter",
+                    "offer free package attractor",
+                    "offer free package attraction",
+                    "offer free package characteristic",
+                    "offer free package excellency"
+               ],
+               "responses": [
+                    "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
+               ],
+               "context": []
+          },
+          {
+               "tag": "offer_package_feature_premium",
+               "patterns": [
+                    "hook package feature premium",
+                    "render package feature premium",
+                    "solicit package feature premium",
+                    "furnish package feature premium",
+                    "provide package feature premium",
+                    "accost package feature premium",
+                    "supply package feature premium",
+                    "offer packet feature premium",
+                    "offer bundle feature premium",
+                    "offer container feature premium",
+                    "offer sheaf feature premium",
+                    "offer pack feature premium",
+                    "offer parcel feature premium",
+                    "offer package property premium",
+                    "offer package badge premium",
+                    "offer package peculiarity premium",
+                    "offer package external premium",
+                    "offer package centrepiece premium",
+                    "offer package excellence premium",
+                    "offer package magnet premium",
+                    "offer package facet premium",
+                    "offer package centerpiece premium",
+                    "offer package dimension premium",
+                    "offer package invariant premium",
+                    "offer package aspect premium",
+                    "offer package attribute premium",
+                    "offer package contour premium",
+                    "offer package attracter premium",
+                    "offer package attractor premium",
+                    "offer package attraction premium",
+                    "offer package characteristic premium",
+                    "offer package excellency premium",
+                    "offer package feature superior"
+               ],
+               "responses": [
+                    "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
+               ],
+               "context": []
+          },
+          {
+               "tag": "platinum_package_feature_offer",
+               "patterns": [
+                    "Pt package feature offer",
+                    "platinum packet feature offer",
+                    "platinum bundle feature offer",
+                    "platinum container feature offer",
+                    "platinum sheaf feature offer",
+                    "platinum pack feature offer",
+                    "platinum parcel feature offer",
+                    "platinum package property offer",
+                    "platinum package badge offer",
+                    "platinum package peculiarity offer",
+                    "platinum package external offer",
+                    "platinum package centrepiece offer",
+                    "platinum package excellence offer",
+                    "platinum package magnet offer",
+                    "platinum package facet offer",
+                    "platinum package centerpiece offer",
+                    "platinum package dimension offer",
+                    "platinum package invariant offer",
+                    "platinum package aspect offer",
+                    "platinum package attribute offer",
+                    "platinum package contour offer",
+                    "platinum package attracter offer",
+                    "platinum package attractor offer",
+                    "platinum package attraction offer",
+                    "platinum package characteristic offer",
+                    "platinum package excellency offer",
+                    "platinum package feature hook",
+                    "platinum package feature render",
+                    "platinum package feature solicit",
+                    "platinum package feature furnish",
+                    "platinum package feature provide",
+                    "platinum package feature accost",
+                    "platinum package feature supply"
+               ],
+               "responses": [
+                    "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
+               ],
+               "context": []
+          },
+          {
+               "tag": "offer_by_package_each_feature_offered",
+               "patterns": [
+                    "hook by package each feature offered",
+                    "render by package each feature offered",
+                    "solicit by package each feature offered",
+                    "furnish by package each feature offered",
+                    "provide by package each feature offered",
+                    "accost by package each feature offered",
+                    "supply by package each feature offered",
+                    "offer past package each feature offered",
+                    "offer by packet each feature offered",
+                    "offer by bundle each feature offered",
+                    "offer by container each feature offered",
+                    "offer by sheaf each feature offered",
+                    "offer by pack each feature offered",
+                    "offer by parcel each feature offered",
+                    "offer by package apiece feature offered",
+                    "offer by package each property offered",
+                    "offer by package each badge offered",
+                    "offer by package each peculiarity offered",
+                    "offer by package each external offered",
+                    "offer by package each centrepiece offered",
+                    "offer by package each excellence offered",
+                    "offer by package each magnet offered",
+                    "offer by package each facet offered",
+                    "offer by package each centerpiece offered",
+                    "offer by package each dimension offered",
+                    "offer by package each invariant offered",
+                    "offer by package each aspect offered",
+                    "offer by package each attribute offered",
+                    "offer by package each contour offered",
+                    "offer by package each attracter offered",
+                    "offer by package each attractor offered",
+                    "offer by package each attraction offered",
+                    "offer by package each characteristic offered",
+                    "offer by package each excellency offered",
+                    "offer by package each feature hook",
+                    "offer by package each feature render",
+                    "offer by package each feature solicit",
+                    "offer by package each feature furnish",
+                    "offer by package each feature provide",
+                    "offer by package each feature accost",
+                    "offer by package each feature supply"
+               ],
+               "responses": [
+                    "Free package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/><br/>Premium package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration<br/><br/>Platinum package offers:<br/><br/>\u25cf Automated Routing<br/>\u25cf Interactive Voice Response<br/>\u25cf Chatbots<br/>\u25cf Analytics and Reporting<br/>\u25cf Third Party Integration"
+               ],
+               "context": []
+          }
+     ]
 }

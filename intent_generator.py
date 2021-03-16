@@ -11,7 +11,7 @@ import time
 from argparse import ArgumentParser
 ALLOWED_EXTENSIONS = {'xlsx'}
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
-            "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
+            "are", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!", "/"]
 def parse_file(file_path, sheet_name1,question_column, response_column ):
     """
     Input file parser
@@ -106,7 +106,7 @@ def intent_generator_function(socketio, file_path, sheet_name, json_path,questio
                 exit(0)
     else:
         print('File {fp} not found'.format(fp=file_path))
-        
+
 def getargs():
     usage_message = """excel_tuning.py [--file] -f file  [--sheet] -s sheetname [--qcol] -q questioncolumn [--rcol] -r responsecolumn"""
     parser = ArgumentParser(conflict_handler='resolve', usage=usage_message)
