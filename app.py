@@ -20,6 +20,7 @@ CORS(app)
 # Setting the secret key to some random bytes
 app.secret_key = "any random string"
 # command for generating random secrete key : python -c 'import os; print(os.urandom(16))'
+   
 
 @app.route('/')
 def index():

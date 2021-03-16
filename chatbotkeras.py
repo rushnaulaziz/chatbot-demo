@@ -9,10 +9,7 @@ import json
 import random
 import pickle
 
-model = load_model('chatbot_model.h5')
-intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+
 stopwords = ["what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", "are", "has","have"]
 # import types
 # import tensorflow as tf
@@ -43,15 +40,17 @@ def bow(sentence, words, show_details=True):
                     print ("found in bag: %s" % w)
     return(np.array(bag))
 
-def predict_class(sentence, words, model, classes):
-    # filter out predictions below a threshold
-    p = bow(sentence, words,show_details=False)
+def predict_class(sentence, words, model, classes, ERROR_THRESHOLD):
+    # generate probabilities from the model
+    p = bow(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.75
-    results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
+
+    # filter out predictions below a threshold
+    results = [[i,r] for i,r in enumerate(res) if r > ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
+    # print(classes)
     if results:
         for r in results:
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
@@ -61,6 +60,7 @@ def predict_class(sentence, words, model, classes):
 
 def getResponse(ints, intents_json):
     tag = ints[0]['intent']
+    print(tag)
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if(i['tag']== tag):
@@ -68,12 +68,49 @@ def getResponse(ints, intents_json):
             break
     return result
 
-def chatbot_response(msg):
+# create a data structure to hold user context
+context = {}
+def chatbot_response(sentence, userID='123', show_details=True, ERROR_THRESHOLD = 0.25):
 
-    text_tokens = word_tokenize(msg)
+    model = load_model('chatbot_model.h5')
+    intents = json.loads(open('intents.json').read())
+
+    words = pickle.load(open('queries_words.pkl','rb'))
+    classes = pickle.load(open('classes.pkl','rb'))
+
+    text_tokens = word_tokenize(sentence)
     tokens_without_sw = [word for word in text_tokens if not word in stopwords]
-    ints = predict_class(" ".join(tokens_without_sw), words,  model, classes)
-    res = getResponse(ints, intents)
-    return res
+    # print(tokens_without_sw)
+    query_sentence = " ".join(tokens_without_sw)
 
+
+    results = predict_class(query_sentence, words,  model, classes, ERROR_THRESHOLD)
+    # print(ints)
+
+    if results:
+        # loop as long as there are matches to process
+        while results:
+            for i in intents['intents']:
+                # find a tag matching the first result
+                tag = results[0]['intent']
+                # print(tag)
+                # if show_details: print ('initial tag:', tag)
+
+                if i['tag'] == tag:
+                    # set context for this intent if necessary
+                    if 'context_set' in i:
+                        if show_details: print ('context:', i['context_set'])
+                        context[userID] = i['context_set']
+
+                    # check if this intent is contextual and applies to this user's conversation
+                    if not 'context_filter' in i or \
+                        (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
+                        if show_details: print ('tag:', i['tag'])
+                        # a random response from the intent
+                        return random.choice(i['responses'])
+
+            results.pop(0)
+
+    # res = getResponse(ints, intents)
+    # return res
 
