@@ -39,14 +39,21 @@ def synonyms_gen(word):
 
 
 
-def form_json(socketio,data, target):
+def form_json(socketio,data, target, trainingType):
     """
     Appends new pharses to basic intent structure
     """
-    intents = []
-    for intent in pre_defined_intents:
-        intents.append(intent)
+    # if training type is append load existing intent file data
+    if(trainingType == 'APPEND'):
+        with open(target, 'r') as resfl:
+            intents = json.load(resfl)['intents']
 
+    # if training type is replace load new intents data
+    else:    
+        intents = []
+        for intent in pre_defined_intents:
+            intents.append(intent)
+            
     num =  int(90 / len(data))
     count = 0
     for query, response in data:
@@ -54,7 +61,7 @@ def form_json(socketio,data, target):
         socketio.emit('message', count)
         
         patter_tokens = word_tokenize(query.lower())
-        patterns_without_sw = list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords]))
+        patterns_without_sw = sorted(list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords])))
         tag = "_".join(patterns_without_sw)
 
         response = response.splitlines()
@@ -92,16 +99,16 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum ):
+def intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum, training_type ):
     if os.path.exists(file_path) and os.path.isfile(file_path):
-        fileContent = parse_file(file_path,sheet_name,question_column, response_colum )
+        fileContent = parse_file(file_path,sheet_name,question_column, response_colum)
         if not os.path.exists(json_path):
-            form_json(socketio,fileContent, json_path)
+            form_json(socketio,fileContent, json_path, training_type)
         else:
             print('File {fp} already exists.'.format(fp=json_path))
             prompt = "yes"
             if prompt.strip().casefold() in {'y', 'yes'}:
-                form_json(socketio,fileContent, json_path)
+                form_json(socketio,fileContent, json_path, training_type)
             else:
                 exit(0)
     else:

@@ -44,8 +44,11 @@ def message():
     """
     user_query = request.form['user_query']
     # Converting the entire text into lowercase, so that the algorithm does not treat the same words in different cases as different
+    global trainCompleted
+
     user_query = user_query.lower()
     bot_response  = chatbot_response(user_query,trainCompleted)
+    trainCompleted = False
 
     return jsonify({'response' : bot_response})
   
@@ -77,6 +80,7 @@ def upload_file():
     sheet_name = request.form['sheet_name']
     question_column = request.form['question_column']
     response_column = request.form['response_column']
+    training_type = request.form['training_type']
     
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
@@ -84,7 +88,7 @@ def upload_file():
         file.save(file_path)
         json_path =  "intents.json"
         
-        intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column)
+        intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column, training_type)
         train(json_path)
         socketio.emit('message', 100)
         trainCompleted = True

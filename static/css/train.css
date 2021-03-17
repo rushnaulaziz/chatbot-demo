@@ -30,3 +30,9 @@ label {
 .btn {
     padding: 5px 25px;
 }
+
+.training-dropdown{
+    border: none;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
