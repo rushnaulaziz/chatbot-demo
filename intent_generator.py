@@ -54,13 +54,26 @@ def synonyms_gen(word):
 
 
 
-def form_json(socketio, data, target):
+def form_json(socketio,data, target, trainingType):
     """
     Appends new pharses to basic intent structure
     """
+
     intents = []
-    for intent in pre_defined_intents:
-        intents.append(intent)
+
+    # if training type is append load existing intent file data
+    if(trainingType == 'APPEND'):
+        with open(target, 'r') as resfl:
+            intents = json.load(resfl)['intents']
+
+    # if training type is replace load new intents data
+    else:    
+        for intent in pre_defined_intents:
+            intents.append(intent)
+
+    
+    # initialize new dictionary with key as intents.tag
+    intentsDict = {x['tag']:x for x in intents}            
 
     num =  int(90 / len(data))
     count = 0
@@ -70,66 +83,34 @@ def form_json(socketio, data, target):
         count+=num
         socketio.emit('message', count)
         
-        pattern_tokens = word_tokenize(query.lower())
-        patterns_without_sw = list(set([word for word in pattern_tokens if not word in stopwords]))
-        # print(patterns_without_sw)
-
+        patter_tokens = word_tokenize(query.lower())
+        patterns_without_sw = sorted(list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords])))
         tag = "_".join(patterns_without_sw)
 
-        same_queries = query.splitlines()
-        final_patterns = []
-        for query in same_queries:
-            pattern_tokens = word_tokenize(query.lower())
-            unique_pattern_tokens = dict.fromkeys(pattern_tokens)
-            pattern_without_sw = [word for word in unique_pattern_tokens if not word in stopwords]
-            query_processed = " ".join(pattern_without_sw)
-            if query_processed:
-                final_patterns.append(query_processed)
+        # dont search for synonym if tag is already in intents.json 
+        if tag not in intentsDict.keys():
+            final_patterns = []
+            response = response.splitlines()
+            response = "<br/>".join(response)
+            for index, token in enumerate(patterns_without_sw):
+                synonyms = synonyms_gen(token)
+                for synonym in synonyms:
+                    new_phrase = patterns_without_sw.copy()
+                    new_phrase[index] = synonym
+                    new_pattern = " ".join(new_phrase)
+                    final_patterns.append(new_pattern)
+
+            intent = {
+                "tag": tag,
+                "patterns": final_patterns,
+                "responses": [response],
+                "context": []
+            }
+
+            intentsDict[tag]=intent
 
 
-        response = response.splitlines()
-        response = "<br/>".join(response)
-
-
-
-        # patterns = [" ".join(subset) for L in range(0, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
-        # final_patterns = [" ".join(subset) for L in range(2, len(patterns_without_sw)+1) for subset in itertools.combinations(patterns_without_sw, L) if subset]
-
-        # patterns = []
-        # patterns.append(patterns_without_sw)
-        # for token in patterns_without_sw:
-        #     new = random.sample(patterns_without_sw, len(patterns_without_sw))
-        #     pattern = (" ".join(new))
-        #     patterns.append(pattern)
-
-        # final_patterns = []
-        # for index, token in enumerate(patterns_without_sw):
-        #     synonyms = synonyms_gen(token)
-        #     for synonym in synonyms:
-        #         new_phrase = patterns_without_sw.copy()
-        #         new_phrase[index] = synonym
-        #         new_pattern = " ".join(new_phrase)
-        #         # print(new_pattern)
-        #         final_patterns.append(new_pattern)
-
-        print(final_patterns)
-        # if Context_set:
-        intent = {
-            "tag": tag,
-            "patterns": final_patterns,
-            "responses": [response]
-        }
-
-        # if str(Context_set) != 'nan':
-        #         intent["Context_set"] = Context_set
-        
-        # if str(Context_filter) != 'nan':
-        #         intent["Context_filter"] = Context_filter
-
-        intents.append(intent)
-
-
-    json_data = {"intents":intents}
+    json_data = {"intents":[val for val in intentsDict.values()]}
     with open(target, 'w') as resfl:
         json.dump(json_data, resfl,  indent = 2)
         resfl.close()
@@ -140,17 +121,16 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
-def intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum ):
+def intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum, training_type ):
     if os.path.exists(file_path) and os.path.isfile(file_path):
-        fileContent = parse_file(file_path,sheet_name,question_column, response_colum )
+        fileContent = parse_file(file_path,sheet_name,question_column, response_colum)
         if not os.path.exists(json_path):
-            form_json(socketio,fileContent, json_path)
+            form_json(socketio,fileContent, json_path, training_type)
         else:
             print('File {fp} already exists.'.format(fp=json_path))
             prompt = "yes"
             if prompt.strip().casefold() in {'y', 'yes'}:
-                form_json(socketio,fileContent, json_path)
+                form_json(socketio,fileContent, json_path, training_type)
             else:
                 exit(0)
     else:

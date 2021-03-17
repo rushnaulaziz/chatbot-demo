@@ -54,9 +54,17 @@ The visible part of the HTML document is between <body> and </body>. -->
                             <div class="alert alert-info">
                                 The input fields are required to match the information provided in data sheet
                             </div>
-                            <div class="col-sm-3"><label>Sheet Name:</label><input class="input" value="Sheet2" type="text" class="form-control" name="sheet_name" id="sheet_name" placeholder="Sheet Name" /></div>
-                            <div class="col-sm-3"><label>Question Column:</label><input class="input" value="Questions" type="text" class="form-control" name="question_column" id="question_column" placeholder="Column Name" /></div>
-                            <div class="col-sm-3"><label>Response Column:</label><input class="input" value="Responses" type="text" class="form-control" name="response_column" id="response_column" placeholder="Column Name" /></div>
+                            <div class="col-sm-3"><label>Sheet Name:</label><input class="input" type="text" class="form-control" name="sheet_name" id="sheet_name" placeholder="Sheet Name" /></div>
+                            <div class="col-sm-3"><label>Question Column:</label><input class="input" type="text" class="form-control" name="question_column" id="question_column" placeholder="Column Name" /></div>
+                            <div class="col-sm-3"><label>Response Column:</label><input class="input" type="text" class="form-control" name="response_column" id="response_column" placeholder="Column Name" /></div>
+
+                            <div class="col-sm-3"><label>Training Type:</label>
+                                <select class="form-select training-dropdown" name="training_type" id="training_type">
+                <option>REPLACE</option>
+                <option>APPEND</option>
+                </select>
+                            </div>
+
                         </div>
 
                     </form>
@@ -68,64 +76,58 @@ The visible part of the HTML document is between <body> and </body>. -->
                             </div>
                         </div>
                     </div>
-                    <div id="training_completed">
-                        <h2>Training Completed</h2>
-                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#my_progress_bar").hide();
-                $("#training_completed").hide();
-                $("#upload-file-btn").click(function() {
-                    var socket = io.connect(
-                        "http://" + document.domain + ":" + location.port
-                    );
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#my_progress_bar").hide();
+                    $("#training_completed").hide();
+                    $("#upload-file-btn").click(function() {
+                        var socket = io.connect(
+                            "http://" + document.domain + ":" + location.port
+                        );
 
-                    socket.on("connect", function() {
-                        console.log("socket connected");
-                    });
+                        socket.on("connect", function() {
+                            console.log("socket connected");
+                        });
 
-                    socket.on("message", function(data) {
-                        console.log("progress : ", data);
-                        if (data == 100) {
-                            socket.emit("client_disconnecting");
-                            $("#my_progress_bar").hide();
-                            $("#training_completed").show();
-                        } else {
-                            $("#my_progress_bar").hide();
-                            $("#my_progress_bar").show();
-                        }
+                        socket.on("message", function(data) {
+                            console.log("progress : ", data);
+                            if (data == 100) {
+                                socket.emit("client_disconnecting");
+                                $("#my_progress_bar").hide();
+                                $("#training_completed").show();
+                            } else {
+                                $("#my_progress_bar").hide();
+                                $("#my_progress_bar").show();
+                            }
 
-                        document.getElementById("pbar").style.width = data + "%";
-                        document.getElementById("pbar").innerHTML = data + "%";
-                    });
-                    var form_data = new FormData($("#upload-file")[0]);
-                    $.ajax({
-                        type: "POST",
-                        url: "/upload",
-                        data: form_data,
-                        contentType: false,
-                        cache: false,
-                        processData: false,
-                        success: function(data) {
-                            console.log(data);
-                            if (data.startsWith("Error")) {
-                                alert(data);
-                            };
-                        },
+                            document.getElementById("pbar").style.width = data + "%";
+                            document.getElementById("pbar").innerHTML = data + "%";
+                        });
+                        var form_data = new FormData($("#upload-file")[0]);
+                        $.ajax({
+                            type: "POST",
+                            url: "/upload",
+                            data: form_data,
+                            contentType: false,
+                            cache: false,
+                            processData: false,
+                            success: function(data) {
+                                console.log(data);
+                                if (data.startsWith("Error")) {
+                                    alert(data);
+                                };
+                            },
+                        });
                     });
                 });
-            });
-        </script>
+            </script>
     </body>
 
 </html>
