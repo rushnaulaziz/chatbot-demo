@@ -66,15 +66,12 @@ def upload_file():
     """
     # return if the post request has no file part
     if 'file' not in request.files:
-        # flash('No file part')
-        # socketio.emit('Error_message', "post request have no file part")
-        return "Note : post request have no file part"
+        return "Error : post request have no file part"
     
     file = request.files['file']
     # return if file name is empty
     if file.filename == '':
-        # socketio.emit('Error_message', "file not selected")
-        return "Note : file not selected"
+        return "Error : file not selected"
 
 
     global trainCompleted
@@ -99,17 +96,14 @@ def upload_file():
 
             else:
                 if question_column not in coloumns:
-                    # socketio.emit('Error_message', "question_column is incorrect")
-                    return "Note : question_column is incorrect"
+                    return "Error : question_column is incorrect"
 
                 if response_column not in coloumns:
-                    # socketio.emit('Error_message', "response_column is inccorect")
-                    return "Note : response_column is inccorect"
+                    return "Error : response_column is inccorect"
 
 
-        except:
-            # socketio.emit('Error_message', "sheetname is incorrect")
-            return "Note : Sheetname is incorrect"
+        except Exception as error:
+            return f"Error : {error}"
 
     return "File not supported"
     
@@ -117,4 +111,4 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    socketio.run(port=5000,host='0.0.0.0', app=app)
+    socketio.run(port=5000,host='127.0.0.1', app=app)

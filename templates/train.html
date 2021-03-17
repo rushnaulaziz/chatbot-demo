@@ -93,9 +93,7 @@ The visible part of the HTML document is between <body> and </body>. -->
                     socket.on("connect", function() {
                         console.log("socket connected");
                     });
-                    // socket.on("Error_message", function(data) {
-                    //     alert(data);
-                    // });
+
                     socket.on("message", function(data) {
                         console.log("progress : ", data);
                         if (data == 100) {
@@ -120,7 +118,7 @@ The visible part of the HTML document is between <body> and </body>. -->
                         processData: false,
                         success: function(data) {
                             console.log(data);
-                            if (data.startsWith("Note")) {
+                            if (data.startsWith("Error")) {
                                 alert(data);
                             };
                         },
