@@ -3,13 +3,13 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 from nltk.tokenize import word_tokenize
 from keras.models import load_model
-model = load_model('chatbot_model.h5')
 
 import numpy as np
 import json
 import random
 import pickle
 
+model = load_model('chatbot_model.h5')
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
@@ -43,7 +43,7 @@ def bow(sentence, words, show_details=True):
                     print ("found in bag: %s" % w)
     return(np.array(bag))
 
-def predict_class(sentence, model):
+def predict_class(sentence, words, model, classes):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
@@ -52,7 +52,6 @@ def predict_class(sentence, model):
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
-    print(classes)
     if results:
         for r in results:
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
@@ -62,7 +61,6 @@ def predict_class(sentence, model):
 
 def getResponse(ints, intents_json):
     tag = ints[0]['intent']
-    print(tag)
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if(i['tag']== tag):
@@ -70,12 +68,17 @@ def getResponse(ints, intents_json):
             break
     return result
 
-def chatbot_response(msg):
+def chatbot_response(msg, trainCompleted):
+    global model,intents,words,classes
+    if trainCompleted:
+        model = load_model('chatbot_model.h5')
+        intents = json.loads(open('intents.json').read())
+        words = pickle.load(open('words.pkl','rb'))
+        classes = pickle.load(open('classes.pkl','rb'))
+    
     text_tokens = word_tokenize(msg)
     tokens_without_sw = [word for word in text_tokens if not word in stopwords]
-    print(tokens_without_sw)
-    ints = predict_class(" ".join(tokens_without_sw), model)
-    print(ints)
+    ints = predict_class(" ".join(tokens_without_sw), words,  model, classes)
     res = getResponse(ints, intents)
     return res
 

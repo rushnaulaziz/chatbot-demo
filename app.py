@@ -1,34 +1,104 @@
-from flask import Flask, session, jsonify, request, render_template, redirect, url_for
+from flask import Flask, jsonify, request, render_template,redirect, flash
 from flask_cors import CORS
-from chatbotkeras import *
+from intent_generator import intent_generator_function, allowed_file
+from chatbotkeras import chatbot_response
+from werkzeug.utils import secure_filename
+import os
+from flask_socketio import SocketIO
+from train_chatbot import train
+import time
+import threading
+
+UPLOAD_FOLDER = './uploads'
+trainCompleted = False
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+socketio = SocketIO(app,cors_allowed_origins="*", logger=True)
+
 CORS(app)
 
 # Setting the secret key to some random bytes
 app.secret_key = "any random string"
 # command for generating random secrete key : python -c 'import os; print(os.urandom(16))'
-# session['username'] can be set using with username entered while logging in 
-# session.pop('username', None) can remove the username from the session if it's there
 
 @app.route('/')
 def index():
+    """Provides template for / URL"""
     return render_template("index.html")
 
-@app.route('/chatbot2_demo')
-def chatbot2_function():
-    return render_template("chatbot2.html")
+@app.route('/train', methods=['GET'])
+def train_template():
+    """Provides template for /train URL"""
+    return render_template("train.html")
 
 @app.route('/message' , methods=['POST'])
 def message():
-    ''' It will fetch the user  '''
+    """Gives response to user query"""
+    """
+    Request Parameters:
+    user_query: Question asked bt user
+    
+
+    It will process the user_query to understand the intent of question and answers accordingly
+
+    """
     user_query = request.form['user_query']
     # Converting the entire text into lowercase, so that the algorithm does not treat the same words in different cases as different
+    global trainCompleted
+
     user_query = user_query.lower()
-    
-    
-    bot_response  = chatbot_response(user_query)
-        # , 200 , {'ContentType':'application/json'} 
+    bot_response  = chatbot_response(user_query,trainCompleted)
+    trainCompleted = False
 
     return jsonify({'response' : bot_response})
+  
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    """Train the chatbot on the received xlxs file and request parameters"""
+    """
+    Request Parameters:
+    sheet_name: Name of the sheet used for training data
+    question_column: Column name used for questions
+    response_column: Column name used for responses
+    training_type: APPEND, REPLACE two values for training type that decides to either append data in intents.json or replace it
+    
+    It will generate intent.json file in root directory which will then be used to train chatbot
+    
+    New model named "chatbot_model.h5" willl be generated along with "classes.pkl" and "words.pkl" files
+
+
+    """
+    # return if the post request has no file part
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    file = request.files['file']
+    # return if file name is empty
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(request.url)
+    #
+    global trainCompleted
+    sheet_name = request.form['sheet_name']
+    question_column = request.form['question_column']
+    response_column = request.form['response_column']
+    training_type = request.form['training_type']
+    
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        json_path =  "intents.json"
+        
+        intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column, training_type)
+        train(json_path)
+        socketio.emit('message', 100)
+        trainCompleted = True
+        return "Task complted succesfully"
+    return "File not supported"
+    
+
+
+
 if __name__ == "__main__":
-    app.run(port=3000, debug = True)
+    socketio.run(port=5000,host='0.0.0.0', app=app)

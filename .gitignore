@@ -1,4 +1,5 @@
-chatbot_model.h5
+uploads/*
+
 
 # Byte-compiled / optimized / DLL files
  __pycache__/

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=yes"
+    />
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket.on('message', function(data) {
+            console.log(data);
+        });
+    </script> -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="static/css/train.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Upload training Data</title>
+  </head>
+
+  <body>
+    <div>
+      <div>
+        <div class="container">
+          
+          <div class="page-header">
+            <h1>Train Chatbot</h1>
+            <h6>Select the data file from your computer</h6>
+          </div>
+          <div class="row align-right">
+            
+            <button type="button" id="upload-file-btn" class="btn btn-primary">Train</button>
+            
+         </div>
+          <form id="upload-file" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+              <label for="fileName">Select a file</label>
+              <div class="input-group">
+                <input
+                  id="fileName"
+                  class="form-control"
+                  name="file"
+                  type="file"
+                  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                />
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="alert alert-info">
+                The input fields are required to match the information provided in
+                data sheet
+              </div>
+              <div class="col-sm-3"><label>Sheet Name:</label><input class="input"  type="text" class="form-control" name="sheet_name" id="sheet_name" placeholder="Sheet Name"/></div>
+              <div class="col-sm-3"><label>Question Column:</label><input class="input"  type="text" class="form-control" name="question_column" id="question_column" placeholder="Column Name"/></div>
+              <div class="col-sm-3"><label>Response Column:</label><input class="input"  type="text" class="form-control" name="response_column" id="response_column" placeholder="Column Name"/></div> 
+              
+              <div class="col-sm-3"><label>Training Type:</label>
+              <select class="form-select training-dropdown" name="training_type" id="training_type">
+                <option>REPLACE</option>
+                <option>APPEND</option>
+                </select>
+              </div>
+
+           </div>  
+           
+          </form>
+          <div class="container" id="my_progress_bar">
+            <h2>Training in progress</h2>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                id="pbar"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 70%"
+              >
+                0%
+              </div>
+            </div>
+          </div>
+          <div id="training_completed">
+            <h2>Training Completed</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#my_progress_bar").hide();
+        $("#training_completed").hide();
+        $("#upload-file-btn").click(function () {
+          var socket = io.connect(
+            "http://" + document.domain + ":" + location.port
+          );
+
+          socket.on("connect", function () {
+            console.log("socket connected");
+          });
+
+          socket.on("message", function (data) {
+            console.log("progress : ", data);
+            if (data == 100) {
+              socket.emit("client_disconnecting");
+              $("#my_progress_bar").hide();
+              $("#training_completed").show();
+            } else {
+              $("#my_progress_bar").hide();
+              $("#my_progress_bar").show();
+            }
+
+            document.getElementById("pbar").style.width = data + "%";
+            document.getElementById("pbar").innerHTML = data + "%";
+          });
+          var form_data = new FormData($("#upload-file")[0]);
+          $.ajax({
+            type: "POST",
+            url: "/upload",
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+              console.log("Success!");
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
