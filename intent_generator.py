@@ -10,6 +10,9 @@ from pre_defined_json import pre_defined_intents
 from PyDictionary import PyDictionary
 import time
 import pandas as pd
+from nltk.stem import WordNetLemmatizer 
+lemmatizer = WordNetLemmatizer()
+
 
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
             "are",",", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
@@ -155,7 +158,10 @@ def getargs():
     # file_path = './data.xlsx'
     # sheet_name = "Sheet2"
     # json_path =  "./intents.json"
-    # intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum )
+    # question_column = "Input"
+    # response_colum = "Chatbot Response"
+
+    # intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_colum )
     
     
     

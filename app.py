@@ -83,7 +83,12 @@ def upload_file():
     global trainCompleted
     sheet_name = request.form['sheet_name']
     question_column = request.form['question_column']
+    if not question_column:
+        return "Error : question_column is empty"
+
     response_column = request.form['response_column']
+    if not response_column:
+        return "Error : response_column is empty"
     training_type = request.form['training_type']
     
     if file and allowed_file(file.filename):
@@ -108,7 +113,7 @@ def upload_file():
                     return "Error : question_column is incorrect"
 
                 if response_column not in coloumns:
-                    return "Error : response_column is inccorect"
+                    return "Error : response_column is incorrect"
 
 
         except Exception as error:

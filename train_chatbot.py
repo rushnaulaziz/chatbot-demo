@@ -68,7 +68,7 @@ def train(file_path):
     print (len(words), "unique lemmatized words", words)
 
 
-    pickle.dump(words, open('queries_words.pkl','wb'))
+    pickle.dump(words, open('words.pkl','wb'))
     pickle.dump(classes, open('classes.pkl','wb'))
 
     # create our training data
