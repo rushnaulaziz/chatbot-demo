@@ -116,7 +116,10 @@
       $(document).ready(function () {
         $("#my_progress_bar").hide();
         $("#training_completed").hide();
+        
         $("#upload-file-btn").click(function () {
+          $("#training_completed").hide();
+          $("#my_progress_bar").show();
           var socket = io.connect(
             "http://" + document.domain + ":" + location.port
           );
@@ -129,11 +132,6 @@
             console.log("progress : ", data);
             if (data == 100) {
               socket.emit("client_disconnecting");
-              $("#my_progress_bar").hide();
-              $("#training_completed").show();
-            } else {
-              $("#my_progress_bar").hide();
-              $("#my_progress_bar").show();
             }
 
             document.getElementById("pbar").style.width = data + "%";
@@ -151,6 +149,7 @@
               console.log("Success!");
               $("#my_progress_bar").hide();
               $("#training_completed").show();
+              socket.emit("client_disconnecting");
             },
           });
         });
