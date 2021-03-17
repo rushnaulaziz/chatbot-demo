@@ -66,15 +66,16 @@ def upload_file():
     """
     # return if the post request has no file part
     if 'file' not in request.files:
-        flash('No file part')
+        # flash('No file part')
         socketio.emit('Error_message', "post request have no file part")
         # return redirect(request.url)
-
+    
     file = request.files['file']
     # return if file name is empty
     if file.filename == '':
         socketio.emit('Error_message', "file not selected")
-        # return redirect(request.url)
+        return redirect(request.url)
+    
     #
     global trainCompleted
     sheet_name = request.form['sheet_name']
@@ -113,4 +114,4 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    socketio.run(port=5000,host='0.0.0.0', app=app)
+    socketio.run(port=5000,host='127.0.0.1', app=app)
