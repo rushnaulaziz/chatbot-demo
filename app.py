@@ -8,7 +8,7 @@ from flask_socketio import SocketIO
 from train_chatbot import train
 import time
 import threading
-
+import pandas as pd
 UPLOAD_FOLDER = './uploads'
 
 app = Flask(__name__)
@@ -67,12 +67,14 @@ def upload_file():
     # return if the post request has no file part
     if 'file' not in request.files:
         flash('No file part')
-        return redirect(request.url)
+        socketio.emit('Error_message', "post request have no file part")
+        # return redirect(request.url)
+
     file = request.files['file']
     # return if file name is empty
     if file.filename == '':
-        flash('No selected file')
-        return redirect(request.url)
+        socketio.emit('Error_message', "file not selected")
+        # return redirect(request.url)
     #
     sheet_name = request.form['sheet_name']
     question_column = request.form['question_column']
@@ -83,12 +85,27 @@ def upload_file():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         json_path =  "intents.json"
-        
-        intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column)
-        train(json_path)
-        socketio.emit('message', 100)
-        
-        return "Task complted succesfully"
+
+        try:
+            df = pd.read_excel (file_path, sheet_name=sheet_name)
+            coloumns = [coloumn for coloumn in df]
+            if question_column in coloumns and response_column in coloumns:
+                intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column)
+                train(json_path)
+                socketio.emit('message', 100)
+                return "Task complted succesfully"
+
+            else:
+                if question_column not in coloumns:
+                    socketio.emit('Error_message', "question_column is incorrect")
+
+                if response_column not in coloumns:
+                    socketio.emit('Error_message', "response_column is inccorect")
+
+        except:
+            socketio.emit('Error_message', "sheetname is incorrect")
+
+
     return "File not supported"
     
 

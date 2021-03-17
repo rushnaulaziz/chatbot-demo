@@ -13,7 +13,7 @@ import pandas as pd
 
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
             "are",",", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
-def parse_file(file_path, sheet_name1,question_column, response_column, Context_parent_coloumn = "Context_parent", Context_child_coloymn = "Context_child"):
+def parse_file(file_path, sheet_name1,question_column, response_column, Context_parent_coloumn = "Context_parent", Context_child_coloumn = "Context_child"):
     """
     Input file parser
     """
@@ -23,7 +23,7 @@ def parse_file(file_path, sheet_name1,question_column, response_column, Context_
     responses = df[response_column]
 
     Context_set = df[Context_parent_coloumn]
-    Context_filter = df[Context_child_coloymn]
+    Context_filter = df[Context_child_coloumn]
     data = list(zip(questions, responses, Context_set, Context_filter))
     return data
 
@@ -49,6 +49,7 @@ def form_json(socketio, data, target):
     intents = []
     for intent in pre_defined_intents:
         intents.append(intent)
+
     num =  int(90 / len(data))
     count = 0
     for query, response, Context_set, Context_filter in data: 
@@ -110,26 +111,10 @@ def form_json(socketio, data, target):
         if str(Context_filter) != 'nan':
                 intent["Context_filter"] = Context_filter
 
-        # else:
-        #     intent = {
-        #         "tag": tag,
-        #         "patterns": final_patterns,
-        #         "responses": [response],
-        #         "Context_set": Context_set
-        #     }
-        # if str(Context_filter) != 'nan':
-        #     intent = {
-        #         "tag": tag,
-        #         "patterns": final_patterns,
-        #         "responses": [response],
-        #         "Context_filter": Context_filter
-        #     }
-
         intents.append(intent)
 
 
     json_data = {"intents":intents}
-    # print(json_data)
     with open(target, 'w') as resfl:
         json.dump(json_data, resfl,  indent = 2)
         resfl.close()
@@ -140,7 +125,6 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-   
 
 def intent_generator_function(socketio, file_path, sheet_name, json_path,question_column, response_colum ):
     if os.path.exists(file_path) and os.path.isfile(file_path):

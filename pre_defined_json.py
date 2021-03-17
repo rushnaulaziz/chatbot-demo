@@ -29,12 +29,6 @@ pre_defined_intents = [{
                 "context": [""]
             },
             {
-                "tag": "Introduction",
-                "patterns": ["who am i talking", "who", "name", "intro"],
-                "responses": ["It's Bot-The Chatbot. I can give you information about <Strong>Mega Cloud</Strong> services on your kind demand.", "I am Bot-The Chatbot. I can help you with querries regarding <Strong>Mega Cloud</Strong> services."],
-                "context": []
-            },
-            {
                 "tag": "human",
                 "patterns": ["person", "human", "agent", "representator", "man"],
                 "responses": ["Sorry, No human representatives are avaialble right now. You can ask me instead"],
