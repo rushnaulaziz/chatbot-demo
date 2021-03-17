@@ -74,6 +74,8 @@ The visible part of the HTML document is between <body> and </body>. -->
                 </div>
             </div>
         </div>
+        </div>
+        </div>
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -83,7 +85,6 @@ The visible part of the HTML document is between <body> and </body>. -->
             $(document).ready(function() {
                 $("#my_progress_bar").hide();
                 $("#training_completed").hide();
-
                 $("#upload-file-btn").click(function() {
                     var socket = io.connect(
                         "http://" + document.domain + ":" + location.port
@@ -91,10 +92,6 @@ The visible part of the HTML document is between <body> and </body>. -->
 
                     socket.on("connect", function() {
                         console.log("socket connected");
-                    });
-                    socket.on("Error_message", function(data) {
-                        alert(data);
-
                     });
 
                     socket.on("message", function(data) {
@@ -104,6 +101,7 @@ The visible part of the HTML document is between <body> and </body>. -->
                             $("#my_progress_bar").hide();
                             $("#training_completed").show();
                         } else {
+                            $("#my_progress_bar").hide();
                             $("#my_progress_bar").show();
                         }
 

@@ -10,7 +10,7 @@ import time
 import threading
 import pandas as pd
 UPLOAD_FOLDER = './uploads'
-
+trainCompleted = False
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 socketio = SocketIO(app,cors_allowed_origins="*", logger=True)
@@ -46,7 +46,7 @@ def message():
     user_query = request.form['user_query']
     # Converting the entire text into lowercase, so that the algorithm does not treat the same words in different cases as different
     user_query = user_query.lower()
-    bot_response  = chatbot_response(user_query)
+    bot_response  = chatbot_response(user_query,trainCompleted)
 
     return jsonify({'response' : bot_response})
   
@@ -76,6 +76,7 @@ def upload_file():
         socketio.emit('Error_message', "file not selected")
         # return redirect(request.url)
     #
+    global trainCompleted
     sheet_name = request.form['sheet_name']
     question_column = request.form['question_column']
     response_column = request.form['response_column']
@@ -112,4 +113,4 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    socketio.run(port=3000, debug=True, app=app)
+    socketio.run(port=5000,host='0.0.0.0', app=app)

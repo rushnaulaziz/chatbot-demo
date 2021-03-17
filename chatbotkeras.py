@@ -68,17 +68,15 @@ def getResponse(ints, intents_json):
             break
     return result
 
-# create a data structure to hold user context
-context = {}
-def chatbot_response(sentence, userID='123', show_details=True, ERROR_THRESHOLD = 0.25):
-
-    model = load_model('chatbot_model.h5')
-    intents = json.loads(open('intents.json').read())
-
-    words = pickle.load(open('queries_words.pkl','rb'))
-    classes = pickle.load(open('classes.pkl','rb'))
-
-    text_tokens = word_tokenize(sentence)
+def chatbot_response(msg, trainCompleted):
+    global model,intents,words,classes
+    if trainCompleted:
+        model = load_model('chatbot_model.h5')
+        intents = json.loads(open('intents.json').read())
+        words = pickle.load(open('words.pkl','rb'))
+        classes = pickle.load(open('classes.pkl','rb'))
+    
+    text_tokens = word_tokenize(msg)
     tokens_without_sw = [word for word in text_tokens if not word in stopwords]
     # print(tokens_without_sw)
     query_sentence = " ".join(tokens_without_sw)
