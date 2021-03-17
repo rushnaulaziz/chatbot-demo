@@ -1,282 +1,284 @@
 {
-    "intents": [{
-            "tag": "noanswer",
-            "patterns": [],
-            "responses": [
-                "Sorry, can't understand you",
-                "Please give me more info",
-                "Not sure I understand"
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "greeting",
-            "patterns": [
-                "Hi",
-                "Hello",
-                "Hey",
-                "Hii",
-                "there"
-            ],
-            "responses": [
-                "Hello, how can I help?",
-                "Good to see you, how can I help you?",
-                "Hi there, how can I help?"
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "goodbye",
-            "patterns": [
-                "Bye",
-                "See you later",
-                "Goodbye",
-                "Close",
-                "Nice chatting to you, bye",
-                "Till next time"
-            ],
-            "responses": [
-                "See you!",
-                "Have a nice day",
-                "Bye! Come back again soon."
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "thanks",
-            "patterns": [
-                "Thanks",
-                "Thank you",
-                "Awesome, thanks",
-                "Wow",
-                "Amazing",
-                "Great",
-                "Good",
-                "Nice",
-                "Brilliant"
-            ],
-            "responses": [
-                "Happy to help!",
-                "Any time!",
-                "My pleasure"
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "zzunknow_query",
-            "patterns": [
-                "boo",
-                "much time"
-            ],
-            "responses": [
-                "Sorry, I'm not able to understand your question. Can you please ask a different question?"
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "human",
-            "patterns": [
-                "person",
-                "human",
-                "agent",
-                "representator",
-                "man"
-            ],
-            "responses": [
-                "Sorry, No human representatives are avaialble right now. You can ask me instead"
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "ok",
-            "patterns": [
-                "ok",
-                "okay",
-                "fine",
-                "right",
-                "yes",
-                "agreed"
-            ],
-            "responses": [
-                "Hope, I helped",
-                "Good to know you are satisfied with my services",
-                "Sure"
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "chatbot",
-            "patterns": [
-                "chatbot"
-            ],
-            "responses": [
-                "<br/>A chatbot is a software application used to conduct an on-line chat conversation via text or text-to-speech, in lieu of providing direct contact with a live human agent. "
-            ]
-        },
-        {
-            "tag": "offer_mega_chatbot",
-            "patterns": [
-                "mega offer chatbot"
-            ],
-            "responses": [
-                "Mega is currently developing a chatbot as part of MegaACD. "
-            ],
-            "Context_set": "mega_bot"
-        },
-        {
-            "tag": "mega_purpose_detail_applications_do_chatbot_uses",
-            "patterns": [
-                "mega chatbot do",
-                "mega chatbot applications",
-                "mega chatbot uses",
-                "mega chatbot purpose",
-                "mega chatbot detail",
-                "mega chatbot"
-            ],
-            "responses": [
-                "Mega chatbot is an AI-based chatbot that aims to lower the dependency on human agents by handling many of the everyday interactions that take place between customers and agents in a contact center setting. <br/><br/>With the help of Mega chatbot, our clients will be able to:<br/><br/>- Provide information about their products and services<br/>- Help customers make a better choice when shopping for products<br/>- Resolve problems that customers face in  everyday lives when using their products."
-            ],
-            "Context_filter": "mega_bot"
-        },
-        {
-            "tag": "mega_available_features_chatbot_currently",
-            "patterns": [
-                "features currently available mega chatbot",
-                "mega chatbot features"
-            ],
-            "responses": [
-                "Mega chatbot currently has following features:<br/><br/>- Ability to respond correctly to questions similar to the ones provided in data, even when asked differently<br/>- A web interface provided to easily upload data for chatbot's training"
-            ]
-        },
-        {
-            "tag": "how_can_data_training_chatbot_be_provided_for",
-            "patterns": [
-                "how can data be provided chatbot for training",
-                "chatbot training data"
-            ],
-            "responses": [
-                "<br/>A web interface has been provided where data (all possible questions and answers in an Excel file) can be uploaded easily for the chatbot to consume. "
-            ]
-        },
-        {
-            "tag": "how_chabot_asked_respond_knows_answers_chatbot_questions",
-            "patterns": [
-                "how chabot respond questions asked",
-                "how chatbot knows answers",
-                "how chatbot respond"
-            ],
-            "responses": [
-                "<br/>Mega chatbot uses neural network and probability algorithm to identify the intent of the user input and present the most accurate response based on the data provided.<br/><br/>When the chabot is provided data with any number of questions and their corresponding responses, it trains itself to learn all the questions and their responses. Once training is complete, when a user asks the chatbot a question, chatbot will identify the intent of the question asked by comparing it to the questions it was trained on using keywords and provide the most appropriate response."
-            ]
-        },
-        {
-            "tag": "how_trained_upload_training_data_chatbot_file_be_excel",
-            "patterns": [
-                "how chatbot be trained",
-                "chatbot training",
-                "chatbot file upload",
-                "chatbot excel",
-                "chatbot upload data"
-            ],
-            "responses": [
-                "<br/>A web interface has been provided on which data (in Excel files) can be uploaded. Once the upload is complete, chatbot will pick up the file and begin the training process."
-            ]
-        },
-        {
-            "tag": "how_process_trained_training_happens_during_chatbot",
-            "patterns": [
-                "happens during training process",
-                "training process",
-                "how chatbot trained"
-            ],
-            "responses": [
-                "<br/>When the chatbot trains, it reads through all the questions provided in the data, identifies keywords and looks up their synonyms. It then uses the frequency of the key words in the questions and their synonyms to associate them to responses provided in data. This enables chatbot to understand questions that asked are differently from the data questions and respond to them."
-            ]
-        },
-        {
-            "tag": "was_related_asked_that_trained_question_not_but_on_chatbot_happen_it_understand",
-            "patterns": [
-                "happen chatbot asked question that it not understand but was trained on related"
-            ],
-            "responses": [
-                "<br/>It is possible that the chatbot is asked a question that it does not undertand even though it was trained on a question that was worded/phrased differently but had the same meaning. In this case it will respond by saying \"Sorry, I do not understad the question. Can you please try saying it a different way?"
-            ]
-        },
-        {
-            "tag": "was_asked_trained_question_not_on_response_chatbot_happen_it_for",
-            "patterns": [
-                "happen chatbot asked question it was not trained on",
-                "response for question not trained"
-            ],
-            "responses": [
-                "<br/>In this case the chatbot will respond by saying \"Sorry, I do not understad the question. Can you please try saying it a different way?"
-            ]
-        },
-        {
-            "tag": "limitation_limitations_chatbot_current",
-            "patterns": [
-                "current limitations chatbot",
-                "limitation chatbot"
-            ],
-            "responses": [
-                "Mega chatbot's current limitations are:<br/><br/>- It is not self-learning and data has to be provided manually via a web interface<br/>- It can only respond to questions that have been provided in the data <br/>- It treats each question asked as a separate question and does not understand the context in which they are being asked. It is therefore not able to have a back and forth conversation on a specific topic<br/>- It is not able to access to customer data and therefore cannot provide support specific to individual customers"
-            ]
-        },
-        {
-            "tag": "be_available_features_planned_chatbot_future",
-            "patterns": [
-                "features planned be available chatbot future"
-            ],
-            "responses": [
-                "<br/>Mega chatbot will have the following features:<br/><br/>- Use neural network and deep learning to understand the context of customers' queries in addition to the intent<br/>- Ability to access customer data through CRM and billing systems after customers log in, to identify products used and customers' history with the company<br/>- Provide customer an option (through a graphical button or text input) to speak to a human agent at any point in the chat<br/>- Ability to monitor real-time chat between human agents and customers and use the chat as data to train itself and enhance its capability to better interact with customers<br/>- Calculate the probability of being able to respond accurately and appropritely to all user inputs and only respond if probability is high. A low probability calculation will lead to customer being connected to an agent. This feature will help maintain good customer experience when using chatbot"
-            ]
-        },
-        {
-            "tag": "mega_purpose_networks_learning_using_neural_chatbot_network_chatbots_deep_benefit",
-            "patterns": [
-                "benefit purpose using neural network deep learning mega chatbot",
-                "neural networks chatbot",
-                "deep learning chatbots",
-                "purpose neural networks",
-                "benefit deep learning"
-            ],
-            "responses": [
-                "Using neural network and deep learning will enable Mega chatbot to understand the intent of user's input and the context of the conversation. This will enable the chatbot to:<br/><br/>1) Respond to questions correctly even when asked differently from the questions in data provided<br/>2) Understand follow up  questions users may ask in reply to chatbot's response"
-            ]
-        },
-        {
-            "tag": "mega_purpose_customer_data_chatbot_allowing_access_benefit",
-            "patterns": [
-                "benefit purpose allowing mega chatbot access customer data",
-                "benefit mega customer data"
-            ],
-            "responses": [
-                "<br/>Through access to customer data through CRM and billing systems, products used by customers and their history with a company can be identified.  This will help better understand the context of customers' queries and provide support specific to individual customers based on their needs. "
-            ]
-        },
-        {
-            "tag": "out_chatbot_for_scope",
-            "patterns": [
-                "out scope for chatbot",
-                "chatbot out scope"
-            ],
-            "responses": [
-                "<br/>Mega chatbot will not be a \"chatty\" bot and will not respond to customer inputs that are not related to a company's business, services, or products. "
-            ]
-        }
-    ]
+  "intents": [
+    {
+      "tag": "noanswer",
+      "patterns": [],
+      "responses": [
+        "Sorry, can't understand you",
+        "Please give me more info",
+        "Not sure I understand"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Hii",
+        "there"
+      ],
+      "responses": [
+        "Hello, how can I help?",
+        "Good to see you, how can I help you?",
+        "Hi there, how can I help?"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Close",
+        "Nice chatting to you, bye",
+        "Till next time"
+      ],
+      "responses": [
+        "See you!",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "Awesome, thanks",
+        "Wow",
+        "Amazing",
+        "Great",
+        "Good",
+        "Nice",
+        "Brilliant"
+      ],
+      "responses": [
+        "Happy to help!",
+        "Any time!",
+        "My pleasure"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "zzunknow_query",
+      "patterns": [
+        "boo",
+        "much time"
+      ],
+      "responses": [
+        "Sorry, I'm not able to understand your question. Can you please ask a different question?"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "human",
+      "patterns": [
+        "person",
+        "human",
+        "agent",
+        "representator",
+        "man"
+      ],
+      "responses": [
+        "Sorry, No human representatives are avaialble right now. You can ask me instead"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "ok",
+      "patterns": [
+        "ok",
+        "okay",
+        "fine",
+        "right",
+        "yes",
+        "agreed"
+      ],
+      "responses": [
+        "Hope, I helped",
+        "Good to know you are satisfied with my services",
+        "Sure"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "chatbot",
+      "patterns": [
+        "chatbot"
+      ],
+      "responses": [
+        "<br/>A chatbot is a software application used to conduct an on-line chat conversation via text or text-to-speech, in lieu of providing direct contact with a live human agent. "
+      ]
+    },
+    {
+      "tag": "mega_chatbot_offer",
+      "patterns": [
+        "mega offer chatbot"
+      ],
+      "responses": [
+        "Mega is currently developing a chatbot as part of MegaACD. "
+      ],
+      "Context_set": "mega_bot"
+    },
+    {
+      "tag": "detail_chatbot_applications_do_purpose_mega_uses_details",
+      "patterns": [
+        "mega chatbot do",
+        "mega chatbot applications",
+        "mega chatbot uses",
+        "mega chatbot purpose",
+        "mega chatbot detail",
+        "mega chatbot",
+        "details"
+      ],
+      "responses": [
+        "Mega chatbot is an AI-based chatbot that aims to lower the dependency on human agents by handling many of the everyday interactions that take place between customers and agents in a contact center setting. <br/><br/>With the help of Mega chatbot, our clients will be able to:<br/><br/>- Provide information about their products and services<br/>- Help customers make a better choice when shopping for products<br/>- Resolve problems that customers face in  everyday lives when using their products."
+      ],
+      "Context_filter": "mega_bot"
+    },
+    {
+      "tag": "features_chatbot_available_mega_currently",
+      "patterns": [
+        "features currently available mega chatbot",
+        "mega chatbot features"
+      ],
+      "responses": [
+        "Mega chatbot currently has following features:<br/><br/>- Ability to respond correctly to questions similar to the ones provided in data, even when asked differently<br/>- A web interface provided to easily upload data for chatbot's training"
+      ]
+    },
+    {
+      "tag": "chatbot_can_data_be_provided_how_for_training",
+      "patterns": [
+        "how can data be provided chatbot for training",
+        "chatbot training data"
+      ],
+      "responses": [
+        "<br/>A web interface has been provided where data (all possible questions and answers in an Excel file) can be uploaded easily for the chatbot to consume. "
+      ]
+    },
+    {
+      "tag": "questions_chatbot_knows_answers_asked_chabot_how_respond",
+      "patterns": [
+        "how chabot respond questions asked",
+        "how chatbot knows answers",
+        "how chatbot respond"
+      ],
+      "responses": [
+        "<br/>Mega chatbot uses neural network and probability algorithm to identify the intent of the user input and present the most accurate response based on the data provided.<br/><br/>When the chabot is provided data with any number of questions and their corresponding responses, it trains itself to learn all the questions and their responses. Once training is complete, when a user asks the chatbot a question, chatbot will identify the intent of the question asked by comparing it to the questions it was trained on using keywords and provide the most appropriate response."
+      ]
+    },
+    {
+      "tag": "chatbot_data_excel_be_file_how_training_upload_trained",
+      "patterns": [
+        "how chatbot be trained",
+        "chatbot training",
+        "chatbot file upload",
+        "chatbot excel",
+        "chatbot upload data"
+      ],
+      "responses": [
+        "<br/>A web interface has been provided on which data (in Excel files) can be uploaded. Once the upload is complete, chatbot will pick up the file and begin the training process."
+      ]
+    },
+    {
+      "tag": "chatbot_how_during_training_process_happens_trained",
+      "patterns": [
+        "happens during training process",
+        "training process",
+        "how chatbot trained"
+      ],
+      "responses": [
+        "<br/>When the chatbot trains, it reads through all the questions provided in the data, identifies keywords and looks up their synonyms. It then uses the frequency of the key words in the questions and their synonyms to associate them to responses provided in data. This enables chatbot to understand questions that asked are differently from the data questions and respond to them."
+      ]
+    },
+    {
+      "tag": "chatbot_happen_asked_question_on_but_related_it_that_was_understand_not_trained",
+      "patterns": [
+        "happen chatbot asked question that it not understand but was trained on related"
+      ],
+      "responses": [
+        "<br/>It is possible that the chatbot is asked a question that it does not undertand even though it was trained on a question that was worded/phrased differently but had the same meaning. In this case it will respond by saying \"Sorry, I do not understad the question. Can you please try saying it a different way?"
+      ]
+    },
+    {
+      "tag": "response_chatbot_happen_asked_question_on_for_it_was_not_trained",
+      "patterns": [
+        "happen chatbot asked question it was not trained on",
+        "response for question not trained"
+      ],
+      "responses": [
+        "<br/>In this case the chatbot will respond by saying \"Sorry, I do not understad the question. Can you please try saying it a different way?"
+      ]
+    },
+    {
+      "tag": "limitation_limitations_chatbot_current",
+      "patterns": [
+        "current limitations chatbot",
+        "limitation chatbot"
+      ],
+      "responses": [
+        "Mega chatbot's current limitations are:<br/><br/>- It is not self-learning and data has to be provided manually via a web interface<br/>- It can only respond to questions that have been provided in the data <br/>- It treats each question asked as a separate question and does not understand the context in which they are being asked. It is therefore not able to have a back and forth conversation on a specific topic<br/>- It is not able to access to customer data and therefore cannot provide support specific to individual customers"
+      ]
+    },
+    {
+      "tag": "features_chatbot_available_planned_be_future",
+      "patterns": [
+        "features planned be available chatbot future"
+      ],
+      "responses": [
+        "<br/>Mega chatbot will have the following features:<br/><br/>- Use neural network and deep learning to understand the context of customers' queries in addition to the intent<br/>- Ability to access customer data through CRM and billing systems after customers log in, to identify products used and customers' history with the company<br/>- Provide customer an option (through a graphical button or text input) to speak to a human agent at any point in the chat<br/>- Ability to monitor real-time chat between human agents and customers and use the chat as data to train itself and enhance its capability to better interact with customers<br/>- Calculate the probability of being able to respond accurately and appropritely to all user inputs and only respond if probability is high. A low probability calculation will lead to customer being connected to an agent. This feature will help maintain good customer experience when using chatbot"
+      ]
+    },
+    {
+      "tag": "chatbots_chatbot_benefit_networks_neural_network_purpose_deep_using_learning_mega",
+      "patterns": [
+        "benefit purpose using neural network deep learning mega chatbot",
+        "neural networks chatbot",
+        "deep learning chatbots",
+        "purpose neural networks",
+        "benefit deep learning"
+      ],
+      "responses": [
+        "Using neural network and deep learning will enable Mega chatbot to understand the intent of user's input and the context of the conversation. This will enable the chatbot to:<br/><br/>1) Respond to questions correctly even when asked differently from the questions in data provided<br/>2) Understand follow up  questions users may ask in reply to chatbot's response"
+      ]
+    },
+    {
+      "tag": "allowing_chatbot_data_benefit_customer_purpose_mega_access",
+      "patterns": [
+        "benefit purpose allowing mega chatbot access customer data",
+        "benefit mega customer data"
+      ],
+      "responses": [
+        "<br/>Through access to customer data through CRM and billing systems, products used by customers and their history with a company can be identified.  This will help better understand the context of customers' queries and provide support specific to individual customers based on their needs. "
+      ]
+    },
+    {
+      "tag": "for_scope_chatbot_out",
+      "patterns": [
+        "out scope for chatbot",
+        "chatbot out scope"
+      ],
+      "responses": [
+        "<br/>Mega chatbot will not be a \"chatty\" bot and will not respond to customer inputs that are not related to a company's business, services, or products. "
+      ]
+    }
+  ]
 }
