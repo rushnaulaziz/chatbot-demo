@@ -130,9 +130,6 @@
 
           socket.on("message", function (data) {
             console.log("progress : ", data);
-            if (data == 100) {
-              socket.emit("client_disconnecting");
-            }
 
             document.getElementById("pbar").style.width = data + "%";
             document.getElementById("pbar").innerHTML = data + "%";
