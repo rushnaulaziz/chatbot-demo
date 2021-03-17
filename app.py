@@ -95,4 +95,4 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    socketio.run(port=3000, debug=True, app=app)
+    socketio.run(port=5000,host='0.0.0.0', app=app)
