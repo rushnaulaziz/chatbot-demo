@@ -70,6 +70,7 @@ def form_json(socketio,data, target, trainingType):
         patterns_without_sw = sorted(list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords])))
         tag = "_".join(patterns_without_sw)
 
+        # dont search for synonym if tag is already in intents.json 
         if tag not in intentsDict.keys():
             final_patterns = []
             response = response.splitlines()
@@ -89,7 +90,6 @@ def form_json(socketio,data, target, trainingType):
                 "context": []
             }
 
-            intents.append(intent)
             intentsDict[tag]=intent
 
 

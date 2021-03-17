@@ -60,10 +60,12 @@ def upload_file():
     sheet_name: Name of the sheet used for training data
     question_column: Column name used for questions
     response_column: Column name used for responses
-
+    training_type: APPEND, REPLACE two values for training type that decides to either append data in intents.json or replace it
+    
     It will generate intent.json file in root directory which will then be used to train chatbot
     
     New model named "chatbot_model.h5" willl be generated along with "classes.pkl" and "words.pkl" files
+
 
     """
     # return if the post request has no file part
