@@ -43,6 +43,9 @@ def form_json(socketio,data, target, trainingType):
     """
     Appends new pharses to basic intent structure
     """
+
+    intents = []
+
     # if training type is append load existing intent file data
     if(trainingType == 'APPEND'):
         with open(target, 'r') as resfl:
@@ -50,10 +53,13 @@ def form_json(socketio,data, target, trainingType):
 
     # if training type is replace load new intents data
     else:    
-        intents = []
         for intent in pre_defined_intents:
             intents.append(intent)
-            
+
+    
+    # initialize new dictionary with key as intents.tag
+    intentsDict = {x['tag']:x for x in intents}            
+
     num =  int(90 / len(data))
     count = 0
     for query, response in data:
@@ -64,31 +70,30 @@ def form_json(socketio,data, target, trainingType):
         patterns_without_sw = sorted(list(set([lemmatizer.lemmatize(word.lower()) for word in patter_tokens if not word in stopwords])))
         tag = "_".join(patterns_without_sw)
 
-        response = response.splitlines()
-        response = "<br/>".join(response)
+        if tag not in intentsDict.keys():
+            final_patterns = []
+            response = response.splitlines()
+            response = "<br/>".join(response)
+            for index, token in enumerate(patterns_without_sw):
+                synonyms = synonyms_gen(token)
+                for synonym in synonyms:
+                    new_phrase = patterns_without_sw.copy()
+                    new_phrase[index] = synonym
+                    new_pattern = " ".join(new_phrase)
+                    final_patterns.append(new_pattern)
+
+            intent = {
+                "tag": tag,
+                "patterns": final_patterns,
+                "responses": [response],
+                "context": []
+            }
+
+            intents.append(intent)
+            intentsDict[tag]=intent
 
 
-        final_patterns = []
-
-        for index, token in enumerate(patterns_without_sw):
-            synonyms = synonyms_gen(token)
-            for synonym in synonyms:
-                new_phrase = patterns_without_sw.copy()
-                new_phrase[index] = synonym
-                new_pattern = " ".join(new_phrase)
-                final_patterns.append(new_pattern)
-
-        intent = {
-            "tag": tag,
-            "patterns": final_patterns,
-            "responses": [response],
-            "context": []
-        }
-
-        intents.append(intent)
-
-
-    json_data = {"intents":intents}
+    json_data = {"intents":[val for val in intentsDict.values()]}
     with open(target, 'w') as resfl:
         json.dump(json_data, resfl,  indent = 5)
         resfl.close()
