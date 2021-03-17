@@ -129,17 +129,16 @@
       ]
     },
     {
-      "tag": "mega_chatbot_offer",
+      "tag": "mega_offer_chatbot",
       "patterns": [
         "mega offer chatbot"
       ],
       "responses": [
         "Mega is currently developing a chatbot as part of MegaACD. "
-      ],
-      "Context_set": "mega_bot"
+      ]
     },
     {
-      "tag": "detail_chatbot_applications_do_purpose_mega_uses_details",
+      "tag": "mega_applications_detail_uses_chatbot_details_do_purpose",
       "patterns": [
         "mega chatbot do",
         "mega chatbot applications",
@@ -151,11 +150,10 @@
       ],
       "responses": [
         "Mega chatbot is an AI-based chatbot that aims to lower the dependency on human agents by handling many of the everyday interactions that take place between customers and agents in a contact center setting. <br/><br/>With the help of Mega chatbot, our clients will be able to:<br/><br/>- Provide information about their products and services<br/>- Help customers make a better choice when shopping for products<br/>- Resolve problems that customers face in  everyday lives when using their products."
-      ],
-      "Context_filter": "mega_bot"
+      ]
     },
     {
-      "tag": "features_chatbot_available_mega_currently",
+      "tag": "mega_currently_available_chatbot_features",
       "patterns": [
         "features currently available mega chatbot",
         "mega chatbot features"
@@ -165,7 +163,7 @@
       ]
     },
     {
-      "tag": "chatbot_can_data_be_provided_how_for_training",
+      "tag": "training_for_chatbot_can_be_data_provided_how",
       "patterns": [
         "how can data be provided chatbot for training",
         "chatbot training data"
@@ -175,7 +173,7 @@
       ]
     },
     {
-      "tag": "questions_chatbot_knows_answers_asked_chabot_how_respond",
+      "tag": "answers_questions_respond_chatbot_chabot_how_knows_asked",
       "patterns": [
         "how chabot respond questions asked",
         "how chatbot knows answers",
@@ -186,7 +184,7 @@
       ]
     },
     {
-      "tag": "chatbot_data_excel_be_file_how_training_upload_trained",
+      "tag": "training_file_upload_trained_chatbot_be_excel_data_how",
       "patterns": [
         "how chatbot be trained",
         "chatbot training",
@@ -199,7 +197,7 @@
       ]
     },
     {
-      "tag": "chatbot_how_during_training_process_happens_trained",
+      "tag": "happens_training_process_trained_chatbot_how_during",
       "patterns": [
         "happens during training process",
         "training process",
@@ -210,7 +208,7 @@
       ]
     },
     {
-      "tag": "chatbot_happen_asked_question_on_but_related_it_that_was_understand_not_trained",
+      "tag": "that_understand_question_happen_it_chatbot_was_trained_on_not_asked_related_but",
       "patterns": [
         "happen chatbot asked question that it not understand but was trained on related"
       ],
@@ -219,7 +217,7 @@
       ]
     },
     {
-      "tag": "response_chatbot_happen_asked_question_on_for_it_was_not_trained",
+      "tag": "for_question_it_happen_chatbot_was_trained_on_response_not_asked",
       "patterns": [
         "happen chatbot asked question it was not trained on",
         "response for question not trained"
@@ -229,7 +227,7 @@
       ]
     },
     {
-      "tag": "limitation_limitations_chatbot_current",
+      "tag": "limitation_limitations_current_chatbot",
       "patterns": [
         "current limitations chatbot",
         "limitation chatbot"
@@ -239,7 +237,7 @@
       ]
     },
     {
-      "tag": "features_chatbot_available_planned_be_future",
+      "tag": "future_planned_available_chatbot_be_features",
       "patterns": [
         "features planned be available chatbot future"
       ],
@@ -248,7 +246,7 @@
       ]
     },
     {
-      "tag": "chatbots_chatbot_benefit_networks_neural_network_purpose_deep_using_learning_mega",
+      "tag": "mega_networks_neural_chatbots_benefit_using_learning_chatbot_purpose_deep_network",
       "patterns": [
         "benefit purpose using neural network deep learning mega chatbot",
         "neural networks chatbot",
@@ -261,7 +259,7 @@
       ]
     },
     {
-      "tag": "allowing_chatbot_data_benefit_customer_purpose_mega_access",
+      "tag": "mega_customer_benefit_chatbot_allowing_access_purpose_data",
       "patterns": [
         "benefit purpose allowing mega chatbot access customer data",
         "benefit mega customer data"
@@ -271,7 +269,7 @@
       ]
     },
     {
-      "tag": "for_scope_chatbot_out",
+      "tag": "chatbot_scope_out_for",
       "patterns": [
         "out scope for chatbot",
         "chatbot out scope"

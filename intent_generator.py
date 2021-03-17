@@ -13,7 +13,22 @@ import pandas as pd
 
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
             "are",",", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
-def parse_file(file_path, sheet_name1,question_column, response_column, Context_parent_coloumn = "Context_parent", Context_child_coloumn = "Context_child"):
+
+# def parse_file(file_path, sheet_name1,question_column, response_column, Context_parent_coloumn = "Context_parent", Context_child_coloumn = "Context_child"):
+#     """
+#     Input file parser
+#     """
+
+#     df = pd.read_excel (file_path, sheet_name=sheet_name1)
+#     questions = df[question_column]
+#     responses = df[response_column]
+
+#     Context_set = df[Context_parent_coloumn]
+#     Context_filter = df[Context_child_coloumn]
+#     data = list(zip(questions, responses, Context_set, Context_filter))
+#     return data
+
+def parse_file(file_path, sheet_name1,question_column, response_column):
     """
     Input file parser
     """
@@ -21,10 +36,7 @@ def parse_file(file_path, sheet_name1,question_column, response_column, Context_
     df = pd.read_excel (file_path, sheet_name=sheet_name1)
     questions = df[question_column]
     responses = df[response_column]
-
-    Context_set = df[Context_parent_coloumn]
-    Context_filter = df[Context_child_coloumn]
-    data = list(zip(questions, responses, Context_set, Context_filter))
+    data = list(zip(questions, responses))
     return data
 
 def synonyms_gen(word):
@@ -52,7 +64,9 @@ def form_json(socketio, data, target):
 
     num =  int(90 / len(data))
     count = 0
-    for query, response, Context_set, Context_filter in data: 
+    # for query, response, Context_set, Context_filter in data: 
+    for query, response in data: 
+
         count+=num
         socketio.emit('message', count)
         
@@ -105,11 +119,12 @@ def form_json(socketio, data, target):
             "patterns": final_patterns,
             "responses": [response]
         }
-        if str(Context_set) != 'nan':
-                intent["Context_set"] = Context_set
+
+        # if str(Context_set) != 'nan':
+        #         intent["Context_set"] = Context_set
         
-        if str(Context_filter) != 'nan':
-                intent["Context_filter"] = Context_filter
+        # if str(Context_filter) != 'nan':
+        #         intent["Context_filter"] = Context_filter
 
         intents.append(intent)
 

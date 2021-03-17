@@ -81,34 +81,40 @@ def chatbot_response(msg, trainCompleted):
     # print(tokens_without_sw)
     query_sentence = " ".join(tokens_without_sw)
 
-
+    ERROR_THRESHOLD = 0.65
     results = predict_class(query_sentence, words,  model, classes, ERROR_THRESHOLD)
+
+    res = getResponse(results, intents)
+    return res
+
     # print(ints)
 
-    if results:
-        # loop as long as there are matches to process
-        while results:
-            for i in intents['intents']:
-                # find a tag matching the first result
-                tag = results[0]['intent']
-                # print(tag)
-                # if show_details: print ('initial tag:', tag)
+    # if results:
+    #     # loop as long as there are matches to process
+    #     while results:
+    #         for i in intents['intents']:
+    #             # find a tag matching the first result
+    #             tag = results[0]['intent']
+    #             # print(tag)
+    #             # if show_details: print ('initial tag:', tag)
 
-                if i['tag'] == tag:
-                    # set context for this intent if necessary
-                    if 'context_set' in i:
-                        if show_details: print ('context:', i['context_set'])
-                        context[userID] = i['context_set']
+    #             if i['tag'] == tag:
+    #                 result = random.choice(i['responses'])
+    #                 break
+    #             return result
+                
+    #                 # set context for this intent if necessary
+    #                 if 'context_set' in i:
+    #                     if show_details: print ('context:', i['context_set'])
+    #                     context[userID] = i['context_set']
 
-                    # check if this intent is contextual and applies to this user's conversation
-                    if not 'context_filter' in i or \
-                        (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
-                        if show_details: print ('tag:', i['tag'])
-                        # a random response from the intent
-                        return random.choice(i['responses'])
+    #                 # check if this intent is contextual and applies to this user's conversation
+    #                 if not 'context_filter' in i or \
+    #                     (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
+    #                     if show_details: print ('tag:', i['tag'])
+    #                     # a random response from the intent
+    #                     return random.choice(i['responses'])
 
-            results.pop(0)
+    #         results.pop(0)
 
-    # res = getResponse(ints, intents)
-    # return res
 

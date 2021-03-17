@@ -14,6 +14,7 @@ trainCompleted = False
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 socketio = SocketIO(app,cors_allowed_origins="*", logger=True)
+# socketio = SocketIO(app,cors_allowed_origins="*")
 
 CORS(app)
 
@@ -112,3 +113,4 @@ def upload_file():
 
 if __name__ == "__main__":
     socketio.run(port=5000,host='127.0.0.1', app=app)
+    # socketio.run(port=5000,host='0.0.0.0', app=app)
