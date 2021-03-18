@@ -14,8 +14,6 @@ trainCompleted = False
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 socketio = SocketIO(app,cors_allowed_origins="*", logger=True)
-# socketio = SocketIO(app,cors_allowed_origins="*")
-
 CORS(app)
 
 # Setting the secret key to some random bytes
@@ -133,11 +131,12 @@ def upload_file():
             else:
                 # return if question_column is incorrect
                 if question_column not in coloumns:
-                    return "Error : question_column is incorrect"
+                    return "Error : Question Column is incorrect"         
 
                 # return if response_column is incorrect
                 if response_column not in coloumns:
-                    return "Error : response_column is incorrect"
+                    return "Error : Response Column is incorrect"
+
 
 
         except Exception as error:

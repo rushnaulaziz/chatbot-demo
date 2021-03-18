@@ -2,6 +2,7 @@
 import argparse
 import json
 import os
+from argparse import ArgumentParser
 from nltk.corpus import wordnet
 from nltk.tokenize import word_tokenize
 import random
@@ -16,20 +17,6 @@ lemmatizer = WordNetLemmatizer()
 
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
             "are",",", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
-
-# def parse_file(file_path, sheet_name1,question_column, response_column, Context_parent_coloumn = "Context_parent", Context_child_coloumn = "Context_child"):
-#     """
-#     Input file parser
-#     """
-
-#     df = pd.read_excel (file_path, sheet_name=sheet_name1)
-#     questions = df[question_column]
-#     responses = df[response_column]
-
-#     Context_set = df[Context_parent_coloumn]
-#     Context_filter = df[Context_child_coloumn]
-#     data = list(zip(questions, responses, Context_set, Context_filter))
-#     return data
 
 def parse_file(file_path, sheet_name1,question_column, response_column):
     """
@@ -140,33 +127,30 @@ def intent_generator_function(socketio, file_path, sheet_name, json_path,questio
         print('File {fp} not found'.format(fp=file_path))
 
 def getargs():
-    usage_message = """excel_tuning.py [--file] -f file  [--sheet] -s sheetname [--qcol] -q questioncolumn [--rcol] -r responsecolumn"""
+    usage_message = """excel_tuning.py 
+    [--file] -f file  
+    [--sheetname] -s sheetname 
+    [--question_col] -q questioncolumn 
+    [--response_col] -r responsecolumn 
+    [--training_type] -t REPLACE|APPEND
+    [--output_intent_json] -j path_to_store_output_file"""
+
     parser = ArgumentParser(conflict_handler='resolve', usage=usage_message)
     parser.add_argument('-f', '--file', action='store', type=str, required=True)
-    parser.add_argument('-s', '--sheet', action='store', type=str, required=True)
-    parser.add_argument('-q', '--qcol', action='store', type=str, required=True)
-    parser.add_argument('-r', '--rcol', action='store', type=str, required=True)
-    parser.add_argument('-j', '--jsonpath', action='store', type=str, required=True)
+    parser.add_argument('-s', '--sheetname', action='store', type=str, required=True)
+    parser.add_argument('-q', '--question_col', action='store', type=str, required=True)
+    parser.add_argument('-r', '--response_col', action='store', type=str, required=True)
+    parser.add_argument('-t', '--training_type', action='store', type=str, required=True)
+    parser.add_argument('-j', '--output_intent_json', action='store', type=str, required=True)
     return parser.parse_args()
 
-# if __name__ == '__main__':
-    # args = getargs()
-    # file_path = args.file
-    # sheet_name = args.sheet
-    # json_path = args.jsonpath
-    
-    # file_path = './data.xlsx'
-    # sheet_name = "Sheet2"
-    # json_path =  "./intents.json"
-    # question_column = "Input"
-    # response_colum = "Chatbot Response"
+if __name__ == '__main__':
+    args = getargs()
+    file_path = args.file
+    sheet_name = args.sheetname
+    output_intent_json = args.output_intent_json
+    question_column = args.question_col
+    response_column = args.response_col
+    training_type = args.training_type
 
-    # intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_colum )
-    
-    
-    
-    # fileContent = parse_file(file_path,sheet_name)
-    # print(fileContent[0])
-    # for query, response, Context_set, Context_filter in fileContent: 
-    #     # if Context_set != None:
-    #     print(str(Context_set))
+    intent_generator_function(socketio, file_path, sheet_name, json_path, question_column, response_column, training_type)
