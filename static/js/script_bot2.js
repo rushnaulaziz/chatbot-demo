@@ -37,7 +37,7 @@ function chat_function2() {
 
     $.ajax({
         type: 'POST',
-        url: '/message',
+        url: '/Bot_response',
         data: formData,
         cache: false,
         success: function(response_string) {
@@ -94,7 +94,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: '/message',
+            url: '/Bot_response',
             data: formData,
             cache: false,
             success: function(response_string) {
