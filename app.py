@@ -14,8 +14,6 @@ trainCompleted = False
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 socketio = SocketIO(app,cors_allowed_origins="*", logger=True)
-# socketio = SocketIO(app,cors_allowed_origins="*")
-
 CORS(app)
 
 # Setting the secret key to some random bytes
@@ -83,12 +81,17 @@ def upload_file():
     global trainCompleted
     sheet_name = request.form['sheet_name']
     question_column = request.form['question_column']
-    if not question_column:
-        return "Error : question_column is empty"
-
     response_column = request.form['response_column']
+
+    if not sheet_name:
+        return "Error : Sheet Name is empty"
+
+    if not question_column:
+        return "Error : Question Column is empty"
+
     if not response_column:
-        return "Error : response_column is empty"
+        return "Error : Response Column is empty"
+
     training_type = request.form['training_type']
     
     if file and allowed_file(file.filename):
@@ -107,13 +110,13 @@ def upload_file():
                 trainCompleted = True
                 return "Task complted succesfully"
 
-
             else:
                 if question_column not in coloumns:
-                    return "Error : question_column is incorrect"
+                    return "Error : Question Column is incorrect"         
 
                 if response_column not in coloumns:
-                    return "Error : response_column is incorrect"
+                    return "Error : Response Column is incorrect"
+
 
 
         except Exception as error:

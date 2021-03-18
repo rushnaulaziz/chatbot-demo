@@ -30,6 +30,7 @@ The visible part of the HTML document is between <body> and </body>. -->
                         <h1>Train Chatbot</h1>
                         <h6>Select the data file from your computer</h6>
                     </div>
+
                     <div class="row align-right">
 
                         <button type="button" id="upload-file-btn" class="btn btn-primary">Train</button>
@@ -105,9 +106,12 @@ The visible part of the HTML document is between <body> and </body>. -->
         $("#my_progress_bar").hide();
         $("#training_completed").hide();
         
+        
         $("#upload-file-btn").click(function () {
           $("#training_completed").hide();
           $("#my_progress_bar").show();
+          $("#upload-file-btn").prop('disabled', true);
+
           var socket = io.connect(
             "http://" + document.domain + ":" + location.port
           );
@@ -131,14 +135,20 @@ The visible part of the HTML document is between <body> and </body>. -->
             cache: false,
             processData: false,
             success: function (data) {
-              console.log("Success!");
-              $("#my_progress_bar").hide();
-              $("#training_completed").show();
-              socket.emit("client_disconnecting");
-              console.log(data);
+              $("#upload-file-btn").prop('disabled', false);
               if (data.startsWith("Error")) {
-                  alert(data);
-            },
+                $("#my_progress_bar").hide();
+                $("#training_completed").hide();
+                alert(data);
+              }
+              else{
+                console.log("Success!");
+                $("#my_progress_bar").hide();
+                $("#training_completed").show();
+                socket.emit("client_disconnecting");
+                console.log(data);
+              }
+            }
           });
         });
       });
