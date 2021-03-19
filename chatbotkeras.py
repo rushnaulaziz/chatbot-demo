@@ -3,6 +3,8 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 from nltk.tokenize import word_tokenize
 from keras.models import load_model
+from spellchecker import SpellChecker
+
 
 import numpy as np
 import json
@@ -13,12 +15,8 @@ model = load_model('chatbot_model.h5')
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
-stopwords = ["what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", "are", "has","have"]
-# import types
-# import tensorflow as tf
-# if type(tf.contrib) != types.ModuleType:  # if it is LazyLoader
-#     tf.contrib._warning = None
-
+stopwords = ["what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", "are", "has","have", "how"]
+spell = SpellChecker()
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - split words into array
@@ -78,6 +76,10 @@ def chatbot_response(msg, trainCompleted):
     
     text_tokens = word_tokenize(msg)
     tokens_without_sw = [word for word in text_tokens if not word in stopwords]
+
+    # Correct spelling of word if not in words.pkl 
+    tokens_without_sw = [spell.correction(x) if x not in words  else x for x in tokens_without_sw]
+
     ints = predict_class(" ".join(tokens_without_sw), words,  model, classes)
     res = getResponse(ints, intents)
     return res

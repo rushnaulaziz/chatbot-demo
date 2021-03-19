@@ -9,6 +9,7 @@ from train_chatbot import train
 import time
 import threading
 import pandas as pd
+
 UPLOAD_FOLDER = './uploads'
 trainCompleted = False
 app = Flask(__name__)

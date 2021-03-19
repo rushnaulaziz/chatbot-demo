@@ -16,7 +16,7 @@ lemmatizer = WordNetLemmatizer()
 
 
 stopwords = ["included","what", "why","when", "will", "would","of", "or","and", "if","a","an","is", "am", \
-            "are",",", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!"]
+            "are",",", "has","have", "does", "in", "the", "i", "me", "to", "tell", "about","with", "more", "want", "know", "?", "!", "how"]
 
 def parse_file(file_path, sheet_name1,question_column, response_column):
     """
@@ -43,7 +43,7 @@ def synonyms_gen(word):
 
 
 
-
+# this function replaces/appends file in intents.json 
 def form_json(socketio,data, target, trainingType):
     """
     Appends new pharses to basic intent structure
