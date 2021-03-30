@@ -2,8 +2,8 @@
 A chatbot utility using NLTK and Tensorflow
 
 ## File structure and the type of files: 
--	`train_chatbot.py`  In this Python file, we wrote a script to build the model and train our chatbot (the deep learning model that can classify and identify what the user is asking from the chatbot).
--	`Intents.json` The intents file has all the data that we will use to train the model. It stores a collection of tags with their corresponding patterns and responses 
+-	`train_chatbot.py` – In this Python file, we wrote a script to build the model and train our chatbot (the deep learning model that can classify and identify what the user is asking from the chatbot).
+-	`Intents.json` – The intents file has all the data that we will use to train the model. It stores a collection of tags with their corresponding patterns and responses 
 -	`Chatbot_model.h5` – This is a hierarchical data format file in which we have stored the weights of the neurons and the architecture of our trained model.
 -	`Classes.pkl` — The pickle file can be used to store all the tag names (list of categories) to classify when we are predicting the message.
 -	`Words.pkl` — This is a pickle file, which store all the unique words that are the vocabulary of our model. 
