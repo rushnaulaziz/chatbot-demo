@@ -2,21 +2,21 @@
 A chatbot utility using NLTK and Tensorflow
 
 ## File structure and the type of files: 
-•	`train_chatbot.py`  In this Python file, we wrote a script to build the model and train our chatbot (the deep learning model that can classify and identify what the user is asking from the chatbot).
-•	`Intents.json` — The intents file has all the data that we will use to train the model. It stores a collection of tags with their corresponding patterns and responses 
-•	`Chatbot_model.h5` – This is a hierarchical data format file in which we have stored the weights of the neurons and the architecture of our trained model.
-•	`Classes.pkl` — The pickle file can be used to store all the tag names (list of categories) to classify when we are predicting the message.
-•	`Words.pkl` — This is a pickle file, which store all the unique words that are the vocabulary of our model. 
-•	`app.py` — This file is where we built an API that can be connected to graphical user interface for easy interaction (chat) with our trained chatbot and also an interface (API) for uploading (replacing/appending) the training data.
+-	`train_chatbot.py`  In this Python file, we wrote a script to build the model and train our chatbot (the deep learning model that can classify and identify what the user is asking from the chatbot).
+-	`Intents.json` The intents file has all the data that we will use to train the model. It stores a collection of tags with their corresponding patterns and responses 
+-	`Chatbot_model.h5` – This is a hierarchical data format file in which we have stored the weights of the neurons and the architecture of our trained model.
+-	`Classes.pkl` — The pickle file can be used to store all the tag names (list of categories) to classify when we are predicting the message.
+-	`Words.pkl` — This is a pickle file, which store all the unique words that are the vocabulary of our model. 
+-	`app.py` — This file is where we built an API that can be connected to graphical user interface for easy interaction (chat) with our trained chatbot and also an interface (API) for uploading (replacing/appending) the training data.
 
-##Pipeline:
+## Pipeline:
 Here are the 5 steps that we followed to create a chatbot:
 1.	Import and load the data file
 2.	Preprocess data
 3.	Create training and testing data
 4.	Build the model
 5.	Predict the response
-
+### steps in detail
 1. Import libraries & Load the data
 First, create a new python file and name it as train_chatbot.py and then we are going to import all the required modules the necessary packages for our chatbot and initialize the variables we will use in our Python project. The data file is in JSON format so we used the json package to parse the JSON file into Python.
 2. Preprocess data
