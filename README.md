@@ -13,7 +13,7 @@ A chatbot utility using NLTK and Tensorflow
 
 
 ## Pipeline:
-Here are the 5 steps that we followed to create a chatbot:
+Here are the 6 steps that we followed to create a chatbot:
 1.  Make a virtualenv & install dependencies
 2.	Import and load the data file
 3.	Preprocess data
