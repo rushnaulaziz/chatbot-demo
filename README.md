@@ -23,7 +23,7 @@ Here are the 5 steps that we followed to create a chatbot:
 
 ### 1.  Make a virtualenv & install dependencies
 - cd to the directory where requirements.txt is located.
-- Create your virtualenvactivate your virtualenv.
+- create your virtualenv and then activate it.
   ```
   virtualenv -p python3.8 <name_of_venv>
   source <name_of_venv>/Scripts/activate
