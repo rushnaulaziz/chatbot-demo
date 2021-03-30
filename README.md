@@ -30,7 +30,7 @@ Here are the 5 steps that we followed to create a chatbot:
   ```
 - run: pip install -r requirements.txt in your shell.
   ```
-  pip install -r requirments.txt
+  pip install -r requirements.txt
   ```
 
 ### 2. Import libraries & Load the data
