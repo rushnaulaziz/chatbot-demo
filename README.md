@@ -16,7 +16,7 @@ Here are the 5 steps that we followed to create a chatbot:
 3.	Create training and testing data
 4.	Build the model
 5.	Predict the response
-### steps in detail
+
 ### 1. Import libraries & Load the data
 First, create a new python file and name it as train_chatbot.py and then we are going to import all the required modules the necessary packages for our chatbot and initialize the variables we will use in our Python project. The data file is in JSON format so we used the json package to parse the JSON file into Python.
 ### 2. Preprocess data
