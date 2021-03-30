@@ -34,7 +34,7 @@ Here are the 6 steps that we followed to create a chatbot:
   ```
 
 ### 2. Import libraries & Load the data
-First, create a new python file and name it as train_chatbot.py and then we are going to import all the required modules the necessary packages for our chatbot and initialize the variables we will use in our Python project. The data file is in JSON format so we used the json package to parse the JSON file into Python.
+First, create a new python file and name it as train_chatbot.py and then we are going to import all the the necessary packages/modules for our chatbot and initialize the variables. The data file is in JSON format so we used the json package to parse the JSON file into Python.
 ### 3. Preprocess data
 The model cannot take the raw data. It has to go through a lot of pre-processing for the machine to easily understand. For textual data, there are many preprocessing techniques available.  
 Tokenizing is the most basic and first thing you can do on text data. Tokenizing is the process of breaking the whole text into small parts like words.  By observing the intents file, we can see that each tag contains a list of patterns and responses. Here we iterate through the patterns and tokenize the sentence using nltk.word_tokenize() function and append each word in the words list. Also, we create a list of classes and documents to add all the intents associated with patterns.
